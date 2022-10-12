@@ -17,15 +17,22 @@ public class EnemigoPrincipal : MonoBehaviour
     [Header("Ref a transforms")]
     [SerializeField] private Transform player;
 
+    [Header("Aumento de atributos")]
+    private Contenedor_de_Llaves recogioLlave;
+   
+
+
     void Start()
     {
-
+        recogioLlave = GetComponent<Contenedor_de_Llaves>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         MovimientoEnemigoPrincipal();
+        AumentoDeAtributos();
 
     }
 
@@ -63,11 +70,6 @@ public class EnemigoPrincipal : MonoBehaviour
         {
             attack = true;
         }
-
-
-
-
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -81,6 +83,18 @@ public class EnemigoPrincipal : MonoBehaviour
 
         isAturdidoPrincipal = false;
         speed = 5;
+    }
+
+    private void AumentoDeAtributos()
+    {
+       //if(recogioLlave.recogioLlave == true)
+       
+        //CON CONTADOR DE LLAVES 
+
+        
+        //speed++;
+        
+       
     }
 
 }

@@ -16,8 +16,10 @@ public class Contenedor_de_Llaves : MonoBehaviour
     //hacer referencia al escript del player para sumar el contador de llaves
     FP_Controller Player_Controller;
 
+    public bool recogioLlave;
 
-    public GameObject ObjPuntos;
+
+    //public GameObject ObjPuntos; ACTIVAR OTRA VEZ *--------------------------------------------------------------
     public float numeroDeLlaves;
 
 
@@ -35,6 +37,7 @@ public class Contenedor_de_Llaves : MonoBehaviour
             RecogerLlave(Player_Controller.nombreLlave);
         }
         
+        
     }
     //tags de llave 1 llave 2 llave 3 llave 4
     public void RecogerLlave(string tag)
@@ -43,19 +46,21 @@ public class Contenedor_de_Llaves : MonoBehaviour
         //Para poder recoger el item/llave y agregar 1+ al contador de llaves
         if (Input.GetMouseButtonDown(0))
         {
-            ObjPuntos.GetComponent<Puntos>().puntos += numeroDeLlaves;
+           // ObjPuntos.GetComponent<Puntos>().puntos += numeroDeLlaves; *-------------------ACTIVAR OTRA VESZ*-*-*-*-*--*-*-*-*-*-*-*
 
             for (int i = 0; i < llaves.Length; i++)
             {
 
                 if (llaves[i].tag == tag)
                 {
-                    ;
+                    recogioLlave = true;
                     llaves[i].SetActive(false);
                     Player_Controller.siRango = false;
                     Player_Controller.nombreLlave = "NoRango";
                     Player_Controller.contadorLlaves++;
                     Debug.Log("llave recogida " + Player_Controller.contadorLlaves);
+                    recogioLlave = false;
+            
                 }
                 else
                 {
