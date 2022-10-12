@@ -13,6 +13,7 @@ TagManager:
   - Llave_3
   - Llave_4
   - Pila
+  - EnemigoPrincipal
   layers:
   - Default
   - TransparentFX

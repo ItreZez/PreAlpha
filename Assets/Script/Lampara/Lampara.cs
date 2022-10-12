@@ -120,6 +120,12 @@ public class Lampara : MonoBehaviour
             bateria = bateria - 5f;
             CargaSlider.value = bateria;
         }
+
+        if(other.gameObject.tag == "EnemigoPrincipal" && bateria >=6)
+        {
+            bateria = bateria - 5f;
+            CargaSlider.value = bateria;
+        }
     }
 
 
