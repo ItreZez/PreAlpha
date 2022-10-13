@@ -2675,7 +2675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &1882008574
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2879,7 +2879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1973519267
 Transform:
   m_ObjectHideFlags: 0
@@ -3212,14 +3212,14 @@ GameObject:
   - component: {fileID: 6307097619465137288}
   - component: {fileID: 6307097619465137299}
   - component: {fileID: 6307097619465137292}
-  - component: {fileID: 6307097619465137300}
+  - component: {fileID: 6307097619465137301}
   m_Layer: 0
   m_Name: EnemyNavPoints
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &6307097619465137292
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3229,7 +3229,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6307097619465137289}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 2.24
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -3239,7 +3239,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 0.51
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!4 &6307097619465137293
@@ -3282,7 +3282,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6307097619465137300
+--- !u!114 &6307097619465137301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3291,23 +3291,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6307097619465137289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194dfc974de25f9419ff9c8c43b68025, type: 3}
+  m_Script: {fileID: 11500000, guid: a7ab36fbc22e23441a19afe072e5d061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 5
-  RangoDeAlerta: 23.73
-  CapaDelJugador:
-    serializedVersion: 2
-    m_Bits: 64
+  currentAIState: 0
+  chaseRange: 13.73
+  attackRange: 3
+  timeBetweenAttacks: 2
+  waitAtPoint: 2
   floor: {fileID: 1789500429}
   pole: {fileID: 1882008573}
-  BoundChangeTime: 8
-  player: {fileID: 1264167543}
-  Enemigo: {fileID: 6307097619465137292}
-  tiempoAturdido: 3
   isAturdido: 0
-  enemyVida: 3
-  attack: 0
+  tiempoAturdido: 5
 --- !u!1001 &8017439056351802508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3460,6 +3455,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1264167543}
+    - target: {fileID: 658974846345060093, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 658974846345060093, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
       propertyPath: JugadorDetect
       value: 
