@@ -147,10 +147,24 @@ public class EnemyState : MonoBehaviour
     {
         if (other.gameObject.tag == "Lampara")
         {
-            currentAIState = AI_State.IDLE;
+            nma.speed = 0;
             isAturdido = true;
+
+            StartCoroutine(Despierta());
+
         }
     }
+
+    IEnumerator Despierta()
+    {
+        yield return new WaitForSeconds(tiempoAturdido);
+
+        isAturdido = false;
+        currentAIState = AI_State.PATROLLING;
+        nma.speed = 5;
+
+    }
+
     void SetRandomDestination()
     {
         float rx = Random.Range(bndFloor.min.x, bndFloor.max.x);
@@ -162,7 +176,7 @@ public class EnemyState : MonoBehaviour
 
         pole.transform.position = new Vector3(moveto.x, this.transform.position.y, moveto.z);
 
-        Invoke("CheckPointOnPath", 5f);
+        Invoke("CheckPointOnPath", 10f);
 
 
     }

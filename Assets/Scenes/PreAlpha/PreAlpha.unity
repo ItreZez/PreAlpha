@@ -637,7 +637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &463092548
 Transform:
   m_ObjectHideFlags: 0
@@ -867,7 +867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7309611703697157884, guid: 59da0736c2e45aa4caf596bbeae10eac, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59da0736c2e45aa4caf596bbeae10eac, type: 3}
@@ -2874,12 +2874,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1973519267}
   m_Layer: 0
-  m_Name: EnemyNavP-NoTocar
+  m_Name: EnemyNavP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1973519267
 Transform:
   m_ObjectHideFlags: 0
@@ -3429,7 +3429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 658974846345060070, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 658974846345060071, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
       propertyPath: m_Size.x
