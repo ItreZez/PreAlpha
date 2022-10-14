@@ -6,8 +6,8 @@ public class EnemigoPrincipal : MonoBehaviour
 {
     [Header("Movimiento")]
     public float speed = 5f;
-    private Vector3 direccion;
-    [SerializeField] Rigidbody rb;
+
+ 
 
     [Header("Atack/Aturdido")]
     [SerializeField] private bool isAturdidoPrincipal;
@@ -18,13 +18,16 @@ public class EnemigoPrincipal : MonoBehaviour
     [SerializeField] private Transform player;
 
     [Header("Aumento de atributos")]
-    private Contenedor_de_Llaves recogioLlave;
+    [SerializeField] private int cantidadDeLlavesRecogidas;
+    
    
 
 
     void Start()
     {
-        recogioLlave = GetComponent<Contenedor_de_Llaves>();
+        cantidadDeLlavesRecogidas = FindObjectOfType<Lampara>().inventarioPilas.Count;
+        
+        
        
     }
 
@@ -32,15 +35,16 @@ public class EnemigoPrincipal : MonoBehaviour
     void Update()
     {
         MovimientoEnemigoPrincipal();
-        AumentoDeAtributos();
+        
 
     }
 
 
     public void MovimientoEnemigoPrincipal()
     {
-        direccion = player.position - transform.position;
-        rb.MovePosition((Vector3) transform.position + (direccion * speed * Time.deltaTime));
+       Vector3 direccion = player.position - transform.position;
+       transform.position += (Vector3)direccion/direccion.magnitude * Time.deltaTime * speed;
+       
        
 
 
@@ -82,20 +86,9 @@ public class EnemigoPrincipal : MonoBehaviour
         yield return new WaitForSeconds(tiempoAturdido);
 
         isAturdidoPrincipal = false;
-        speed = 5;
+        speed = 2;
     }
 
-    private void AumentoDeAtributos()
-    {
-       //if(recogioLlave.recogioLlave == true)
-       
-        //CON CONTADOR DE LLAVES 
-
-        
-        //speed++;
-        
-       
-    }
-
+    
 }
 
