@@ -15,6 +15,7 @@ public class Contenedor_de_Llaves : MonoBehaviour
 
     //hacer referencia al escript del player para sumar el contador de llaves
     FP_Controller Player_Controller;
+    EnemigoPrincipal enemigoPrincipal;
 
     public bool recogioLlave;
 
@@ -28,6 +29,7 @@ public class Contenedor_de_Llaves : MonoBehaviour
     {
         //Llamar al script del player
         Player_Controller = FindObjectOfType<FP_Controller>();
+        enemigoPrincipal = GetComponent<EnemigoPrincipal>();
     }
 
     private void Update()
@@ -60,6 +62,7 @@ public class Contenedor_de_Llaves : MonoBehaviour
                     Player_Controller.contadorLlaves++;
                     Debug.Log("llave recogida " + Player_Controller.contadorLlaves);
                     recogioLlave = false;
+                    
             
                 }
                 else

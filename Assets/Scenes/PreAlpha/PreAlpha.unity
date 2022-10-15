@@ -1775,6 +1775,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8018657402866156074, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
   m_PrefabInstance: {fileID: 22581494}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1264167547 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
+  m_PrefabInstance: {fileID: 22581494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36eaf0ada616f545b36c5138cf2c520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1266659455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7047848127638322804, guid: 3bb9ef19b579ad9409e4cc0abbc9774e, type: 3}
@@ -2999,10 +3010,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  speedDefault: 2
+  speed_1_llave: 3
+  speed_2_llave: 4
+  speed_3_llave: 5
+  speed_4_llave: 6
   isAturdidoPrincipal: 0
   tiempoAturdido: 5
   player: {fileID: 1264167543}
-  cantidadDeLlavesRecogidas: 0
+  cantidadDeLlavesRecogidas: {fileID: 1264167547}
 --- !u!1 &2027129035
 GameObject:
   m_ObjectHideFlags: 0

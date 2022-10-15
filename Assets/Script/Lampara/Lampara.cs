@@ -163,6 +163,7 @@ public class Lampara : MonoBehaviour
             inventarioPilas.Add(1);
             Debug.Log(inventarioPilas.Count);
             
+            
 
         }
     }
