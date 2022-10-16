@@ -28,9 +28,10 @@ public class EnemyState : MonoBehaviour
 
     //RandomBounds
     private Bounds bndFloor;
-    [SerializeField] private GameObject floor;
+    //[SerializeField] private GameObject floor;
     [SerializeField] private GameObject pole;
     private Vector3 moveto;
+   
 
     [Header("Funciones de Lampara")]
     public bool isAturdido = false;
@@ -39,20 +40,22 @@ public class EnemyState : MonoBehaviour
 
     private void Awake()
     {
-        nma = GetComponent<NavMeshAgent>();
+        nma = this.GetComponent<NavMeshAgent>();
     }
 
     private void Start()
     {
         nma = this.GetComponent<NavMeshAgent>();
-        bndFloor = floor.GetComponent<Renderer>().bounds;
-
+        bndFloor = GameObject.Find("Terreno").GetComponent<MeshRenderer>().bounds;
+       
+        
         waitCounter = waitAtPoint;
     }
 
     private void Update()
     {
         NavMovementsEnemy();
+
     }
 
     void NavMovementsEnemy()
@@ -69,6 +72,7 @@ public class EnemyState : MonoBehaviour
                 else
                 {
                     currentAIState = AI_State.PATROLLING;
+                    //SetRandomDestination();
                     SetRandomDestination();
                 }
 
@@ -83,7 +87,7 @@ public class EnemyState : MonoBehaviour
 
                 if (nma.remainingDistance <= .2f)
                 {
-                    SetRandomDestination();
+                    
 
                     currentAIState = AI_State.IDLE;
 
@@ -165,24 +169,28 @@ public class EnemyState : MonoBehaviour
 
     }
 
-    void SetRandomDestination()
+    private void SetRandomDestination()
     {
         float rx = Random.Range(bndFloor.min.x, bndFloor.max.x);
+        //float rx = Random.Range(60, -60);
         float rz = Random.Range(bndFloor.min.z, bndFloor.max.z);
+        //float rz = Random.Range(60, -60);
 
-        moveto = new Vector3(rx, transform.position.y, rz);
-
+        
+        moveto = new Vector3(rx, this.transform.position.y, rz);
+        //RandomDestinationPole
         nma.SetDestination(moveto);
 
-        pole.transform.position = new Vector3(moveto.x, this.transform.position.y, moveto.z);
+        pole.transform.position = new Vector3(moveto.x, pole.transform.position.y, moveto.z);
 
-        Invoke("CheckPointOnPath", 10f);
-
+        Invoke("CheckPointOnPath", 15f);
+       
 
     }
 
     void CheckPointOnPath()
     {
+      
         if (nma.pathEndPosition != moveto)
         {
             //el punto no esta en el navMash
