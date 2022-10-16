@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugadorDetectado: 0
-  enemyPrefab: {fileID: 658974846345060070, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
+  enemyPrefab: {fileID: 938844632409593141, guid: 7bbc2a72174cdbb49a8446f96f967db1, type: 3}
   tiempoIntervalo: 0
+  waveTime: 4

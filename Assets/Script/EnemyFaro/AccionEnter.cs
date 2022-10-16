@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class AccionEnter : MonoBehaviour
 {
-    private bool spawn;
+    private EnemySpawn enemySpawn;
+    public GameObject enemigoPrefab;
+
+    [Header("Spawns")]
+    public GameObject SpawnDD;
+    public GameObject SpawnDU;
+    public GameObject SpawnID;
+    public GameObject SpawnIU;
+
+
 
     private void Awake() 
     {
-        spawn = GetComponent<EnemySpawn>().jugadorDetectado;
+        
+    }
+
+    private void Start()
+    {
+        enemySpawn = GetComponent<EnemySpawn>();
     }
 
 
@@ -18,9 +32,13 @@ public class AccionEnter : MonoBehaviour
         {
 
             
-            Debug.Log("jugador detectado - activar spawns" + spawn);
-            spawn = true;
-           //Debug.Log(spawn.jugadorDetectado);
+            Debug.Log("jugador detectado - activar spawn " );
+            Instantiate(enemigoPrefab,SpawnDD.transform.position, Quaternion.identity);
+            Instantiate(enemigoPrefab,SpawnDU.transform.position, Quaternion.identity);
+            Instantiate(enemigoPrefab,SpawnID.transform.position, Quaternion.identity);
+            Instantiate(enemigoPrefab,SpawnIU.transform.position, Quaternion.identity);
+            
         }
     }
+    
 }

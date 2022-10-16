@@ -38,6 +38,7 @@ public class EnemyState : MonoBehaviour
     public float tiempoAturdido = 3;
 
 
+
     private void Awake()
     {
         nma = this.GetComponent<NavMeshAgent>();

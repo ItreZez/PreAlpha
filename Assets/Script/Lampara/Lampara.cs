@@ -28,6 +28,8 @@ public class Lampara : MonoBehaviour
     Pila pila;
     FP_Controller player;
     private EnemigoPrincipal enemigoP;
+    private EnemyState enemigoAraña;
+   
 
 
 
@@ -38,7 +40,10 @@ public class Lampara : MonoBehaviour
         _lampara = GameObject.Find("Lampara");
         pila = GetComponent<Pila>();
         player = GetComponent<FP_Controller>();
+        enemigoAraña = GetComponent<EnemyState>();
+
         CargaSlider.value = bateria;
+        
        
 
     }
@@ -50,6 +55,7 @@ public class Lampara : MonoBehaviour
         RecargarPila();
         AgregarPilaInventario();
         CargaSlider.value = bateria;
+       // Debug.Log(inventarioPilas.Count);
 
     }
 
@@ -117,6 +123,8 @@ public class Lampara : MonoBehaviour
         {
             bateria = bateria - 5f;
             CargaSlider.value = bateria;
+
+
         }
 
         if(other.gameObject.tag == "EnemigoPrincipal" && bateria >=6)

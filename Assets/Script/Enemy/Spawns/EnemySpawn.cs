@@ -24,7 +24,7 @@ public class EnemySpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(StopWave());
+        
     }
 
     public void SpawnEnemy()
@@ -34,21 +34,13 @@ public class EnemySpawn : MonoBehaviour
         if(jugadorDetectado == false)
         {
             
-        
-            tiempoIntervalo = 10f;
+            tiempoIntervalo = 60f;
             StartCoroutine(InstanceEnemyFalse(tiempoIntervalo));
             
         }
-
-        if(jugadorDetectado == true)
-        {
-            //StopAllCoroutines();
-            tiempoIntervalo = 1f;
-            StartCoroutine(InstanceEnemyTrue(tiempoIntervalo));
-           
-            //Subir velocidad y vida a enemigos.
-        }
     }
+    
+    
 
     IEnumerator InstanceEnemyFalse(float Intervalo)
     {

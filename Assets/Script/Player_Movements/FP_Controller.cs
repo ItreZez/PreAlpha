@@ -22,7 +22,6 @@ public class FP_Controller : MonoBehaviour
     public float jumpSpeed = 8f;
     //Esta gravedad se puede cambiar a como queramos
     public float gravity = 20f;
-
     public bool cansado = false;
 
     [Header("Crouch")]
@@ -55,7 +54,7 @@ public class FP_Controller : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         llaveContenedor = FindObjectOfType<Contenedor_de_Llaves>();
         pila = GetComponent<Pila>();
-        
+
         defaultControllerHeight = characterController.height;
 
     }
@@ -69,9 +68,11 @@ public class FP_Controller : MonoBehaviour
             move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
             //Para correr
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift) && cansado == false)
             {
+                StartCoroutine(Cansado());
                 move = transform.TransformDirection(move) * runSpeed;
+                
             }
             //caminar a velocidad normal
             else
@@ -119,35 +120,56 @@ public class FP_Controller : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
 
-            playerHealth--;
+            if(playerHealth > 0 )
+            {
+
+            playerHealth = playerHealth - 1;
             Debug.Log("Ouch " + playerHealth);
+            if (playerHealth == 1) StartCoroutine(Regenerarse());
+
+            }
 
             if (playerHealth == 0)
             {
                 Object.Destroy(gameObject, .5f);
             }
+            
         }
-       
+
 
 
     }
 
     void Agacharse()
     {
-        isCrouching = true;
-        characterController.height = defaultControllerHeight - .5f;
-        walkSpeed = walkSpeed - restaCrouchSpeed;
-        Debug.Log("Se Agacho " + walkSpeed + "Altura del JugadorDetect " + characterController.height);
+        if (isCrouching == false)
+        {
+            isCrouching = true;
+            characterController.height = defaultControllerHeight - .5f;
+            walkSpeed = walkSpeed - restaCrouchSpeed;
+            Debug.Log("Se Agacho " + walkSpeed + "Altura del JugadorDetect " + characterController.height);
+        }
 
     }
     void Levantarse()
     {
-        isCrouching = false;
-        characterController.height = defaultControllerHeight;
-        walkSpeed = walkSpeed + restaCrouchSpeed;
-        Debug.Log("Se Paro" + walkSpeed + "Altura del JugadorDetect " + characterController.height);
+        if (isCrouching == true)
+        {
+            isCrouching = false;
+            characterController.height = defaultControllerHeight;
+            walkSpeed = walkSpeed + restaCrouchSpeed;
+            Debug.Log("Se Paro" + walkSpeed + "Altura del JugadorDetect " + characterController.height);
+        }
 
 
+    }
+
+    IEnumerator Cansado()
+    {
+        yield return new WaitForSeconds(4);
+        cansado = true;
+        yield return new WaitForSeconds(6);
+        cansado = false;
     }
 
     //Recoleccion de Items
@@ -167,7 +189,7 @@ public class FP_Controller : MonoBehaviour
             _pila = other.gameObject;
             RecogerPila();
         }
-        
+
 
 
     }
@@ -178,38 +200,39 @@ public class FP_Controller : MonoBehaviour
         if (other.gameObject.tag.Contains("Llave"))
         {
             siRango = false;
-           nombreLlave="NoRango";
+            nombreLlave = "NoRango";
 
         }
         if (other.gameObject.tag == "Pila")
         {
             siRango = false;
             nombreItem = "NoRango";
-            
-            
+
+
         }
-       
-       
+
+
     }
 
     public void RecogerPila()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (siRango == true && nombreItem.Contains("Pila"))
             {
                 _pila.SetActive(false);
                 seRecogioPila = true;
                 StartCoroutine(ResetPila());
-                
+
             }
-            
+
         }
     }
 
     public void AbrirPuerta()
     {
-        if (contadorLlaves == 4) Debug.Log("Puerta Abierta");
+        if (contadorLlaves == 5) Debug.Log("Puerta Abierta");
+        //  Mandar funcion de algo
 
     }
 
@@ -217,7 +240,7 @@ public class FP_Controller : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         seRecogioPila = false;
-    
+
     }
 
     void LLavesRecolectadasSprite()
@@ -236,6 +259,13 @@ public class FP_Controller : MonoBehaviour
         {
             ImagenLLaves.sprite = LlavesRecolectadas[2];
         }
+    }
+
+    IEnumerator Regenerarse()
+    {
+        yield return new WaitForSeconds(10);
+        playerHealth = 2;
+
     }
 
 

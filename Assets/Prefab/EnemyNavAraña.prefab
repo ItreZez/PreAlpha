@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 6521280319159646724}
   - component: {fileID: 6521280319159646747}
   - component: {fileID: 6521280319159646722}
+  - component: {fileID: 6293876521268822620}
   m_Layer: 0
   m_Name: EnemyNavPoints
   m_TagString: Enemy
@@ -247,6 +248,18 @@ MonoBehaviour:
   pole: {fileID: 938844632366906730}
   isAturdido: 0
   tiempoAturdido: 5
+--- !u!114 &6293876521268822620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521280319159646750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10eaf922aca5e6c419627244e6274277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &938844633190441064
 PrefabInstance:
   m_ObjectHideFlags: 0
