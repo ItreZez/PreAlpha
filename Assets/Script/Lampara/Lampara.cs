@@ -49,10 +49,7 @@ public class Lampara : MonoBehaviour
         ApagarLampara();
         RecargarPila();
         AgregarPilaInventario();
-
-
-
-
+        CargaSlider.value = bateria;
 
     }
 

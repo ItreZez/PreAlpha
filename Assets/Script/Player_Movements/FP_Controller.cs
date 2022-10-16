@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FP_Controller : MonoBehaviour
 {
@@ -33,17 +34,14 @@ public class FP_Controller : MonoBehaviour
     [Header("Partes de Llave")]
     public int contadorLlaves;
     public string nombreLlave;
+    public Image ImagenLLaves;
+    public Sprite[] LlavesRecolectadas;
 
     [Header("Pila")]
     public bool seRecogioPila = false;
     public string nombreItem;
     private GameObject _pila;
     Pila pila;
-
-
-    
-
-
 
     //Crear un vector que nos va ayudar a mover el personaje, poniendo todo en 0 para luego camniar valores
     private Vector3 move = Vector3.zero;
@@ -54,23 +52,17 @@ public class FP_Controller : MonoBehaviour
 
     void Start()
     {
-
         characterController = GetComponent<CharacterController>();
         llaveContenedor = FindObjectOfType<Contenedor_de_Llaves>();
         pila = GetComponent<Pila>();
         
         defaultControllerHeight = characterController.height;
 
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-
-
         if (characterController.isGrounded)
         {
             //Haciendo fuerza al player para moverse con W S A D  y con las flechas
@@ -119,7 +111,7 @@ public class FP_Controller : MonoBehaviour
         // move.x= Mathf.Lerp(move.x,0f,Time.deltaTime *20f);
         //move.y= Mathf.Lerp(move.y,0f,Time.deltaTime *20f);
 
-
+        LLavesRecolectadasSprite();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -139,7 +131,6 @@ public class FP_Controller : MonoBehaviour
 
 
     }
-
 
     void Agacharse()
     {
@@ -216,8 +207,6 @@ public class FP_Controller : MonoBehaviour
         }
     }
 
-
-
     public void AbrirPuerta()
     {
         if (contadorLlaves == 4) Debug.Log("Puerta Abierta");
@@ -231,9 +220,23 @@ public class FP_Controller : MonoBehaviour
     
     }
 
-   
+    void LLavesRecolectadasSprite()
+    {
+        if (contadorLlaves == 0)
+        {
+            ImagenLLaves.sprite = LlavesRecolectadas[0];
+        }
 
+        if (contadorLlaves == 1)
+        {
+            ImagenLLaves.sprite = LlavesRecolectadas[1];
+        }
 
+        if (contadorLlaves == 2)
+        {
+            ImagenLLaves.sprite = LlavesRecolectadas[2];
+        }
+    }
 
 
 }
