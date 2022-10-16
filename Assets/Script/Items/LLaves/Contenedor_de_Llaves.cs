@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -24,7 +25,6 @@ public class Contenedor_de_Llaves : MonoBehaviour
     public float numeroDeLlaves;
 
 
-
     private void Start()
     {
         //Llamar al script del player
@@ -38,7 +38,7 @@ public class Contenedor_de_Llaves : MonoBehaviour
         {
             RecogerLlave(Player_Controller.nombreLlave);
         }
-        
+
         
     }
     //tags de llave 1 llave 2 llave 3 llave 4
@@ -76,17 +76,5 @@ public class Contenedor_de_Llaves : MonoBehaviour
 
         }
     }
-
-
-
-   
-
-
-
-
-
-
-
-
 
 }

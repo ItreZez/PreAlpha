@@ -20,8 +20,8 @@ public class Lampara : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private Slider CargaSlider;
-    [SerializeField] private Image RecargasSlider;
-
+    public Image ImagenPilas;
+    public Sprite[] PilasRecolectadas;
 
     public List<int> inventarioPilas = new List<int>();
     GameObject _lampara;
@@ -166,8 +166,24 @@ public class Lampara : MonoBehaviour
     }
 
 
+   /* void PilasRecolectadasSprite()
+    {
+        if (inventarioPilas == 0)
+        {
+            ImagenLLaves.sprite = LlavesRecolectadas[0];
+        }
 
+        if (contadorLlaves == 1)
+        {
+            ImagenLLaves.sprite = LlavesRecolectadas[1];
+        }
 
+        if (contadorLlaves == 2)
+        {
+            ImagenLLaves.sprite = LlavesRecolectadas[2];
+        }
+    }
+   */
 
 
 
