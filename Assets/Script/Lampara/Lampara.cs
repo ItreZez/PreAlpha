@@ -55,7 +55,7 @@ public class Lampara : MonoBehaviour
         RecargarPila();
         AgregarPilaInventario();
         CargaSlider.value = bateria;
-       // Debug.Log(inventarioPilas.Count);
+        PilasRecolectadasSprite();
 
     }
 
@@ -174,24 +174,29 @@ public class Lampara : MonoBehaviour
     }
 
 
-   /* void PilasRecolectadasSprite()
+    void PilasRecolectadasSprite()
     {
-        if (inventarioPilas == 0)
+        if (inventarioPilas.Count == 0)
         {
-            ImagenLLaves.sprite = LlavesRecolectadas[0];
+            ImagenPilas.sprite = PilasRecolectadas[0];
+
         }
 
-        if (contadorLlaves == 1)
+        if (inventarioPilas.Count == 1)
         {
-            ImagenLLaves.sprite = LlavesRecolectadas[1];
+            ImagenPilas.sprite = PilasRecolectadas[1];
         }
 
-        if (contadorLlaves == 2)
+        if (inventarioPilas.Count == 2)
         {
-            ImagenLLaves.sprite = LlavesRecolectadas[2];
+            ImagenPilas.sprite = PilasRecolectadas[2];
+        }
+        if (inventarioPilas.Count == 3)
+        {
+            ImagenPilas.sprite = PilasRecolectadas[3];
         }
     }
-   */
+   
 
 
 
