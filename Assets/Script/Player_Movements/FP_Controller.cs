@@ -14,6 +14,7 @@ public class FP_Controller : MonoBehaviour
 
     [Header("Health")]
     public float playerHealth = 2;
+    public Image panelHurt;
 
     [Header("OPCIONES DE PERSONAJE")]
     //Variables que ayudan al movimiento
@@ -51,12 +52,13 @@ public class FP_Controller : MonoBehaviour
 
     void Start()
     {
+        CanvasHurt();
+
         characterController = GetComponent<CharacterController>();
         llaveContenedor = FindObjectOfType<Contenedor_de_Llaves>();
         pila = GetComponent<Pila>();
 
         defaultControllerHeight = characterController.height;
-
     }
 
     // Update is called once per frame
@@ -100,6 +102,7 @@ public class FP_Controller : MonoBehaviour
 
 
             }
+           
 
         }
 
@@ -113,6 +116,8 @@ public class FP_Controller : MonoBehaviour
         //move.y= Mathf.Lerp(move.y,0f,Time.deltaTime *20f);
 
         LLavesRecolectadasSprite();
+
+        CanvasHurt();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -163,7 +168,6 @@ public class FP_Controller : MonoBehaviour
 
 
     }
-
     IEnumerator Cansado()
     {
         yield return new WaitForSeconds(4);
@@ -193,7 +197,6 @@ public class FP_Controller : MonoBehaviour
 
 
     }
-
     private void OnTriggerExit(Collider other)
     {
 
@@ -213,7 +216,6 @@ public class FP_Controller : MonoBehaviour
 
 
     }
-
     public void RecogerPila()
     {
         if (Input.GetMouseButtonDown(0))
@@ -228,21 +230,18 @@ public class FP_Controller : MonoBehaviour
 
         }
     }
-
     public void AbrirPuerta()
     {
         if (contadorLlaves == 5) Debug.Log("Puerta Abierta");
         //  Mandar funcion de algo
 
     }
-
     IEnumerator ResetPila()
     {
         yield return new WaitForEndOfFrame();
         seRecogioPila = false;
 
     }
-
     void LLavesRecolectadasSprite()
     {
         if (contadorLlaves == 0)
@@ -260,7 +259,6 @@ public class FP_Controller : MonoBehaviour
             ImagenLLaves.sprite = LlavesRecolectadas[2];
         }
     }
-
     IEnumerator Regenerarse()
     {
         yield return new WaitForSeconds(10);
@@ -268,5 +266,16 @@ public class FP_Controller : MonoBehaviour
 
     }
 
+    void CanvasHurt ()
+    {
+        if (playerHealth == 2)
+        {
+            panelHurt.enabled = false;
+        }
+        if (playerHealth == 1)
+        {
+            panelHurt.enabled = true;
+        }
+    }
 
 }
