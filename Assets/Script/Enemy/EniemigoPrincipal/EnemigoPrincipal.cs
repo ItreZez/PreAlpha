@@ -12,12 +12,15 @@ public class EnemigoPrincipal : MonoBehaviour
     public float speed_2_llave = 4f;
     public float speed_3_llave = 5f;
     public float speed_4_llave = 6f;
+    public float speed_5_llave = 7f;
 
 
     [Header("Atack/Aturdido")]
     [SerializeField] private bool isAturdidoPrincipal;
     public float tiempoAturdido = 5f;
     private bool attack;
+    [SerializeField] private FP_Controller playerScript;
+    public GameObject Player;
 
     [Header("Ref a transforms")]
     [SerializeField] private Transform player;
@@ -42,7 +45,7 @@ public class EnemigoPrincipal : MonoBehaviour
     {
         MovimientoEnemigoPrincipal();
         AumentoDeAtributos();
-       
+
 
 
     }
@@ -72,16 +75,26 @@ public class EnemigoPrincipal : MonoBehaviour
 
             //Empieza funcion para activarlo 
             StartCoroutine(DespiertaPrincipal());
-
-
-
-
         }
-
-        if (other.gameObject.tag == "Rango_Player")
+        if (other.gameObject.name == "Player")
         {
-            attack = true;
+            if (playerScript.playerHealth > 0 && playerScript.hit == false)
+            {
+                playerScript.hit = true;
+                StartCoroutine(playerScript.DanoPlayer());
+                EsperarEntreAtaques();
+
+            }
+
+            if (playerScript.playerHealth == 0)
+            {
+                Object.Destroy(Player , .5f);
+            }
+
         }
+
+
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -104,15 +117,22 @@ public class EnemigoPrincipal : MonoBehaviour
     {
         if (isAturdidoPrincipal == false)
         {
-        if (cantidadDeLlavesRecogidas.contadorLlaves == 0) speed = speedDefault;
-        if (cantidadDeLlavesRecogidas.contadorLlaves == 1) speed = speed_1_llave;
-        if (cantidadDeLlavesRecogidas.contadorLlaves == 2) speed = speed_2_llave;
-        if (cantidadDeLlavesRecogidas.contadorLlaves == 3) speed = speed_3_llave;
-        if (cantidadDeLlavesRecogidas.contadorLlaves == 4) speed = speed_4_llave;
+            if (cantidadDeLlavesRecogidas.contadorLlaves == 0) speed = speedDefault;
+            if (cantidadDeLlavesRecogidas.contadorLlaves == 1) speed = speed_1_llave;
+            if (cantidadDeLlavesRecogidas.contadorLlaves == 2) speed = speed_2_llave;
+            if (cantidadDeLlavesRecogidas.contadorLlaves == 3) speed = speed_3_llave;
+            if (cantidadDeLlavesRecogidas.contadorLlaves == 4) speed = speed_4_llave;
+            if (cantidadDeLlavesRecogidas.contadorLlaves == 4) speed = speed_5_llave;
         }
 
 
 
+    }
+
+    void EsperarEntreAtaques()
+    {
+        speed = 0;
+        DespiertaPrincipal();
     }
 
 

@@ -119,7 +119,7 @@ public class Lampara : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" && bateria >=6)
+        if (other.gameObject.tag == "Enemy" && bateria >=6 && isOn == true)
         {
             bateria = bateria - 5f;
             CargaSlider.value = bateria;
@@ -127,7 +127,7 @@ public class Lampara : MonoBehaviour
 
         }
 
-        if(other.gameObject.tag == "EnemigoPrincipal" && bateria >=6)
+        if(other.gameObject.tag == "EnemigoPrincipal" && bateria >=6 && isOn == true)
         {
             bateria = bateria - 5f;
             CargaSlider.value = bateria;

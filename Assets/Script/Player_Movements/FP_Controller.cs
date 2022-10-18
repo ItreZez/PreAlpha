@@ -16,6 +16,7 @@ public class FP_Controller : MonoBehaviour
     public float playerHealth = 2;
     public Image panelHurt;
     public bool hit = false;
+   
 
     [Header("OPCIONES DE PERSONAJE")]
     //Variables que ayudan al movimiento
@@ -69,6 +70,8 @@ public class FP_Controller : MonoBehaviour
     void Update()
     {
         InstanciarYunque();
+
+
         if (characterController.isGrounded)
         {
             //Haciendo fuerza al player para moverse con W S A D  y con las flechas
@@ -143,10 +146,13 @@ public class FP_Controller : MonoBehaviour
             }
 
         }
-
-
-
     }
+
+   
+
+
+
+    
 
     void Agacharse()
     {
@@ -287,7 +293,7 @@ public class FP_Controller : MonoBehaviour
             ImagenLLaves.sprite = LlavesRecolectadas[2];
         }
     }
-    IEnumerator Regenerarse()
+    public IEnumerator Regenerarse()
     {
         yield return new WaitForSeconds(10);
         playerHealth = 2;
@@ -306,7 +312,7 @@ public class FP_Controller : MonoBehaviour
         }
     }
 
-    IEnumerator DanoPlayer()
+    public IEnumerator DanoPlayer()
     {
         playerHealth = playerHealth - 1;
         Debug.Log("Ouch " + playerHealth);
