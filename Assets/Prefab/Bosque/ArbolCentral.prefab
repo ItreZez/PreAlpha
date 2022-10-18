@@ -30,7 +30,6 @@ Transform:
   m_Children:
   - {fileID: 3964670251544205293}
   - {fileID: 6496704225543390318}
-  - {fileID: 4666745965468790339}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -144,87 +143,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1761029674606501977, guid: aca874a9fc06cd1438190a556a1cfdc2, type: 3}
---- !u!1001 &5136678389146208680
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7787464109709563002}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.705418
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -8.9751625
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.1926832
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-      propertyPath: m_Name
-      value: Arbol central puerta
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
---- !u!4 &4666745965468790339 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-  m_PrefabInstance: {fileID: 5136678389146208680}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5342890995186756886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 967401779392226494, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
-  m_PrefabInstance: {fileID: 5136678389146208680}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1559994660998966222
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5342890995186756886}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6908217436505531007, guid: 9f06aeae6e9bc414fbdd2b290ae79b36, type: 3}
 --- !u!1001 &6747051326157775749
 PrefabInstance:
   m_ObjectHideFlags: 0

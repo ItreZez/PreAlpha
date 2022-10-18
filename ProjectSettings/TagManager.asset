@@ -15,6 +15,7 @@ TagManager:
   - Pila
   - EnemigoPrincipal
   - Yunque
+  - Puerta
   layers:
   - Default
   - TransparentFX

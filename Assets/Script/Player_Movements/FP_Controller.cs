@@ -39,6 +39,8 @@ public class FP_Controller : MonoBehaviour
     public Sprite[] LlavesRecolectadas;
     public GameObject yunque;
 
+    public GameObject puerta;
+
     [Header("Pila")]
     public bool seRecogioPila = false;
     public string nombreItem;
@@ -195,15 +197,24 @@ public class FP_Controller : MonoBehaviour
             RecogerPila();
         }
 
-        if(other.gameObject.tag == "Yunque")
+        if (other.gameObject.tag == "Yunque")
         {
-            if (Input.GetKeyDown(KeyCode.E)  && contadorLlaves == 4)
+            if (Input.GetKeyDown(KeyCode.E) && contadorLlaves == 4)
             {
                 contadorLlaves = 5;
                 Debug.Log("Creaste Llave Chingona");
             }
         }
 
+        if (other.gameObject.tag == "Puerta")
+        {
+
+            if (Input.GetKeyDown(KeyCode.E) && contadorLlaves == 5)
+            {
+                puerta.SetActive(false);
+                Debug.Log("Destruisteb sy a apsjla, ae Chingona");
+            }
+        }
 
 
     }
@@ -243,10 +254,10 @@ public class FP_Controller : MonoBehaviour
 
     public void InstanciarYunque()
     {
-        if (contadorLlaves == 4) 
+        if (contadorLlaves == 4)
         {
-        yunque.SetActive(true);
-        
+            yunque.SetActive(true);
+
         }
     }
 
@@ -297,7 +308,7 @@ public class FP_Controller : MonoBehaviour
 
     IEnumerator DanoPlayer()
     {
-         playerHealth = playerHealth - 1;
+        playerHealth = playerHealth - 1;
         Debug.Log("Ouch " + playerHealth);
         yield return new WaitForSeconds(3);
         hit = false;
