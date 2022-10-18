@@ -25,9 +25,9 @@ public class Pila : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other) 
+    private void OnTriggerEnter(Collision other) 
     {
-         if(Input.GetMouseButtonDown(0))
+         if(other.gameObject.tag == "Player"  &&  Input.GetMouseButtonDown(0))
          {
              _pila.SetActive(false);
             lampara.AgregarPilaInventario();

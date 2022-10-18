@@ -14,7 +14,7 @@ public class EnemyState : MonoBehaviour
     public AI_State currentAIState;//estado actual del enemigo
 
     public float chaseRange; //rango de persecucion 
-    public float attackRange; // rango de ataque 
+    public float attackRange ; // rango de ataque 
 
     public float timeBetweenAttacks = 2f; //tiempo entre ataques
 

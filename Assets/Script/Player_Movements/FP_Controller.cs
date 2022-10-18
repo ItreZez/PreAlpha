@@ -15,6 +15,7 @@ public class FP_Controller : MonoBehaviour
     [Header("Health")]
     public float playerHealth = 2;
     public Image panelHurt;
+    public bool hit = false;
 
     [Header("OPCIONES DE PERSONAJE")]
     //Variables que ayudan al movimiento
@@ -36,6 +37,7 @@ public class FP_Controller : MonoBehaviour
     public string nombreLlave;
     public Image ImagenLLaves;
     public Sprite[] LlavesRecolectadas;
+    public GameObject yunque;
 
     [Header("Pila")]
     public bool seRecogioPila = false;
@@ -64,6 +66,7 @@ public class FP_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        InstanciarYunque();
         if (characterController.isGrounded)
         {
             //Haciendo fuerza al player para moverse con W S A D  y con las flechas
@@ -74,7 +77,7 @@ public class FP_Controller : MonoBehaviour
             {
                 StartCoroutine(Cansado());
                 move = transform.TransformDirection(move) * runSpeed;
-                
+
             }
             //caminar a velocidad normal
             else
@@ -102,7 +105,7 @@ public class FP_Controller : MonoBehaviour
 
 
             }
-           
+
 
         }
 
@@ -125,12 +128,10 @@ public class FP_Controller : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
 
-            if(playerHealth > 0 )
+            if (playerHealth > 0 && hit == false)
             {
-
-            playerHealth = playerHealth - 1;
-            Debug.Log("Ouch " + playerHealth);
-            if (playerHealth == 1) StartCoroutine(Regenerarse());
+                hit = true;
+                StartCoroutine(DanoPlayer());
 
             }
 
@@ -138,7 +139,7 @@ public class FP_Controller : MonoBehaviour
             {
                 Object.Destroy(gameObject, .5f);
             }
-            
+
         }
 
 
@@ -194,6 +195,15 @@ public class FP_Controller : MonoBehaviour
             RecogerPila();
         }
 
+        if(other.gameObject.tag == "Yunque")
+        {
+            if (Input.GetKeyDown(KeyCode.E)  && contadorLlaves == 4)
+            {
+                contadorLlaves = 5;
+                Debug.Log("Creaste Llave Chingona");
+            }
+        }
+
 
 
     }
@@ -230,12 +240,19 @@ public class FP_Controller : MonoBehaviour
 
         }
     }
-    public void AbrirPuerta()
-    {
-        if (contadorLlaves == 5) Debug.Log("Puerta Abierta");
-        //  Mandar funcion de algo
 
+    public void InstanciarYunque()
+    {
+        if (contadorLlaves == 4) 
+        {
+        yunque.SetActive(true);
+        
+        }
     }
+
+
+
+
     IEnumerator ResetPila()
     {
         yield return new WaitForEndOfFrame();
@@ -266,7 +283,7 @@ public class FP_Controller : MonoBehaviour
 
     }
 
-    void CanvasHurt ()
+    void CanvasHurt()
     {
         if (playerHealth == 2)
         {
@@ -277,5 +294,15 @@ public class FP_Controller : MonoBehaviour
             panelHurt.enabled = true;
         }
     }
+
+    IEnumerator DanoPlayer()
+    {
+         playerHealth = playerHealth - 1;
+        Debug.Log("Ouch " + playerHealth);
+        yield return new WaitForSeconds(3);
+        hit = false;
+        if (playerHealth == 1) StartCoroutine(Regenerarse());
+    }
+
 
 }

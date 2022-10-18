@@ -14,15 +14,16 @@ TagManager:
   - Llave_4
   - Pila
   - EnemigoPrincipal
+  - Yunque
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstaculo
   - Water
   - UI
   - player
-  - 
+  - EnemigoPrincipal
   - 
   - 
   - 
