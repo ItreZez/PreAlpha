@@ -12,7 +12,7 @@ public class EnemigoPrincipal : MonoBehaviour
     public float speed_2_llave = 4f;
     public float speed_3_llave = 5f;
     public float speed_4_llave = 6f;
-    public float speed_5_llave = 7f;
+    
 
 
     [Header("Atack/Aturdido")]
@@ -122,7 +122,7 @@ public class EnemigoPrincipal : MonoBehaviour
             if (cantidadDeLlavesRecogidas.contadorLlaves == 2) speed = speed_2_llave;
             if (cantidadDeLlavesRecogidas.contadorLlaves == 3) speed = speed_3_llave;
             if (cantidadDeLlavesRecogidas.contadorLlaves == 4) speed = speed_4_llave;
-            if (cantidadDeLlavesRecogidas.contadorLlaves == 4) speed = speed_5_llave;
+            
         }
 
 

@@ -494,6 +494,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8d4c1874e1397ad4093979772531b6a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8d4c1874e1397ad4093979772531b6a7, type: 3}
       propertyPath: m_TagString
       value: Lampara
       objectReference: {fileID: 0}
