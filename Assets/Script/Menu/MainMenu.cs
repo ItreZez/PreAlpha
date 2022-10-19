@@ -19,6 +19,25 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
 
     }
+
+    public void GameOver()
+    {
+
+        SceneManager.LoadScene(2);
+    }
+
+    public void MainMenuBack()
+    {
+
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void TryAgain()
+    {
+
+        SceneManager.LoadScene("PreAlpha");
+    }
+
+
 }//END class MainMenu
 
 

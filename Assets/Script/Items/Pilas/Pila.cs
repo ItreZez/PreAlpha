@@ -25,7 +25,7 @@ public class Pila : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collision other) 
+    private void OnCollisonEnter(Collision other) 
     {
          if(other.gameObject.tag == "Player"  &&  Input.GetMouseButtonDown(0))
          {

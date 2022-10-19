@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FP_Controller : MonoBehaviour
 {
@@ -219,7 +220,12 @@ public class FP_Controller : MonoBehaviour
             {
                 puerta.SetActive(false);
                 Debug.Log("Destruisteb sy a apsjla, ae Chingona");
+                contadorLlaves = 6;
             }
+        }
+        if(other.gameObject.tag == "Puerta" && contadorLlaves == 6)
+        {
+            SceneManager.LoadScene("Win");
         }
 
 
@@ -309,6 +315,10 @@ public class FP_Controller : MonoBehaviour
         if (playerHealth == 1)
         {
             panelHurt.enabled = true;
+        }
+        if (playerHealth == 0)
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 

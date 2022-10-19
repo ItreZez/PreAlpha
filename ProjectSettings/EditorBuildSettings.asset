@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7d82aafe4a7b3cb4593f90f99710e738
   - enabled: 1
-    path: Assets/Scenes/Fps_Controller.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/GameOver.unity
+    guid: 809f62309d9163d4590a603ab80873b4
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 8cd96e02d89606e4690cb75e50f353ed
+  - enabled: 1
+    path: Assets/Scenes/PreAlpha/PreAlpha.unity
+    guid: d26e87b2a733a3a4ca1ed7095c01965f
   m_configObjects: {}
