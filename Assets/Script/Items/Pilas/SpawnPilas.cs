@@ -7,6 +7,8 @@ public class SpawnPilas : MonoBehaviour
     [SerializeField] private GameObject Pila;
     [SerializeField] private int xPos;
     [SerializeField] private int zPos;
+    [SerializeField] private float altura = 2.25f;
+
 
     [SerializeField] private int zR1;
     [SerializeField] private int zR2;
@@ -36,7 +38,7 @@ public class SpawnPilas : MonoBehaviour
             int wait_time = Random.Range(55, 60);
             yield return new WaitForSeconds(wait_time);
 
-            Instantiate(Pila, new Vector3(xPos, 4, zPos), Quaternion.identity);
+            Instantiate(Pila, new Vector3(xPos, altura, zPos), Quaternion.identity);
 
 
 
