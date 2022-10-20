@@ -12,7 +12,14 @@ public class EnemigoPrincipal : MonoBehaviour
     public float speed_2_llave = 4f;
     public float speed_3_llave = 5f;
     public float speed_4_llave = 6f;
-    
+
+    public float timepoDeEsperaAI = 15f;
+    public bool pausa = false;
+
+
+    [Header("Distancia")]
+
+    public bool atacarSinPausas = false;
 
 
     [Header("Atack/Aturdido")]
@@ -34,7 +41,7 @@ public class EnemigoPrincipal : MonoBehaviour
 
     void Start()
     {
-
+        StartCoroutine(Comportamiento());
 
 
 
@@ -46,6 +53,13 @@ public class EnemigoPrincipal : MonoBehaviour
         MovimientoEnemigoPrincipal();
         AumentoDeAtributos();
 
+       
+
+
+
+
+
+
 
 
     }
@@ -55,8 +69,6 @@ public class EnemigoPrincipal : MonoBehaviour
     {
         Vector3 direccion = player.position - transform.position;
         transform.position += (Vector3)direccion / direccion.magnitude * Time.deltaTime * speed;
-
-
 
 
     }
@@ -88,7 +100,7 @@ public class EnemigoPrincipal : MonoBehaviour
 
             if (playerScript.playerHealth == 0)
             {
-                Object.Destroy(Player , .5f);
+                Object.Destroy(Player, .5f);
             }
 
         }
@@ -115,14 +127,14 @@ public class EnemigoPrincipal : MonoBehaviour
 
     public void AumentoDeAtributos()
     {
-        if (isAturdidoPrincipal == false)
+        if (isAturdidoPrincipal == false && pausa == false)
         {
             if (cantidadDeLlavesRecogidas.contadorLlaves == 0) speed = speedDefault;
             if (cantidadDeLlavesRecogidas.contadorLlaves == 1) speed = speed_1_llave;
             if (cantidadDeLlavesRecogidas.contadorLlaves == 2) speed = speed_2_llave;
             if (cantidadDeLlavesRecogidas.contadorLlaves == 3) speed = speed_3_llave;
             if (cantidadDeLlavesRecogidas.contadorLlaves == 4) speed = speed_4_llave;
-            
+
         }
 
 
@@ -134,6 +146,24 @@ public class EnemigoPrincipal : MonoBehaviour
         speed = 0;
         DespiertaPrincipal();
     }
+
+    IEnumerator Comportamiento()
+    {
+       
+        yield return new WaitForSeconds(timepoDeEsperaAI);
+        pausa = true;
+        speed = 0f;
+        yield return new WaitForSeconds(3);
+        pausa = false;
+        StartCoroutine(Comportamiento());
+        AumentoDeAtributos();
+        
+        
+
+        
+        
+    }
+
 
 
 }

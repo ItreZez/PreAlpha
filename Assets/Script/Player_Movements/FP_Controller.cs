@@ -13,11 +13,13 @@ public class FP_Controller : MonoBehaviour
     //Referencia a otros scripts
     Contenedor_de_Llaves llaveContenedor;
 
+    public EnemigoPrincipal enemigoP;
+
     [Header("Health")]
     public float playerHealth = 2;
     public Image panelHurt;
     public bool hit = false;
-   
+
 
     [Header("OPCIONES DE PERSONAJE")]
     //Variables que ayudan al movimiento
@@ -26,7 +28,7 @@ public class FP_Controller : MonoBehaviour
     public float jumpSpeed = 8f;
     //Esta gravedad se puede cambiar a como queramos
     public float gravity = 20f;
-    public bool cansado = false;
+    public float stamina = 100;
 
     [Header("Crouch")]
     public float restaCrouchSpeed = 2f;
@@ -56,6 +58,7 @@ public class FP_Controller : MonoBehaviour
 
 
 
+
     void Start()
     {
         CanvasHurt();
@@ -63,6 +66,8 @@ public class FP_Controller : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         llaveContenedor = FindObjectOfType<Contenedor_de_Llaves>();
         pila = GetComponent<Pila>();
+        enemigoP = GetComponent<EnemigoPrincipal>();
+
 
         defaultControllerHeight = characterController.height;
     }
@@ -79,15 +84,25 @@ public class FP_Controller : MonoBehaviour
             move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
             //Para correr
-            if (Input.GetKey(KeyCode.LeftShift) && cansado == false)
+            if (Input.GetKey(KeyCode.LeftShift) && stamina >= 1)
             {
-                StartCoroutine(Cansado());
-                move = transform.TransformDirection(move) * runSpeed;
+
+                stamina = stamina - .45f;
+                Debug.Log(stamina);
+                if (stamina > 1)
+                {
+                    
+                    move = transform.TransformDirection(move) * runSpeed;
+
+                }
+               
+
 
             }
             //caminar a velocidad normal
             else
             {
+                Stamina();
                 //Sin esta linea el personaje siempre va hacia adelante sin importar a donde vea
                 move = transform.TransformDirection(move) * walkSpeed;
             }
@@ -149,11 +164,11 @@ public class FP_Controller : MonoBehaviour
         }
     }
 
-   
 
 
 
-    
+
+
 
     void Agacharse()
     {
@@ -178,13 +193,7 @@ public class FP_Controller : MonoBehaviour
 
 
     }
-    IEnumerator Cansado()
-    {
-        yield return new WaitForSeconds(4);
-        cansado = true;
-        yield return new WaitForSeconds(6);
-        cansado = false;
-    }
+    
 
     //Recoleccion de Items
     private void OnTriggerStay(Collider other)
@@ -223,10 +232,14 @@ public class FP_Controller : MonoBehaviour
                 contadorLlaves = 6;
             }
         }
-        if(other.gameObject.tag == "Puerta" && contadorLlaves == 6)
+        if (other.gameObject.tag == "Puerta" && contadorLlaves == 6)
         {
             SceneManager.LoadScene("Win");
         }
+
+
+
+
 
 
     }
@@ -249,6 +262,7 @@ public class FP_Controller : MonoBehaviour
 
 
     }
+
     public void RecogerPila()
     {
         if (Input.GetMouseButtonDown(0))
@@ -331,5 +345,20 @@ public class FP_Controller : MonoBehaviour
         if (playerHealth == 1) StartCoroutine(Regenerarse());
     }
 
+    private void Stamina()
+    {
+        if (stamina < 98.9f)
+            stamina = stamina + .3f;
+
+        Debug.Log(stamina);
+
+
+    }
+
+
 
 }
+
+
+
+

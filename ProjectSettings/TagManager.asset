@@ -16,6 +16,7 @@ TagManager:
   - EnemigoPrincipal
   - Yunque
   - Puerta
+  - RangoChaseEP
   layers:
   - Default
   - TransparentFX

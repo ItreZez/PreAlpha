@@ -119,6 +119,9 @@ MonoBehaviour:
   speed_2_llave: 4
   speed_3_llave: 5
   speed_4_llave: 6
+  timepoDeEsperaAI: 15
+  pausa: 0
+  atacarSinPausas: 0
   isAturdidoPrincipal: 0
   tiempoAturdido: 5
   playerScript: {fileID: 0}
