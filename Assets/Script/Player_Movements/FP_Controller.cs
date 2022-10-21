@@ -19,10 +19,7 @@ public class FP_Controller : MonoBehaviour
     public float playerHealth = 2;
     public Image panelHurt;
     public bool hit = false;
-
-    [Header("Esconderse")]
-    public GameObject Player;
-
+    
     [Header("OPCIONES DE PERSONAJE")]
     //Variables que ayudan al movimiento
     public float walkSpeed = 6f;
@@ -61,7 +58,7 @@ public class FP_Controller : MonoBehaviour
     //UI Correr
     [SerializeField] private Slider CargaSlider;
 
-
+    [Header("Esconderse")]
     public bool Escondido = false;
 
 

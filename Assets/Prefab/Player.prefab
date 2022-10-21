@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36eaf0ada616f545b36c5138cf2c520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemigoP: {fileID: 0}
   playerHealth: 2
   panelHurt: {fileID: 0}
   hit: 0
@@ -355,7 +356,7 @@ MonoBehaviour:
   runSpeed: 10
   jumpSpeed: 8
   gravity: 20
-  cansado: 0
+  stamina: 100
   restaCrouchSpeed: 2
   isCrouching: 0
   contadorLlaves: 0
@@ -367,6 +368,8 @@ MonoBehaviour:
   seRecogioPila: 0
   nombreItem: 
   siRango: 0
+  CargaSlider: {fileID: 0}
+  Escondido: 0
 --- !u!54 &8018657402866156077
 Rigidbody:
   m_ObjectHideFlags: 0

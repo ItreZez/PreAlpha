@@ -37,6 +37,10 @@ public class EnemyState : MonoBehaviour
     public bool isAturdido = false;
     public float tiempoAturdido = 3;
 
+    [Header("Esconderse")]
+    //public FP_Controller fp_controller;
+    public bool EscondidoB;
+    //public GameObject fpController;
 
 
     private void Awake()
@@ -48,14 +52,18 @@ public class EnemyState : MonoBehaviour
     {
         nma = this.GetComponent<NavMeshAgent>();
         bndFloor = GameObject.Find("Terreno").GetComponent<MeshRenderer>().bounds;
-       
-        
+
         waitCounter = waitAtPoint;
+
+        //fp_controller = GetComponent<FP_Controller>();
+
+        EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
     }
 
     private void Update()
     {
         NavMovementsEnemy();
+        EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
 
     }
 
@@ -77,7 +85,7 @@ public class EnemyState : MonoBehaviour
                     SetRandomDestination();
                 }
 
-                if (_distanceToPlayer <= chaseRange)
+                if (EscondidoB == false && _distanceToPlayer <= chaseRange)
                 {
                     currentAIState = AI_State.CHASING;
                 }
@@ -94,7 +102,7 @@ public class EnemyState : MonoBehaviour
 
                     waitCounter = waitAtPoint;
                 }
-                if (_distanceToPlayer <= chaseRange)
+                if (EscondidoB == false && _distanceToPlayer <= chaseRange)
                 {
                     currentAIState = AI_State.CHASING;
 
@@ -106,7 +114,7 @@ public class EnemyState : MonoBehaviour
 
                 nma.SetDestination(GameObject.FindWithTag("Player").transform.position);
 
-                if (_distanceToPlayer <= attackRange)
+                if (EscondidoB == false && _distanceToPlayer <= attackRange)
                 {
                     currentAIState = AI_State.ATTACKING;
 
