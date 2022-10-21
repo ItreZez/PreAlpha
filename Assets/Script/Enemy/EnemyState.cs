@@ -38,9 +38,7 @@ public class EnemyState : MonoBehaviour
     public float tiempoAturdido = 3;
 
     [Header("Esconderse")]
-    //public FP_Controller fp_controller;
     public bool EscondidoB;
-    //public GameObject fpController;
 
 
     private void Awake()

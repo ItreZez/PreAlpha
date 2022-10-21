@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,8 @@ public class AccionEnter : MonoBehaviour
     public GameObject SpawnID;
     public GameObject SpawnIU;
 
-
+    [Header("Esconderse")]
+    public bool EscondidoB;
 
     private void Awake() 
     {
@@ -23,12 +24,18 @@ public class AccionEnter : MonoBehaviour
     private void Start()
     {
         enemySpawn = GetComponent<EnemySpawn>();
+        EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+
     }
 
+    private void Update()
+    {
+        EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == ("Player"))
+        if(EscondidoB == false && other.gameObject.tag == ("Player"))
         {
 
             
