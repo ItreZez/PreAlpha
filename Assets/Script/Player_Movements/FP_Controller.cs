@@ -20,6 +20,8 @@ public class FP_Controller : MonoBehaviour
     public Image panelHurt;
     public bool hit = false;
 
+    [Header("Esconderse")]
+    public GameObject Player;
 
     [Header("OPCIONES DE PERSONAJE")]
     //Variables que ayudan al movimiento
@@ -60,6 +62,7 @@ public class FP_Controller : MonoBehaviour
     [SerializeField] private Slider CargaSlider;
 
 
+    public bool Escondido = false;
 
 
 
@@ -185,7 +188,7 @@ public class FP_Controller : MonoBehaviour
         if (isCrouching == false)
         {
             isCrouching = true;
-            characterController.height = defaultControllerHeight - .5f;
+            characterController.height = defaultControllerHeight - 1f;
             walkSpeed = walkSpeed - restaCrouchSpeed;
             Debug.Log("Se Agacho " + walkSpeed + "Altura del JugadorDetect " + characterController.height);
         }
@@ -247,11 +250,10 @@ public class FP_Controller : MonoBehaviour
             SceneManager.LoadScene("Win");
         }
 
-
-
-
-
-
+        if(other.gameObject.tag == "Escondite")
+        {
+            Escondido = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -266,11 +268,12 @@ public class FP_Controller : MonoBehaviour
         {
             siRango = false;
             nombreItem = "NoRango";
-
-
         }
 
-
+        if (other.gameObject.tag == "Escondite")
+        {
+            Escondido = false;
+        }
     }
 
     public void RecogerPila()
