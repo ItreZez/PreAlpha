@@ -15,6 +15,7 @@ public class EnemigoPrincipal : MonoBehaviour
 
     public float timepoDeEsperaAI = 15f;
     public bool pausa = false;
+    [SerializeField] private Transform enemigoFaro;
 
 
     [Header("Distancia")]
@@ -35,6 +36,9 @@ public class EnemigoPrincipal : MonoBehaviour
     [Header("Aumento de atributos")]
     [SerializeField] private FP_Controller cantidadDeLlavesRecogidas;
 
+    [Header("Esconderse")]
+    public bool EscondidoB;
+
 
 
 
@@ -42,6 +46,9 @@ public class EnemigoPrincipal : MonoBehaviour
     void Start()
     {
         StartCoroutine(Comportamiento());
+        EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+
+
 
 
 
@@ -52,8 +59,9 @@ public class EnemigoPrincipal : MonoBehaviour
     {
         MovimientoEnemigoPrincipal();
         AumentoDeAtributos();
+        EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
 
-       
+
 
 
 
@@ -68,7 +76,17 @@ public class EnemigoPrincipal : MonoBehaviour
     public void MovimientoEnemigoPrincipal()
     {
         Vector3 direccion = player.position - transform.position;
-        transform.position += (Vector3)direccion / direccion.magnitude * Time.deltaTime * speed;
+        Vector3 direccionArbol = enemigoFaro.position - transform.position;
+
+        if (EscondidoB == false)
+        {
+
+            transform.position += (Vector3)direccion / direccion.magnitude * Time.deltaTime * speed;
+        }
+        else
+        {
+            transform.position += (Vector3)direccionArbol / direccionArbol.magnitude * Time.deltaTime * speed;
+        }
 
 
     }
@@ -149,7 +167,7 @@ public class EnemigoPrincipal : MonoBehaviour
 
     IEnumerator Comportamiento()
     {
-       
+
         yield return new WaitForSeconds(timepoDeEsperaAI);
         pausa = true;
         speed = 0f;
@@ -157,11 +175,11 @@ public class EnemigoPrincipal : MonoBehaviour
         pausa = false;
         StartCoroutine(Comportamiento());
         AumentoDeAtributos();
-        
-        
 
-        
-        
+
+
+
+
     }
 
 
