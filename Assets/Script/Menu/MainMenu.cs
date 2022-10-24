@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     public void jugar()
     {
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("PreAlpha");
     }
 
     public void Salir()

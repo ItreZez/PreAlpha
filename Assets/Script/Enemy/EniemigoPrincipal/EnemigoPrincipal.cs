@@ -26,7 +26,7 @@ public class EnemigoPrincipal : MonoBehaviour
     [Header("Atack/Aturdido")]
     [SerializeField] private bool isAturdidoPrincipal;
     public float tiempoAturdido = 5f;
-    private bool attack;
+    
     [SerializeField] private FP_Controller playerScript;
     public GameObject Player;
 
@@ -127,10 +127,11 @@ public class EnemigoPrincipal : MonoBehaviour
 
     }
 
-    private void OnTriggerExit(Collider other)
+    /*private void OnTriggerExit(Collider other)
     {
         attack = false;
     }
+    */
 
     IEnumerator DespiertaPrincipal()
     {

@@ -19,6 +19,7 @@ public class FP_Controller : MonoBehaviour
     public float playerHealth = 2;
     public Image panelHurt;
     public bool hit = false;
+    public GameObject CanvasHurtI;
     
     [Header("OPCIONES DE PERSONAJE")]
     //Variables que ayudan al movimiento
@@ -334,11 +335,14 @@ public class FP_Controller : MonoBehaviour
     {
         if (playerHealth == 2)
         {
-            panelHurt.enabled = false;
+            //panelHurt.enabled = false;
+            CanvasHurtI.SetActive(false);
         }
         if (playerHealth == 1)
         {
-            panelHurt.enabled = true;
+            //panelHurt.enabled = true;
+            CanvasHurtI.SetActive(true);
+
         }
         if (playerHealth == 0)
         {
