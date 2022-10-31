@@ -132,6 +132,7 @@ public class Lampara : MonoBehaviour
             bateria = bateria - 5f;
             CargaSlider.value = bateria;
         }
+
     }
 
 
@@ -195,6 +196,12 @@ public class Lampara : MonoBehaviour
         {
             ImagenPilas.sprite = PilasRecolectadas[3];
         }
+    }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Escondite" && isOn) player.Escondido = false;
     }
    
 

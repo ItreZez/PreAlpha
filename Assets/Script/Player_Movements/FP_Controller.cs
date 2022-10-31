@@ -61,6 +61,7 @@ public class FP_Controller : MonoBehaviour
 
     [Header("Esconderse")]
     public bool Escondido = false;
+    
 
 
 
@@ -250,6 +251,7 @@ public class FP_Controller : MonoBehaviour
 
         if(other.gameObject.tag == "Escondite")
         {
+
             Escondido = true;
         }
     }
@@ -367,6 +369,8 @@ public class FP_Controller : MonoBehaviour
         Debug.Log(stamina);
     }
 
+
+   
 
 
 }
