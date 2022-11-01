@@ -325,6 +325,21 @@ public class FP_Controller : MonoBehaviour
         {
             ImagenLLaves.sprite = LlavesRecolectadas[2];
         }
+
+        if (contadorLlaves == 3)
+        {
+            ImagenLLaves.sprite = LlavesRecolectadas[3];
+        }
+
+        if (contadorLlaves == 4)
+        {
+            ImagenLLaves.sprite = LlavesRecolectadas[4];
+        }
+
+        if (contadorLlaves == 5)
+        {
+            ImagenLLaves.sprite = LlavesRecolectadas[5];
+        }
     }
     public IEnumerator Regenerarse()
     {
