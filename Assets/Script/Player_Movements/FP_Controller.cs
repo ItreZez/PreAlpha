@@ -57,7 +57,8 @@ public class FP_Controller : MonoBehaviour
     public bool siRango = false;
 
     //UI Correr
-    [SerializeField] private Slider CargaSlider;
+    [SerializeField] private Image CargaRun;
+    private float RunMaxima = 100f;
 
     [Header("Esconderse")]
     public bool Escondido = false;
@@ -77,7 +78,8 @@ public class FP_Controller : MonoBehaviour
 
         defaultControllerHeight = characterController.height;
 
-        CargaSlider.value = stamina;
+        CargaRun.fillAmount = stamina / RunMaxima;
+
     }
 
     // Update is called once per frame
@@ -85,7 +87,7 @@ public class FP_Controller : MonoBehaviour
     {
         InstanciarYunque();
 
-        CargaSlider.value = stamina;
+        CargaRun.fillAmount = stamina / RunMaxima;
 
         if (characterController.isGrounded)
         {
@@ -102,8 +104,7 @@ public class FP_Controller : MonoBehaviour
                 {
                     
                     move = transform.TransformDirection(move) * runSpeed;
-                    CargaSlider.value = stamina;
-
+                    CargaRun.fillAmount = stamina / RunMaxima;
                 }
 
 
@@ -115,8 +116,7 @@ public class FP_Controller : MonoBehaviour
                 Stamina();
                 //Sin esta linea el personaje siempre va hacia adelante sin importar a donde vea
                 move = transform.TransformDirection(move) * walkSpeed;
-                CargaSlider.value = stamina;
-
+                CargaRun.fillAmount = stamina / RunMaxima;
             }
 
             //Para Saltar

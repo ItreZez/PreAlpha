@@ -19,7 +19,8 @@ public class Lampara : MonoBehaviour
     public bool puedeRecargar;
 
     [Header("UI")]
-    [SerializeField] private Slider CargaSlider;
+    [SerializeField] private Image CargaLampara;
+    private float BateriaMaxima = 100f;
     public Image ImagenPilas;
     public Sprite[] PilasRecolectadas;
 
@@ -42,9 +43,12 @@ public class Lampara : MonoBehaviour
         player = GetComponent<FP_Controller>();
         enemigoAraña = GetComponent<EnemyState>();
 
-        CargaSlider.value = bateria;
-        
-       
+        //CargaSlider.value = bateria;
+
+        CargaLampara.fillAmount = bateria / BateriaMaxima;
+
+
+
 
     }
 
@@ -54,7 +58,9 @@ public class Lampara : MonoBehaviour
         ApagarLampara();
         RecargarPila();
         AgregarPilaInventario();
-        CargaSlider.value = bateria;
+        //CargaSlider.value = bateria;
+        CargaLampara.fillAmount = bateria / BateriaMaxima;
+
         PilasRecolectadasSprite();
 
     }
@@ -105,7 +111,6 @@ public class Lampara : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
             bateria = bateria - usoBateria;
-            CargaSlider.value = bateria;
 
         }
         StopCoroutine(RestaBateria());
@@ -122,7 +127,6 @@ public class Lampara : MonoBehaviour
         if (other.gameObject.tag == "Enemy" && bateria >=6 && isOn == true)
         {
             bateria = bateria - 5f;
-            CargaSlider.value = bateria;
 
 
         }
@@ -130,7 +134,6 @@ public class Lampara : MonoBehaviour
         if(other.gameObject.tag == "EnemigoPrincipal" && bateria >=6 && isOn == true)
         {
             bateria = bateria - 5f;
-            CargaSlider.value = bateria;
         }
 
     }
@@ -156,7 +159,6 @@ public class Lampara : MonoBehaviour
                 bateria = bateria + 100f;
                 inventarioPilas.Remove(1);
                 siBateria = true;
-                CargaSlider.value = bateria;
             }
         }
 
