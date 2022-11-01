@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3321403481400812634}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.7, y: 4, z: -61.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -121,6 +121,7 @@ MonoBehaviour:
   speed_4_llave: 6
   timepoDeEsperaAI: 15
   pausa: 0
+  enemigoFaro: {fileID: 0}
   atacarSinPausas: 0
   isAturdidoPrincipal: 0
   tiempoAturdido: 5
@@ -128,6 +129,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   player: {fileID: 0}
   cantidadDeLlavesRecogidas: {fileID: 0}
+  EscondidoB: 0
 --- !u!195 &3321403481400812636
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -160,6 +162,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b087f91722dc7c74fbe64eaa2e00a1c5, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b087f91722dc7c74fbe64eaa2e00a1c5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b087f91722dc7c74fbe64eaa2e00a1c5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b087f91722dc7c74fbe64eaa2e00a1c5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b087f91722dc7c74fbe64eaa2e00a1c5, type: 3}
       propertyPath: m_LocalPosition.x
