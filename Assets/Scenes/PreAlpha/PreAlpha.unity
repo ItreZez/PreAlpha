@@ -430,20 +430,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
       propertyPath: LlavesRecolectadas.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
       propertyPath: LlavesRecolectadas.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: d79c2fe20710f2b438f2316c46376660, type: 3}
+      objectReference: {fileID: 21300000, guid: 691b91f81b6e9a74b8c6869296c0423c, type: 3}
     - target: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
       propertyPath: LlavesRecolectadas.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: a89467590bdbe2e4b9dd19d37c975b9e, type: 3}
+      objectReference: {fileID: 21300000, guid: 56e6ee131ea8c6045a553ff4c48539f7, type: 3}
     - target: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
       propertyPath: LlavesRecolectadas.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: d16bf3a6bbc9f8543bf1e0ebdcf6ec0f, type: 3}
+      objectReference: {fileID: 21300000, guid: d3bbcf6dbb8c78b45b47f11b0db88af9, type: 3}
+    - target: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
+      propertyPath: LlavesRecolectadas.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: fe71cbfcfbd12524983de69a320e6163, type: 3}
+    - target: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
+      propertyPath: LlavesRecolectadas.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: cdb03a09aca2e224289da85fc98a4135, type: 3}
+    - target: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
+      propertyPath: LlavesRecolectadas.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 20e1624f1d72d794386cb9cc12712947, type: 3}
     - target: {fileID: 8018657402866156073, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11021,7 +11033,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 691b91f81b6e9a74b8c6869296c0423c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
