@@ -246,7 +246,10 @@ public class FP_Controller : MonoBehaviour
         }
         if (other.gameObject.tag == "Puerta" && contadorLlaves == 6)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("Win");
+
         }
 
         if(other.gameObject.tag == "Escondite")
@@ -363,6 +366,8 @@ public class FP_Controller : MonoBehaviour
         }
         if (playerHealth == 0)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("GameOver");
         }
     }
