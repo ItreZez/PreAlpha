@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2221587529267789728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4344075023622254229}
+  m_Layer: 0
+  m_Name: LamparaConjuntos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4344075023622254229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221587529267789728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6475185083161855575}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3745985852014556689
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +64,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7551770289941038767}
+  - {fileID: 4344075023622254229}
   m_Father: {fileID: 8018657402866156074}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -352,6 +384,7 @@ MonoBehaviour:
   playerHealth: 2
   panelHurt: {fileID: 0}
   hit: 0
+  CanvasHurtI: {fileID: 0}
   walkSpeed: 7
   runSpeed: 10
   jumpSpeed: 8
@@ -368,7 +401,7 @@ MonoBehaviour:
   seRecogioPila: 0
   nombreItem: 
   siRango: 0
-  CargaSlider: {fileID: 0}
+  CargaRun: {fileID: 0}
   Escondido: 0
 --- !u!54 &8018657402866156077
 Rigidbody:
@@ -417,7 +450,7 @@ MonoBehaviour:
   siBateria: 1
   usoBateria: 0.01
   puedeRecargar: 0
-  CargaSlider: {fileID: 0}
+  CargaLampara: {fileID: 0}
   ImagenPilas: {fileID: 0}
   PilasRecolectadas: []
   inventarioPilas: 
@@ -442,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d4c1874e1397ad4093979772531b6a7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.039435215
+      value: 0.039435208
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d4c1874e1397ad4093979772531b6a7, type: 3}
       propertyPath: m_LocalPosition.x

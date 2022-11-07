@@ -8,6 +8,8 @@ public class Lampara : MonoBehaviour
 
     [Header("On/Off")]
     public bool isOn;
+    public bool tieneLampara;
+
 
 
     [Header("Porcentaje de pila")]
@@ -30,7 +32,7 @@ public class Lampara : MonoBehaviour
     FP_Controller player;
     private EnemigoPrincipal enemigoP;
     private EnemyState enemigoAraña;
-   
+
 
 
 
@@ -46,6 +48,9 @@ public class Lampara : MonoBehaviour
         //CargaSlider.value = bateria;
 
         CargaLampara.fillAmount = bateria / BateriaMaxima;
+
+        
+
 
 
 
@@ -72,33 +77,36 @@ public class Lampara : MonoBehaviour
 
     public void ApagarLampara()
     {
-        
-        if (Input.GetMouseButtonDown(1))
+        if (tieneLampara == true)
         {
 
-
-            if (isOn == true)
+            if (Input.GetMouseButtonDown(1))
             {
-                isOn = false;
+
+
+                if (isOn == true)
+                {
+                    isOn = false;
+                }
+                else
+                {
+                    if (siBateria == true)
+                        isOn = true;
+                }
+
+
+                Debug.Log("Lampara esta prendida:" + isOn);
+
+            }
+
+            if (isOn == false)
+            {
+                _lampara.SetActive(false);
             }
             else
             {
-                if (siBateria == true)
-                isOn = true;
+                _lampara.SetActive(true);
             }
-
-
-            Debug.Log("Lampara esta prendida:" + isOn);
-
-        }
-
-        if (isOn == false)
-        {
-            _lampara.SetActive(false);
-        }
-        else
-        {
-            _lampara.SetActive(true);
         }
 
     }
@@ -124,14 +132,14 @@ public class Lampara : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" && bateria >=6 && isOn == true)
+        if (other.gameObject.tag == "Enemy" && bateria >= 6 && isOn == true)
         {
             bateria = bateria - 5f;
 
 
         }
 
-        if(other.gameObject.tag == "EnemigoPrincipal" && bateria >=6 && isOn == true)
+        if (other.gameObject.tag == "EnemigoPrincipal" && bateria >= 6 && isOn == true)
         {
             bateria = bateria - 5f;
         }
@@ -154,7 +162,7 @@ public class Lampara : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && puedeRecargar == true)
         {
 
-            if(inventarioPilas.Count > 0)
+            if (inventarioPilas.Count > 0)
             {
                 bateria = bateria + 100f;
                 inventarioPilas.Remove(1);
@@ -170,8 +178,8 @@ public class Lampara : MonoBehaviour
         {
             inventarioPilas.Add(1);
             Debug.Log(inventarioPilas.Count);
-            
-            
+
+
 
         }
     }
@@ -205,7 +213,7 @@ public class Lampara : MonoBehaviour
     {
         if (other.gameObject.tag == "Escondite" && isOn) player.Escondido = false;
     }
-   
+
 
 
 
