@@ -7,7 +7,7 @@ using TMPro;
 
 public class FullScreen : MonoBehaviour
 {//START CLASS FullScreen
-    public Toggle toggle;
+    //public Toggle toggle;
 
 
     //PARA RESOLUCION
@@ -17,7 +17,7 @@ public class FullScreen : MonoBehaviour
 
     private void Start()
     {
-        if (Screen.fullScreen)
+        /*if (Screen.fullScreen)
         {
             toggle.isOn = true;
         }
@@ -25,7 +25,7 @@ public class FullScreen : MonoBehaviour
         {
             toggle.isOn = false;
         }
-
+        */
         RevisarResolucion();
     }
 
