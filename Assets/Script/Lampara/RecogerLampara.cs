@@ -18,8 +18,12 @@ public class RecogerLampara : MonoBehaviour
                 luz.SetActive(true);
                 LamparaPlayer.SetActive(true);
                 Destroy(gameObject);
+
+
             
             
         }
     }
+
+
 }

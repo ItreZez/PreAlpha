@@ -25,6 +25,8 @@ public class Lampara : MonoBehaviour
     private float BateriaMaxima = 100f;
     public Image ImagenPilas;
     public Sprite[] PilasRecolectadas;
+    [SerializeField] private GameObject UILamparaCanvas;
+
 
     public List<int> inventarioPilas = new List<int>();
     GameObject _lampara;
@@ -44,15 +46,11 @@ public class Lampara : MonoBehaviour
         pila = GetComponent<Pila>();
         player = GetComponent<FP_Controller>();
         enemigoAraña = GetComponent<EnemyState>();
+        UILamparaCanvas.SetActive(false);
 
         //CargaSlider.value = bateria;
 
         CargaLampara.fillAmount = bateria / BateriaMaxima;
-
-        
-
-
-
 
 
     }
@@ -107,6 +105,8 @@ public class Lampara : MonoBehaviour
             {
                 _lampara.SetActive(true);
             }
+
+            UILamparaCanvas.SetActive(true);
         }
 
     }
@@ -213,8 +213,5 @@ public class Lampara : MonoBehaviour
     {
         if (other.gameObject.tag == "Escondite" && isOn) player.Escondido = false;
     }
-
-
-
 
 }
