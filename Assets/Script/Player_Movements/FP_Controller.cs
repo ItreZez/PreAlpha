@@ -205,6 +205,9 @@ public class FP_Controller : MonoBehaviour
 
 
     }
+
+ 
+  
     
 
     //Recoleccion de Items

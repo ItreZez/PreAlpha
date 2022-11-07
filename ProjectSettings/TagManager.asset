@@ -17,6 +17,8 @@ TagManager:
   - Yunque
   - Puerta
   - RangoChaseEP
+  - Escondite
+  - SpawnAttack
   layers:
   - Default
   - TransparentFX
