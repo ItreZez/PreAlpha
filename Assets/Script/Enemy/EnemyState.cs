@@ -156,7 +156,7 @@ public class EnemyState : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Lampara")
+        if (other.gameObject.tag == "Lampara" && FindObjectOfType<Lampara>().tieneLampara == true)
         {
             nma.speed = 0;
             isAturdido = true;
