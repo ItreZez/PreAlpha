@@ -62,6 +62,10 @@ public class FP_Controller : MonoBehaviour
 
     [Header("Esconderse")]
     public bool Escondido = false;
+
+    [Header("MAPA")]
+
+    public bool recogioMapa;
     
 
 
