@@ -231,7 +231,6 @@ MonoBehaviour:
   pole: {fileID: 938844632366906730}
   isAturdido: 0
   tiempoAturdido: 5
-  fp_controller: {fileID: 0}
   EscondidoB: 0
 --- !u!114 &6293876521268822620
 MonoBehaviour:
@@ -315,6 +314,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfa4546a91baf5a46a1bea1cd4a0ae16, type: 3}
+--- !u!1 &127820330601553209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bfa4546a91baf5a46a1bea1cd4a0ae16, type: 3}
+  m_PrefabInstance: {fileID: 938844633190441064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7132090147010800141
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127820330601553209}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27a3b6815360ebc47850ef58433da289, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &760487410418337667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bfa4546a91baf5a46a1bea1cd4a0ae16, type: 3}
