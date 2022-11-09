@@ -10,16 +10,12 @@ public class Mapa : MonoBehaviour
   private void OnTriggerStay(Collider other)
     {
         if(other.gameObject == player && Input.GetKey(KeyCode.E))
-        {
-            
-                
+        {        
+
             Debug.Log("Recogio Mapa");
             FindObjectOfType<FP_Controller>().recogioMapa = true;
-            Destroy(gameObject);
+            Destroy(gameObject);   
 
-
-            
-            
         }
     }
 }

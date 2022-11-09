@@ -84,6 +84,7 @@ public class FP_Controller : MonoBehaviour
 
         CargaRun.fillAmount = stamina / RunMaxima;
 
+        recogioMapa = false;
     }
 
     // Update is called once per frame
