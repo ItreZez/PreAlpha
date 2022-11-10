@@ -29,7 +29,8 @@ public class Lampara : MonoBehaviour
     [SerializeField] private GameObject UILamparaCanvas;
 
     [Header("SFX")]
-    [SerializeField]  
+    [SerializeField] GameObject LamparaTuOfSfx;
+    [SerializeField] GameObject LamparaRSfx;
 
 
     public List<int> inventarioPilas = new List<int>();
@@ -38,10 +39,7 @@ public class Lampara : MonoBehaviour
     FP_Controller player;
     private EnemigoPrincipal enemigoP;
     private EnemyState enemigoAraña;
-
-
-
-
+    public Transform PlayerTr;
 
 
     void Start()
@@ -89,11 +87,14 @@ public class Lampara : MonoBehaviour
                 if (isOn == true)
                 {
                     isOn = false;
+                    Destroy(Instantiate(LamparaTuOfSfx, PlayerTr.position, Quaternion.identity), 1f);
                 }
                 else
                 {
                     if (siBateria == true)
                         isOn = true;
+                    Destroy(Instantiate(LamparaTuOfSfx, PlayerTr.position, Quaternion.identity), 1f);
+
                 }
 
 
@@ -171,6 +172,8 @@ public class Lampara : MonoBehaviour
                 bateria = bateria + 100f;
                 inventarioPilas.Remove(1);
                 siBateria = true;
+                Destroy(Instantiate(LamparaRSfx, PlayerTr.position, Quaternion.identity), 1f);
+
             }
         }
 

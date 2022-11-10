@@ -2,41 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Audio;
 public class VOL : MonoBehaviour
 {//START CLASS VOL
 
-    public Slider slider;
-    public float sliderValue;
-    public Image imagenMute;
+
+    public Slider sliderMusic;
+    public float sliderValueMusic;
+    public Image imagenMuteMusic;
 
     private void Start()
     {
         //guardar la configuracion de volumen 
-        slider.value = PlayerPrefs.GetFloat("volumenAudio", 0.5f);
-        AudioListener.volume = slider.value;
-        RevisarSiEstoyMute();
+        sliderMusic.value = PlayerPrefs.GetFloat("volumenAudio", 0.5f);
+        AudioListener.volume = sliderMusic.value;
+        RevisarSiEstoyMuteMusic();
     }
     
     public void ChangeSlider(float valor)
     {
-        sliderValue = valor;
-        PlayerPrefs.SetFloat("volumenAudio", sliderValue);
-        AudioListener.volume = slider.value;
-        RevisarSiEstoyMute();
+        sliderValueMusic = valor;
+        PlayerPrefs.SetFloat("volumenAudio", sliderValueMusic);
+        AudioListener.volume = sliderMusic.value;
+        RevisarSiEstoyMuteMusic();
 
     }
 
-    public void RevisarSiEstoyMute()
+    public void RevisarSiEstoyMuteMusic()
     {
-        if (sliderValue == 0)
+        if (sliderValueMusic == 0)
         {
-            imagenMute.enabled = true;
+            imagenMuteMusic.enabled = true;
         }
         else
         {
-            imagenMute.enabled = false;
+            imagenMuteMusic.enabled = false;
         }
     }
 
+   
 }//END CLASS VOL
