@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Lampara : MonoBehaviour
 {
 
@@ -26,6 +27,9 @@ public class Lampara : MonoBehaviour
     public Image ImagenPilas;
     public Sprite[] PilasRecolectadas;
     [SerializeField] private GameObject UILamparaCanvas;
+
+    [Header("SFX")]
+    [SerializeField]  
 
 
     public List<int> inventarioPilas = new List<int>();
