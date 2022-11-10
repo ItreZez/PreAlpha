@@ -1585,9 +1585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e0e2dbbc9053443b09e9d7eab20d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 94442553}
-  sliderValue: 0
-  imagenMute: {fileID: 1262975762}
+  sliderMusic: {fileID: 94442553}
+  sliderValueMusic: 0
+  imagenMuteMusic: {fileID: 1262975762}
 --- !u!4 &499092712
 Transform:
   m_ObjectHideFlags: 0
