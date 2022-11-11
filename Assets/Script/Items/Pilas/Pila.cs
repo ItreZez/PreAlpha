@@ -7,6 +7,7 @@ public class Pila : MonoBehaviour
     private Lampara lampara;
     private FP_Controller player;
     public GameObject _pila;
+    public GameObject _pilaOutline;
 
     
 
@@ -29,12 +30,24 @@ public class Pila : MonoBehaviour
     {
          if(other.gameObject.tag == "Player"  &&  Input.GetMouseButtonDown(0))
          {
-             _pila.SetActive(false);
+            
             lampara.AgregarPilaInventario();
             player.RecogerPila();
+            _pilaOutline.SetActive(true);
          }
+    }
 
-        
+
+    private void OnTriggerEnter(Collider other)
+    {
+         if(other.gameObject.tag == "Lampara")_pilaOutline.SetActive(true);
+    }
+
+   
+ 
+   private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Lampara")_pilaOutline.SetActive(false);
         
     }
 }
