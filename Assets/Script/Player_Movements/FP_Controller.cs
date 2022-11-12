@@ -163,7 +163,7 @@ public class FP_Controller : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" && Escondido == false)
         {
 
             if (playerHealth > 0 && hit == false)
