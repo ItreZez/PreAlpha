@@ -15,6 +15,7 @@ public class FP_Controller : MonoBehaviour
 
     public EnemigoPrincipal enemigoP;
 
+
     [Header("Health")]
     public float playerHealth = 2;
     public Image panelHurt;
@@ -42,6 +43,10 @@ public class FP_Controller : MonoBehaviour
     public Image ImagenLLaves;
     public Sprite[] LlavesRecolectadas;
     public GameObject yunque;
+    public GameObject UIllave;
+
+    [Header("SFX")]
+    [SerializeField] private GameObject YunqueArmarSF;
 
     public GameObject puerta;
 
@@ -66,6 +71,7 @@ public class FP_Controller : MonoBehaviour
     [Header("MAPA")]
 
     public bool recogioMapa;
+
     
 
 
@@ -85,6 +91,8 @@ public class FP_Controller : MonoBehaviour
         CargaRun.fillAmount = stamina / RunMaxima;
 
         recogioMapa = false;
+        UIllave.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -160,6 +168,9 @@ public class FP_Controller : MonoBehaviour
 
         CanvasHurt();
     }
+    
+
+
 
     private void OnCollisionEnter(Collision other)
     {
@@ -211,9 +222,7 @@ public class FP_Controller : MonoBehaviour
 
     }
 
- 
-  
-    
+
 
     //Recoleccion de Items
     private void OnTriggerStay(Collider other)
@@ -239,6 +248,11 @@ public class FP_Controller : MonoBehaviour
             {
                 contadorLlaves = 5;
                 Debug.Log("Creaste Llave Chingona");
+
+                //Audio Yunque
+                Destroy(Instantiate(YunqueArmarSF, transform.position, Quaternion.identity), 1f);
+
+
             }
         }
 
@@ -266,6 +280,7 @@ public class FP_Controller : MonoBehaviour
             Escondido = true;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
 
@@ -311,15 +326,13 @@ public class FP_Controller : MonoBehaviour
         }
     }
 
-
-
-
     IEnumerator ResetPila()
     {
         yield return new WaitForEndOfFrame();
         seRecogioPila = false;
 
     }
+    
     void LLavesRecolectadasSprite()
     {
         if (contadorLlaves == 0)
@@ -352,6 +365,7 @@ public class FP_Controller : MonoBehaviour
             ImagenLLaves.sprite = LlavesRecolectadas[5];
         }
     }
+    
     public IEnumerator Regenerarse()
     {
         yield return new WaitForSeconds(10);

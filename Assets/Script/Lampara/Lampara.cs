@@ -33,6 +33,7 @@ public class Lampara : MonoBehaviour
     [SerializeField] GameObject LamparaRSfx;
 
 
+
     public List<int> inventarioPilas = new List<int>();
     GameObject _lampara;
     Pila pila;

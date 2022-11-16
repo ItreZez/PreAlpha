@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Mapa : MonoBehaviour
 {
-    
-    public GameObject player;
 
-  private void OnTriggerStay(Collider other)
+    [SerializeField] private GameObject player;
+
+    [SerializeField] private GameObject RecogerIteamSF;
+
+
+    private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject == player && Input.GetKey(KeyCode.E))
-        {        
+
+        if (other.gameObject == player && Input.GetKey(KeyCode.E))
+        {
+            Destroy(Instantiate(RecogerIteamSF, player.transform.position, Quaternion.identity), 1f);
 
             Debug.Log("Recogio Mapa");
             FindObjectOfType<FP_Controller>().recogioMapa = true;
-            Destroy(gameObject);   
+            Destroy(gameObject);
+            FindObjectOfType<FP_Controller>().UIllave.SetActive(true);
+
 
         }
     }
