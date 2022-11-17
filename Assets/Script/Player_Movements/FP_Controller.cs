@@ -47,6 +47,8 @@ public class FP_Controller : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private GameObject YunqueArmarSF;
+    [SerializeField] private GameObject RecogerSfx;
+
 
     public GameObject puerta;
 
@@ -69,11 +71,10 @@ public class FP_Controller : MonoBehaviour
     public bool Escondido = false;
 
     [Header("MAPA")]
-
     public bool recogioMapa;
 
-    
 
+    
 
 
     void Start()
@@ -93,6 +94,7 @@ public class FP_Controller : MonoBehaviour
         recogioMapa = false;
         UIllave.SetActive(false);
 
+
     }
 
     // Update is called once per frame
@@ -100,12 +102,14 @@ public class FP_Controller : MonoBehaviour
     {
         InstanciarYunque();
 
+
         CargaRun.fillAmount = stamina / RunMaxima;
 
         if (characterController.isGrounded)
         {
             //Haciendo fuerza al player para moverse con W S A D  y con las flechas
             move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+
 
             //Para correr
             if (Input.GetKey(KeyCode.LeftShift) && stamina >= 1)
@@ -120,8 +124,6 @@ public class FP_Controller : MonoBehaviour
                     CargaRun.fillAmount = stamina / RunMaxima;
                 }
 
-
-
             }
             //caminar a velocidad normal
             else
@@ -130,6 +132,7 @@ public class FP_Controller : MonoBehaviour
                 //Sin esta linea el personaje siempre va hacia adelante sin importar a donde vea
                 move = transform.TransformDirection(move) * walkSpeed;
                 CargaRun.fillAmount = stamina / RunMaxima;
+
             }
 
             //Para Saltar
@@ -168,7 +171,6 @@ public class FP_Controller : MonoBehaviour
 
         CanvasHurt();
     }
-    
 
 
 
@@ -191,10 +193,6 @@ public class FP_Controller : MonoBehaviour
 
         }
     }
-
-
-
-
 
 
 
@@ -233,6 +231,7 @@ public class FP_Controller : MonoBehaviour
             siRango = true;
             nombreLlave = other.gameObject.tag;
 
+
         }
         if (other.gameObject.tag == "Pila")
         {
@@ -240,6 +239,7 @@ public class FP_Controller : MonoBehaviour
             nombreItem = other.gameObject.tag;
             _pila = other.gameObject;
             RecogerPila();
+
         }
 
         if (other.gameObject.tag == "Yunque")

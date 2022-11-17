@@ -118,7 +118,6 @@ public class Lampara : MonoBehaviour
     }
 
 
-
     IEnumerator RestaBateria()
     {
         if (isOn == true)

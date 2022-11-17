@@ -20,6 +20,9 @@ public class Contenedor_de_Llaves : MonoBehaviour
 
     public bool recogioLlave;
 
+    [SerializeField] private GameObject LlaveSF;
+
+
 
     //public GameObject ObjPuntos; ACTIVAR OTRA VEZ *--------------------------------------------------------------
     public float numeroDeLlaves;
@@ -62,8 +65,9 @@ public class Contenedor_de_Llaves : MonoBehaviour
                     Player_Controller.contadorLlaves++;
                     Debug.Log("llave recogida " + Player_Controller.contadorLlaves);
                     recogioLlave = false;
-                    
-            
+                    Destroy(Instantiate(LlaveSF, transform.position, Quaternion.identity), 1f);
+
+
                 }
                 else
                 {

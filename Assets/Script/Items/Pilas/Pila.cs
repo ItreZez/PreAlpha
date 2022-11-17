@@ -8,8 +8,10 @@ public class Pila : MonoBehaviour
     private FP_Controller player;
     public GameObject _pila;
     public GameObject _pilaOutline;
+    public GameObject PlayerTrans;
 
-    
+    [SerializeField] private GameObject RecogerSfx;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +32,13 @@ public class Pila : MonoBehaviour
     {
          if(other.gameObject.tag == "Player"  &&  Input.GetMouseButtonDown(0))
          {
-            
+            Destroy(Instantiate(RecogerSfx, PlayerTrans.transform.position, Quaternion.identity), 1f);
+
             lampara.AgregarPilaInventario();
             player.RecogerPila();
             _pilaOutline.SetActive(true);
-         }
+
+        }
     }
 
 
