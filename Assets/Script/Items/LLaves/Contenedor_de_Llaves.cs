@@ -49,7 +49,7 @@ public class Contenedor_de_Llaves : MonoBehaviour
     {
 
         //Para poder recoger el item/llave y agregar 1+ al contador de llaves
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
            // ObjPuntos.GetComponent<Puntos>().puntos += numeroDeLlaves; *-------------------ACTIVAR OTRA VESZ*-*-*-*-*--*-*-*-*-*-*-*
 

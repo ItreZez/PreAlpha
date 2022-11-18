@@ -142,12 +142,12 @@ public class FP_Controller : MonoBehaviour
             }
             //Crouch
 
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 Agacharse();
             }
 
-            if (Input.GetKeyUp(KeyCode.LeftControl))
+            if (Input.GetKeyUp(KeyCode.Q))
             {
 
                 Levantarse();
@@ -304,7 +304,7 @@ public class FP_Controller : MonoBehaviour
 
     public void RecogerPila()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (siRango == true && nombreItem.Contains("Pila"))
             {

@@ -24,10 +24,6 @@ public class RecogerLampara : MonoBehaviour
             Destroy(gameObject);
             Destroy(Instantiate(RecogerSfx, player.transform.position, Quaternion.identity), 1f);
 
-
-
-
-
         }
     }
 

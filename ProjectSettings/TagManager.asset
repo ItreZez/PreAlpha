@@ -19,11 +19,12 @@ TagManager:
   - RangoChaseEP
   - Escondite
   - SpawnAttack
-  - LamparaRecoger
-  - CartelLampara
-  - MovSecundario
-  - TextoAtaque
-  - UIMapa
+  - Text_Recoger
+  - Text_Linterna1
+  - Text_Linterna2
+  - Text_Mov2
+  - Text_Ataque
+  - Text_Ataque2
   layers:
   - Default
   - TransparentFX
