@@ -12,9 +12,15 @@ public class RecogerLampara : MonoBehaviour
 
     [SerializeField] GameObject RecogerSfx;
 
+    [SerializeField] private GameObject TextRecoger;
 
+  
     private void OnTriggerStay(Collider other)
     {
+        if (other.gameObject == player)
+        {
+            TextRecoger.SetActive(true);
+        }
         if (other.gameObject == player && Input.GetKey(KeyCode.E))
         {
             shaderOutline.SetActive(false);
@@ -23,9 +29,9 @@ public class RecogerLampara : MonoBehaviour
             LamparaPlayer.SetActive(true);
             Destroy(gameObject);
             Destroy(Instantiate(RecogerSfx, player.transform.position, Quaternion.identity), 1f);
+            TextRecoger.SetActive(false);
 
         }
     }
-
 
 }

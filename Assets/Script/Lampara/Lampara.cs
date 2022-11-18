@@ -12,7 +12,6 @@ public class Lampara : MonoBehaviour
     public bool tieneLampara;
 
 
-
     [Header("Porcentaje de pila")]
     public float bateria = 100f;
     public bool siBateria;
