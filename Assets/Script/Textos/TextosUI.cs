@@ -12,7 +12,8 @@ public class TextosUI : MonoBehaviour
     [SerializeField] private GameObject TexAtaq1;
     [SerializeField] private GameObject TexAtaq2;
     [SerializeField] private GameObject TexAtaq3;
-
+    [SerializeField] private GameObject TexFaro;
+    [SerializeField] private GameObject TexEsc;
 
     [Header("Bools")]
     [SerializeField] private bool textUsoActivado;
@@ -24,6 +25,11 @@ public class TextosUI : MonoBehaviour
     //Tex_Recargar
     //Tex_Mov2
     //Tex_Mov1
+    //Tex_Ataq1
+    //Tex_Ataq2
+    //Tex_Ataq3
+    //Tex_Faro
+    //Tex_Esc
 
 
     private void Start()
@@ -72,6 +78,17 @@ public class TextosUI : MonoBehaviour
         {
             TexAtaq3.SetActive(true);
         }
+
+        //Faro
+        if(other.tag == "Tex_Faro")
+        {
+            TexFaro.SetActive(true);
+        }
+        if (other.tag == "Tex_Esc")
+        {
+            TexEsc.SetActive(true);
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -104,6 +121,16 @@ public class TextosUI : MonoBehaviour
         if (other.tag == "Tex_Ataq3")
         {
             TexAtaq3.SetActive(false);
+        }
+
+        //Faro
+        if (other.tag == "Tex_Faro")
+        {
+            TexFaro.SetActive(false);
+        }
+        if (other.tag == "Tex_Esc")
+        {
+            TexEsc.SetActive(false);
         }
     }
 
