@@ -12,7 +12,7 @@ public class FullScreen : MonoBehaviour
 
     //PARA RESOLUCION
     public TMP_Dropdown resolucionesDropdown;
-    Resolution[] resoluciones;
+    public Resolution[] resoluciones;
 
 
     private void Start()

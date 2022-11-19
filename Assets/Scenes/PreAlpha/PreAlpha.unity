@@ -13833,7 +13833,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 381032959}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 0.5
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -36258,7 +36258,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1341479329
 Transform:
@@ -36307,9 +36307,14 @@ MonoBehaviour:
   TexAtaq2: {fileID: 795885929}
   TexAtaq3: {fileID: 774613207}
   TexFaro: {fileID: 1990972791}
-  TexEsc: {fileID: 0}
+  TexEsc: {fileID: 1021066716}
+  TexNoLlave: {fileID: 1620991863}
+  TexLlave: {fileID: 592611028}
+  TexNoYunque: {fileID: 185564751}
+  TexSiYunque: {fileID: 1611179950}
   textUsoActivado: 0
   textoPuedeRecargar: 0
+  NumeroLlaves: 0
 --- !u!1001 &1342687787
 PrefabInstance:
   m_ObjectHideFlags: 0

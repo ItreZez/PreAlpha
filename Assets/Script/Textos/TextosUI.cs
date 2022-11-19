@@ -14,10 +14,17 @@ public class TextosUI : MonoBehaviour
     [SerializeField] private GameObject TexAtaq3;
     [SerializeField] private GameObject TexFaro;
     [SerializeField] private GameObject TexEsc;
+    [SerializeField] private GameObject TexNoLlave;
+    [SerializeField] private GameObject TexLlave;
+    [SerializeField] private GameObject TexNoYunque;
+    [SerializeField] private GameObject TexSiYunque;
 
     [Header("Bools")]
     [SerializeField] private bool textUsoActivado;
     [SerializeField] private bool textoPuedeRecargar;
+
+    [Header("Numeros")]
+    [SerializeField] private int NumeroLlaves;
 
     //tags----------------------------------------------------------
     //
@@ -30,6 +37,8 @@ public class TextosUI : MonoBehaviour
     //Tex_Ataq3
     //Tex_Faro
     //Tex_Esc
+    //Puerta
+    //Yunque
 
 
     private void Start()
@@ -41,6 +50,7 @@ public class TextosUI : MonoBehaviour
         textUsoActivado = FindObjectOfType<Lampara>().TextoUsoActivado;
         textoPuedeRecargar = FindObjectOfType<Lampara>().TextoPuedeRecargar;
 
+        NumeroLlaves = FindObjectOfType<FP_Controller>().contadorLlaves;
     }
 
     private void Update()
@@ -49,6 +59,11 @@ public class TextosUI : MonoBehaviour
         //Lampara
         textUsoActivado = FindObjectOfType<Lampara>().TextoUsoActivado;
         textoPuedeRecargar = FindObjectOfType<Lampara>().TextoPuedeRecargar;
+
+        NumeroLlaves = FindObjectOfType<FP_Controller>().contadorLlaves;
+
+        TLlaveArmadaDestruyePuerta();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,6 +104,25 @@ public class TextosUI : MonoBehaviour
             TexEsc.SetActive(true);
         }
 
+        //Puerta
+        if(other.tag == "Puerta" && NumeroLlaves < 5)
+        {
+            TexNoLlave.SetActive(true);
+        }
+        if(other.tag == "Puerta" && NumeroLlaves == 5)
+        {
+            TexLlave.SetActive(true);
+        }
+
+        //Yunque
+        if (other.tag == "Yunque" && NumeroLlaves < 4)
+        {
+            TexNoYunque.SetActive(true);
+        }
+        if (other.tag == "Yunque" && NumeroLlaves == 4)
+        {
+            TexSiYunque.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -132,6 +166,40 @@ public class TextosUI : MonoBehaviour
         {
             TexEsc.SetActive(false);
         }
+
+        //Puerta
+        if (other.tag == "Puerta")
+        {
+            TexNoLlave.SetActive(false);
+        }
+        if (other.tag == "Puerta")
+        {
+            TexLlave.SetActive(false);
+        }
+
+        //Yunque
+        if (other.tag == "Yunque")
+        {
+            TexNoYunque.SetActive(false);
+        }
+        if (other.tag == "Yunque")
+        {
+            TexSiYunque.SetActive(false);
+        }
     }
+
+    //desactiva Texto de llave armada y puerta destruida
+    void TLlaveArmadaDestruyePuerta()
+    {
+        if(NumeroLlaves == 5)
+        {
+            TexSiYunque.SetActive(false);
+        }
+        if(NumeroLlaves == 6)
+        {
+            TexLlave.SetActive(false);
+        }
+    }
+
 
 }

@@ -13,7 +13,7 @@ public class CalidadDeImagen : MonoBehaviour
 
     private void Start()
     {
-        calidad = PlayerPrefs.GetInt("numero de calidad", 4);
+        calidad = PlayerPrefs.GetInt("numero de calidad", 5);
         dropdown.value = calidad;
         AjustarCalidad();
 
