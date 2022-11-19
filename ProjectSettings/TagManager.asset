@@ -20,11 +20,12 @@ TagManager:
   - Escondite
   - SpawnAttack
   - Text_Recoger
-  - Text_Linterna1
-  - Text_Linterna2
-  - Text_Mov2
-  - Text_Ataque
-  - Text_Ataque2
+  - Tex_Mov1
+  - Tex_Recargar
+  - Tex_Mov2
+  - Tex_Ataq1
+  - Tex_Ataq2
+  - Tex_Ataq3
   layers:
   - Default
   - TransparentFX

@@ -34,4 +34,12 @@ public class RecogerLampara : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            TextRecoger.SetActive(false);
+        }
+    }
+
 }

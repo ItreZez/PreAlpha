@@ -5,12 +5,18 @@ using UnityEngine;
 public class UIMapa : MonoBehaviour
 {
     [SerializeField] private GameObject MapaUI;
+    [SerializeField] private GameObject TexMapaAbrir;
+
+
     public bool MapaA;
     public bool MapaAct;
+
+    public bool AbrioMapa;
     private void Start()
     {
         MapaUI.SetActive(false);
         MapaA = FindObjectOfType<FP_Controller>().recogioMapa;
+        AbrioMapa = false;
     }
 
    

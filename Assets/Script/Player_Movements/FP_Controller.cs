@@ -110,6 +110,7 @@ public class FP_Controller : MonoBehaviour
             //Haciendo fuerza al player para moverse con W S A D  y con las flechas
             move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
+            if(move.sqrMagnitude > 0)
 
             //Para correr
             if (Input.GetKey(KeyCode.LeftShift) && stamina >= 1)

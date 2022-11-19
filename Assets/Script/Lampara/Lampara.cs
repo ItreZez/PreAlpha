@@ -26,6 +26,9 @@ public class Lampara : MonoBehaviour
     public Image ImagenPilas;
     public Sprite[] PilasRecolectadas;
     [SerializeField] private GameObject UILamparaCanvas;
+    [SerializeField] private GameObject TextoUso;
+    public bool TextoUsoActivado;
+    public bool TextoPuedeRecargar;
 
     [Header("SFX")]
     [SerializeField] GameObject LamparaTuOfSfx;
@@ -54,6 +57,9 @@ public class Lampara : MonoBehaviour
 
         CargaLampara.fillAmount = bateria / BateriaMaxima;
 
+        TextoUso.SetActive(false);
+        TextoUsoActivado = false;
+        TextoPuedeRecargar = false;
 
     }
 
@@ -67,6 +73,8 @@ public class Lampara : MonoBehaviour
         CargaLampara.fillAmount = bateria / BateriaMaxima;
 
         PilasRecolectadasSprite();
+
+        textoUsoL();
 
     }
 
@@ -220,4 +228,17 @@ public class Lampara : MonoBehaviour
         if (other.gameObject.tag == "Escondite" && isOn) player.Escondido = false;
     }
 
+    void textoUsoL()
+    {
+        if(tieneLampara == true && TextoUsoActivado == false)
+        {
+            TextoUso.SetActive(true);
+            TextoUsoActivado = true;
+        }
+        if(TextoUsoActivado == true && Input.GetMouseButtonDown(1))
+        {
+            TextoUso.SetActive(false);
+            TextoPuedeRecargar = true;
+        }
+    }
 }
