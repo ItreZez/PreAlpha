@@ -21,13 +21,14 @@ public class FP_Controller : MonoBehaviour
     public Image panelHurt;
     public bool hit = false;
     public GameObject CanvasHurtI;
-    
+
     [Header("OPCIONES DE PERSONAJE")]
     //Variables que ayudan al movimiento
     public float walkSpeed = 6f;
     public float runSpeed = 9f;
     public float jumpSpeed = 8f;
     //Esta gravedad se puede cambiar a como queramos
+    public float velocidad = 0;
     public float gravity = 20f;
     public float stamina = 100;
 
@@ -48,6 +49,11 @@ public class FP_Controller : MonoBehaviour
     [Header("SFX")]
     [SerializeField] private GameObject YunqueArmarSF;
     [SerializeField] private GameObject RecogerSfx;
+    [SerializeField] private GameObject CaminarSfx;
+    private bool caminarSfxSi;
+    [SerializeField] private GameObject CorrerSfx;
+
+    private bool correrSfxSi;
 
 
     public GameObject puerta;
@@ -74,7 +80,7 @@ public class FP_Controller : MonoBehaviour
     public bool recogioMapa;
 
 
-    
+
 
 
     void Start()
@@ -100,7 +106,10 @@ public class FP_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         InstanciarYunque();
+        velocidad = 0;
+
 
 
         CargaRun.fillAmount = stamina / RunMaxima;
@@ -110,31 +119,35 @@ public class FP_Controller : MonoBehaviour
             //Haciendo fuerza al player para moverse con W S A D  y con las flechas
             move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
-            if(move.sqrMagnitude > 0)
+            if (move.sqrMagnitude > 0)
 
-            //Para correr
-            if (Input.GetKey(KeyCode.LeftShift) && stamina >= 1)
-            {
-
-                stamina = stamina - .45f;
-                Debug.Log(stamina);
-                if (stamina > 1)
+                //Para correr
+                if (Input.GetKey(KeyCode.LeftShift) && stamina >= 1)
                 {
-                    
-                    move = transform.TransformDirection(move) * runSpeed;
-                    CargaRun.fillAmount = stamina / RunMaxima;
+
+                    stamina = stamina - .45f;
+                    Debug.Log(stamina);
+                    if (stamina > 1)
+                    {
+
+                        move = transform.TransformDirection(move) * runSpeed;
+                        CargaRun.fillAmount = stamina / RunMaxima;
+                        velocidad = runSpeed;
+                        SFXMovimiento();
+                    }
+
                 }
+                //caminar a velocidad normal
+                else
+                {
+                    Stamina();
+                    //Sin esta linea el personaje siempre va hacia adelante sin importar a donde vea
+                    move = transform.TransformDirection(move) * walkSpeed;
+                    CargaRun.fillAmount = stamina / RunMaxima;
+                    velocidad = walkSpeed;
+                    SFXMovimiento();
 
-            }
-            //caminar a velocidad normal
-            else
-            {
-                Stamina();
-                //Sin esta linea el personaje siempre va hacia adelante sin importar a donde vea
-                move = transform.TransformDirection(move) * walkSpeed;
-                CargaRun.fillAmount = stamina / RunMaxima;
-
-            }
+                }
 
             //Para Saltar
             if (Input.GetKey(KeyCode.Space))
@@ -275,7 +288,7 @@ public class FP_Controller : MonoBehaviour
 
         }
 
-        if(other.gameObject.tag == "Escondite")
+        if (other.gameObject.tag == "Escondite")
         {
 
             Escondido = true;
@@ -333,7 +346,7 @@ public class FP_Controller : MonoBehaviour
         seRecogioPila = false;
 
     }
-    
+
     void LLavesRecolectadasSprite()
     {
         if (contadorLlaves == 0)
@@ -366,7 +379,7 @@ public class FP_Controller : MonoBehaviour
             ImagenLLaves.sprite = LlavesRecolectadas[5];
         }
     }
-    
+
     public IEnumerator Regenerarse()
     {
         yield return new WaitForSeconds(10);
@@ -412,8 +425,54 @@ public class FP_Controller : MonoBehaviour
         Debug.Log(stamina);
     }
 
+    public void SFXMovimiento()
+    {
+        GameObject caminar = CaminarSfx;
+        GameObject correr = CorrerSfx;
+        if (velocidad == 4.5 && caminarSfxSi == false)
+        {
 
-   
+            Destroy(Instantiate(caminar, transform.position, Quaternion.identity), .92f);
+            caminarSfxSi = true;
+            StartCoroutine(cambiarBoolCaminar());
+            if (velocidad == 0)
+            {
+                Destroy(caminar);
+
+            }
+        }
+        if (velocidad == 7 && correrSfxSi == false)
+        {
+            Destroy(Instantiate(correr, transform.position, Quaternion.identity),.9f);
+            correrSfxSi = true;
+            StartCoroutine(cambiarBoolCorrer());
+            if (velocidad == 0)
+            {
+                Destroy(correr);
+
+            }
+
+        }
+
+
+    }
+
+    IEnumerator cambiarBoolCaminar()
+    {
+        yield return new WaitForSeconds(1);
+        caminarSfxSi = false;
+
+    }
+     IEnumerator cambiarBoolCorrer()
+    {
+        yield return new WaitForSeconds(.9f);
+        correrSfxSi = false;
+
+    }
+
+
+
+
 
 
 }

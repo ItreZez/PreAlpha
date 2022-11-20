@@ -34,7 +34,7 @@ public class EnemySpawn : MonoBehaviour
         if(jugadorDetectado == false)
         {
             
-            tiempoIntervalo = 60f;
+            tiempoIntervalo = 60f * 3f;
             StartCoroutine(InstanceEnemyFalse(tiempoIntervalo));
             
         }
