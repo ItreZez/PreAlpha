@@ -10,7 +10,7 @@ public class Limites : MonoBehaviour
 
     void Start()
     {
-        IsTrigger = LimiteTutorial.GetComponent<BoxCollider>().isTrigger;
+        IsTrigger = LimiteTutorial.GetComponent<BoxCollider>().isTrigger = true;
 
         Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
     }
