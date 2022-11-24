@@ -22,6 +22,9 @@ public class TextosUI : MonoBehaviour
     [Header("Bools")]
     [SerializeField] private bool textUsoActivado;
     [SerializeField] private bool textoPuedeRecargar;
+    [SerializeField] private bool texMapaAct;
+    [SerializeField] private bool tex1Faro;
+    [SerializeField] private bool tex2Faro;
 
     [Header("Numeros")]
     [SerializeField] private int NumeroLlaves;
@@ -51,6 +54,11 @@ public class TextosUI : MonoBehaviour
         textoPuedeRecargar = FindObjectOfType<Lampara>().TextoPuedeRecargar;
 
         NumeroLlaves = FindObjectOfType<FP_Controller>().contadorLlaves;
+
+        texMapaAct = FindObjectOfType<UIMapa>().texUiMapaVisto;
+
+        tex1Faro = false;
+        tex2Faro = false;
     }
 
     private void Update()
@@ -62,13 +70,15 @@ public class TextosUI : MonoBehaviour
 
         NumeroLlaves = FindObjectOfType<FP_Controller>().contadorLlaves;
 
+        texMapaAct = FindObjectOfType<UIMapa>().texUiMapaVisto;
+
         TLlaveArmadaDestruyePuerta();
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //Movimeinto
+        //Movimiento
         if(other.tag == "Tex_Mov2")
         {
             TexMov2.SetActive(true);
@@ -95,13 +105,15 @@ public class TextosUI : MonoBehaviour
         }
 
         //Faro
-        if(other.tag == "Tex_Faro")
+        if(other.tag == "Tex_Faro" && texMapaAct == true && tex1Faro == false)
         {
             TexFaro.SetActive(true);
+            tex1Faro = true;
         }
-        if (other.tag == "Tex_Esc")
+        if (other.tag == "Tex_Esc" && texMapaAct == true && tex2Faro == false)
         {
             TexEsc.SetActive(true);
+            tex2Faro = true;
         }
 
         //Puerta

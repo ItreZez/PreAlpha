@@ -28,6 +28,7 @@ TagManager:
   - Tex_Ataq3
   - Tex_Faro
   - Tex_Esc
+  - Limit_Tutorial
   layers:
   - Default
   - TransparentFX

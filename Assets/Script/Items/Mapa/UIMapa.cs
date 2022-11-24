@@ -12,13 +12,16 @@ public class UIMapa : MonoBehaviour
     public bool MapaAct;
 
     public bool AbrioMapa;
+    public bool texUiMapaVisto;
 
     private void Start()
     {
         MapaUI.SetActive(false);
         MapaA = FindObjectOfType<FP_Controller>().recogioMapa;
         AbrioMapa = false;
-        
+        texUiMapaVisto = false;
+
+        MapaUI.SetActive(false);
     }
 
    
@@ -27,6 +30,7 @@ public class UIMapa : MonoBehaviour
         MapaA = FindObjectOfType<FP_Controller>().recogioMapa;
 
         abrioMapaText();
+        UiMapaVisto();
 
         if (MapaA == true)
         {
@@ -70,4 +74,15 @@ public class UIMapa : MonoBehaviour
         }
 
     }
+
+    //para ui
+    void UiMapaVisto()
+    {
+        if (MapaA == true && Input.GetKeyDown(KeyCode.M))
+        {
+            texUiMapaVisto = true;
+        }
+    }
+
+
 }
