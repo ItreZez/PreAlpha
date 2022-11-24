@@ -62,6 +62,7 @@ public class FP_Controller : MonoBehaviour
     public bool seRecogioPila = false;
     public string nombreItem;
     private GameObject _pila;
+    public bool inventarioLleno;
     Pila pila;
 
     //Crear un vector que nos va ayudar a mover el personaje, poniendo todo en 0 para luego camniar valores
@@ -109,6 +110,7 @@ public class FP_Controller : MonoBehaviour
 
         InstanciarYunque();
         velocidad = 0;
+        ChecarInventario();
 
 
 
@@ -247,7 +249,7 @@ public class FP_Controller : MonoBehaviour
 
 
         }
-        if (other.gameObject.tag == "Pila")
+        if (other.gameObject.tag == "Pila" && inventarioLleno == false)
         {
             siRango = true;
             nombreItem = other.gameObject.tag;
@@ -467,6 +469,20 @@ public class FP_Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(.9f);
         correrSfxSi = false;
+
+    }
+
+    public void ChecarInventario()
+    {
+        if(FindObjectOfType<Lampara>().inventarioPilas.Count == 3)
+        {
+            inventarioLleno = true;
+
+        }
+        else
+        {
+            inventarioLleno = false;
+        }
 
     }
 
