@@ -18,6 +18,7 @@ public class TextosUI : MonoBehaviour
     [SerializeField] private GameObject TexLlave;
     [SerializeField] private GameObject TexNoYunque;
     [SerializeField] private GameObject TexSiYunque;
+    [SerializeField] private GameObject TexCasa;
 
     [Header("Bools")]
     [SerializeField] private bool textUsoActivado;
@@ -25,6 +26,7 @@ public class TextosUI : MonoBehaviour
     [SerializeField] private bool texMapaAct;
     [SerializeField] private bool tex1Faro;
     [SerializeField] private bool tex2Faro;
+    [SerializeField] private bool texCasa;
 
     [Header("Numeros")]
     [SerializeField] private int NumeroLlaves;
@@ -59,6 +61,7 @@ public class TextosUI : MonoBehaviour
 
         tex1Faro = false;
         tex2Faro = false;
+        texCasa = false;
     }
 
     private void Update()
@@ -135,6 +138,13 @@ public class TextosUI : MonoBehaviour
         {
             TexSiYunque.SetActive(true);
         }
+
+        //casa
+        if(other.tag == "Limit_Casa" && texCasa == false)
+        {
+            TexCasa.SetActive(true);
+            texCasa = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -197,6 +207,12 @@ public class TextosUI : MonoBehaviour
         if (other.tag == "Yunque")
         {
             TexSiYunque.SetActive(false);
+        }
+
+        //Casa
+        if (other.tag == "Limit_Casa")
+        {
+            TexCasa.SetActive(false);
         }
     }
 
