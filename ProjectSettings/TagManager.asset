@@ -29,6 +29,7 @@ TagManager:
   - Tex_Faro
   - Tex_Esc
   - Limit_Tutorial
+  - Limit_Casa
   layers:
   - Default
   - TransparentFX
