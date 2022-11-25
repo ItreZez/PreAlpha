@@ -16,6 +16,9 @@ public class AccionEnter : MonoBehaviour
     [Header("Esconderse")]
     public bool EscondidoB;
 
+    public ShakeCamara shakecamara;
+    public bool JugadorShake = false;
+
     private void Awake() 
     {
         
@@ -38,7 +41,8 @@ public class AccionEnter : MonoBehaviour
         if(EscondidoB == false && other.gameObject.tag == ("Player"))
         {
 
-            
+            StartCoroutine(shakecamara.Shake());
+
             Debug.Log("jugador detectado - activar spawn " );
             Instantiate(enemigoPrefab,SpawnDD.transform.position, Quaternion.identity);
             Instantiate(enemigoPrefab,SpawnDU.transform.position, Quaternion.identity);
