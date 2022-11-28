@@ -43,7 +43,7 @@ public class PausaState : MonoBehaviour
 
     }
 
-    void Resume()
+    public void Resume()
     {
         MenuPausa.SetActive(false);
         Time.timeScale = 1f;
