@@ -40,6 +40,10 @@ public class EnemigoPrincipal : MonoBehaviour
     public bool EscondidoB;
 
 
+    public float chaseRange; //rango de persecucion 
+    public bool estarAlerta;
+    public float RangoDeAlerta;
+    public LayerMask CapaDelJugador;
 
 
 
@@ -47,10 +51,6 @@ public class EnemigoPrincipal : MonoBehaviour
     {
         StartCoroutine(Comportamiento());
         EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
-
-
-
-
 
     }
 
@@ -60,15 +60,6 @@ public class EnemigoPrincipal : MonoBehaviour
         MovimientoEnemigoPrincipal();
         AumentoDeAtributos();
         EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -82,6 +73,9 @@ public class EnemigoPrincipal : MonoBehaviour
         {
 
             transform.position += (Vector3)direccion / direccion.magnitude * Time.deltaTime * speed;
+            transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
+
+
         }
         else
         {
@@ -177,13 +171,14 @@ public class EnemigoPrincipal : MonoBehaviour
         StartCoroutine(Comportamiento());
         AumentoDeAtributos();
 
-
-
-
-
     }
 
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
 
 }
 

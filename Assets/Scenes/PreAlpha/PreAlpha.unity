@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.55
+  m_AmbientIntensity: 5.6
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -6077,6 +6077,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458f8bf2c0f9a8041b82882906bf5d3c, type: 3}
+--- !u!1 &239380091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8967150856202767294, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
+  m_PrefabInstance: {fileID: 2139398503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &239380093
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239380091}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9050f64cdcbd5b445aa7669ecf2de2ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &242323913
 GameObject:
   m_ObjectHideFlags: 0
@@ -25769,6 +25794,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -72.4
       objectReference: {fileID: 0}
+    - target: {fileID: 2955111327573878853, guid: dd4a0c6e541a3984c9416c4a85afd648, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6277603671799588177, guid: dd4a0c6e541a3984c9416c4a85afd648, type: 3}
       propertyPath: m_LocalPosition.x
       value: -57.8
@@ -40047,6 +40076,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1505886047}
     m_Modifications:
+    - target: {fileID: 667244902381889961, guid: 2e777f3aca7b01a40949202369c6c4d8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1232311881532289922, guid: 2e777f3aca7b01a40949202369c6c4d8, type: 3}
       propertyPath: enemyPrefab
       value: 
@@ -51231,7 +51264,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.04
+      scalar: 0.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -61214,7 +61247,9 @@ PrefabInstance:
       propertyPath: cordenadas.Array.data[1]
       value: 
       objectReference: {fileID: 1789885533}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6888414881135619697, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
+    - {fileID: 658974846345060093, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
 --- !u!4 &2139398504 stripped
 Transform:
@@ -62157,6 +62192,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1264167543}
     - target: {fileID: 3321403481400812637, guid: 53cf311dc5bf66e41ac2415e62cfc45b, type: 3}
+      propertyPath: chaseRange
+      value: 13.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321403481400812637, guid: 53cf311dc5bf66e41ac2415e62cfc45b, type: 3}
       propertyPath: enemigoFaro
       value: 
       objectReference: {fileID: 2084791374}
@@ -62164,6 +62203,10 @@ PrefabInstance:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1264167547}
+    - target: {fileID: 3321403481400812637, guid: 53cf311dc5bf66e41ac2415e62cfc45b, type: 3}
+      propertyPath: RangoDeAlerta
+      value: 13.73
+      objectReference: {fileID: 0}
     - target: {fileID: 3321403481400812637, guid: 53cf311dc5bf66e41ac2415e62cfc45b, type: 3}
       propertyPath: cantidadDeLlavesRecogidas
       value: 
