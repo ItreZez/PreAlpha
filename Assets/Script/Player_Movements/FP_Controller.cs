@@ -15,6 +15,8 @@ public class FP_Controller : MonoBehaviour
 
     public EnemigoPrincipal enemigoP;
 
+    Lampara lampara;
+
 
     [Header("Health")]
     public float playerHealth = 2;
@@ -93,6 +95,7 @@ public class FP_Controller : MonoBehaviour
         llaveContenedor = FindObjectOfType<Contenedor_de_Llaves>();
         pila = GetComponent<Pila>();
         enemigoP = GetComponent<EnemigoPrincipal>();
+        lampara = GetComponent<Lampara>();
 
 
         defaultControllerHeight = characterController.height;
@@ -323,7 +326,7 @@ public class FP_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (siRango == true && nombreItem.Contains("Pila"))
+            if (siRango == true && nombreItem.Contains("Pila") && lampara.tieneLampara == true)
             {
                 _pila.SetActive(false);
                 seRecogioPila = true;
