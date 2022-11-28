@@ -20,9 +20,10 @@ public class Contenedor_de_Llaves : MonoBehaviour
 
     public bool recogioLlave;
 
-    [SerializeField] private GameObject LlaveSF;
+    [Header("Sfx")]
+    [SerializeField] private GameObject SfxRegogerLLave;
 
-
+    public GameObject player;
 
     //public GameObject ObjPuntos; ACTIVAR OTRA VEZ *--------------------------------------------------------------
     public float numeroDeLlaves;
@@ -42,7 +43,7 @@ public class Contenedor_de_Llaves : MonoBehaviour
             RecogerLlave(Player_Controller.nombreLlave);
         }
 
-        
+
     }
     //tags de llave 1 llave 2 llave 3 llave 4
     public void RecogerLlave(string tag)
@@ -59,13 +60,14 @@ public class Contenedor_de_Llaves : MonoBehaviour
                 if (llaves[i].tag == tag)
                 {
                     recogioLlave = true;
+                    Destroy(Instantiate(SfxRegogerLLave, player.transform.position, Quaternion.identity), 1f);
+
                     llaves[i].SetActive(false);
                     Player_Controller.siRango = false;
                     Player_Controller.nombreLlave = "NoRango";
                     Player_Controller.contadorLlaves++;
                     Debug.Log("llave recogida " + Player_Controller.contadorLlaves);
                     recogioLlave = false;
-                    Destroy(Instantiate(LlaveSF, transform.position, Quaternion.identity), 1f);
 
 
                 }

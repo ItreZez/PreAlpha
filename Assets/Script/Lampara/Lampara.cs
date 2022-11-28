@@ -33,7 +33,7 @@ public class Lampara : MonoBehaviour
     [Header("SFX")]
     [SerializeField] GameObject LamparaTuOfSfx;
     [SerializeField] GameObject LamparaRSfx;
-
+  
 
 
     public List<int> inventarioPilas = new List<int>();
@@ -192,7 +192,6 @@ public class Lampara : MonoBehaviour
         {
             inventarioPilas.Add(1);
             Debug.Log(inventarioPilas.Count);
-
 
 
         }

@@ -14,8 +14,8 @@ public class Enemy : MonoBehaviour
 
     public Transform JugadorDetect;
 
-    [Header("Enemy Health")]
-    public float enemyVida = 3f;
+   // [Header("Enemy Health")]
+   // public float enemyVida = 3f;
 
     [Header("Funciones de Lampara")]
     public bool isAturdido = false;
@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     [Header("Transforms para cordenadas")]
     public Transform[] cordenadas;
 
+    public float enemyVida;
 
     Lampara lampara;
 

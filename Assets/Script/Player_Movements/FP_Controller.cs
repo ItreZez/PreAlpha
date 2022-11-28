@@ -47,13 +47,14 @@ public class FP_Controller : MonoBehaviour
     public GameObject UIllave;
 
     [Header("SFX")]
-    [SerializeField] private GameObject YunqueArmarSF;
+    [SerializeField] private GameObject YunqueArmarSF; // ya
     [SerializeField] private GameObject RecogerSfx;
     [SerializeField] private GameObject CaminarSfx;
     private bool caminarSfxSi;
     [SerializeField] private GameObject CorrerSfx;
 
     private bool correrSfxSi;
+
 
 
     public GameObject puerta;

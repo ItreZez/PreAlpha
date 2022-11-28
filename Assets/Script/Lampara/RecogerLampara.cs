@@ -28,11 +28,14 @@ public class RecogerLampara : MonoBehaviour
             luz.SetActive(true);
             LamparaPlayer.SetActive(true);
             Destroy(gameObject);
+
             Destroy(Instantiate(RecogerSfx, player.transform.position, Quaternion.identity), 1f);
+
             TextRecoger.SetActive(false);
 
         }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
