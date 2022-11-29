@@ -48,6 +48,7 @@ public class FP_Controller : MonoBehaviour
     public GameObject yunque;
     public GameObject UIllave;
 
+
     [Header("SFX")]
     [SerializeField] private GameObject YunqueArmarSF; // ya
     [SerializeField] private GameObject RecogerSfx;
@@ -82,8 +83,7 @@ public class FP_Controller : MonoBehaviour
 
     [Header("MAPA")]
     public bool recogioMapa;
-
-
+    public GameObject UIMapa;
 
 
 
@@ -104,7 +104,7 @@ public class FP_Controller : MonoBehaviour
 
         recogioMapa = false;
         UIllave.SetActive(false);
-
+        UIMapa.SetActive(false);
 
     }
 

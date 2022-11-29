@@ -21,6 +21,7 @@ public class Mapa : MonoBehaviour
             FindObjectOfType<FP_Controller>().recogioMapa = true;
             Destroy(gameObject);
             FindObjectOfType<FP_Controller>().UIllave.SetActive(true);
+            FindObjectOfType<FP_Controller>().UIMapa.SetActive(true);
 
 
         }

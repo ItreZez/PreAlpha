@@ -12,21 +12,19 @@ public class Limites : MonoBehaviour
     {
         IsTrigger = LimiteTutorial.GetComponent<BoxCollider>().isTrigger = true;
 
-        Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+        //Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
     }
     void Update()
     {
         LimiteTutorial.GetComponent<BoxCollider>().isTrigger = IsTrigger;
 
-        GameObject.Find("Player").GetComponent<FP_Controller>().Escondido = Escondido;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Limit_Casa")
         {
-            Escondido = true;
-        }
+            GameObject.Find("Player").GetComponent<FP_Controller>().Escondido = true;        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -36,7 +34,7 @@ public class Limites : MonoBehaviour
         }
         if (other.tag == "Limit_Casa")
         {
-            Escondido = false;
+            GameObject.Find("Player").GetComponent<FP_Controller>().Escondido = false;
         }
     }
 }

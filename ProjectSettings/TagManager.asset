@@ -30,6 +30,7 @@ TagManager:
   - Tex_Esc
   - Limit_Tutorial
   - Limit_Casa
+  - Tex_TakeWithFl
   layers:
   - Default
   - TransparentFX
