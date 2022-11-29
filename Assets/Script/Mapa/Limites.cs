@@ -24,7 +24,8 @@ public class Limites : MonoBehaviour
     {
         if(other.tag == "Limit_Casa")
         {
-            GameObject.Find("Player").GetComponent<FP_Controller>().Escondido = true;        }
+            GameObject.Find("Player").GetComponent<FP_Controller>().Escondido = true;        
+        }
     }
     private void OnTriggerExit(Collider other)
     {

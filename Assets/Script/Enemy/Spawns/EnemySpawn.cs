@@ -19,19 +19,28 @@ public class EnemySpawn : MonoBehaviour
     public bool estarAlerta;
     public Transform player;
 
+    public bool Escondido;
+    public bool aturdido;
     void Start()
     {
         SpawnEnemy();
         enemigo = GetComponent<Enemy>();
+        Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+        //aturdido = GetComponent<AttackSpawn>().aturdido;
     }
 
 
         // Update is called once per frame
-        void Update()
+    void Update()
     {
         estarAlerta = Physics.CheckSphere(transform.position, rangoAlerta, capaJugador);
 
-        if(estarAlerta == true)
+        Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+
+        //aturdido = GetComponent<AttackSpawn>().aturdido;
+
+
+        if (estarAlerta == true && Escondido == false /*&& aturdido == false*/)
         {
             transform.LookAt(player);
         }
@@ -50,8 +59,6 @@ public class EnemySpawn : MonoBehaviour
         }
     }
     
-    
-
     IEnumerator InstanceEnemyFalse(float Intervalo)
     {
         yield return new WaitForSeconds(Intervalo);
