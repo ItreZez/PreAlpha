@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ActivePlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
+   [SerializeField] private GameObject player;
+
     void Start()
     {
         
@@ -12,6 +13,11 @@ public class ActivePlayer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        Player1_2();
+    }
+
+    private void Player1_2()
     {
         
     }
