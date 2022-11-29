@@ -331,6 +331,7 @@ public class FP_Controller : MonoBehaviour
                 _pila.SetActive(false);
                 seRecogioPila = true;
                 StartCoroutine(ResetPila());
+                Destroy(Instantiate(RecogerSfx, transform.position, Quaternion.identity), 1f);
 
             }
 
