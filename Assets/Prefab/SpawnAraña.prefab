@@ -50,6 +50,12 @@ MonoBehaviour:
   enemyPrefab: {fileID: 938844632409593141, guid: 7bbc2a72174cdbb49a8446f96f967db1, type: 3}
   tiempoIntervalo: 0
   waveTime: 4
+  rangoAlerta: 14
+  capaJugador:
+    serializedVersion: 2
+    m_Bits: 64
+  estarAlerta: 0
+  player: {fileID: 8018657402866156073, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
 --- !u!1 &2380824868611295509
 GameObject:
   m_ObjectHideFlags: 0

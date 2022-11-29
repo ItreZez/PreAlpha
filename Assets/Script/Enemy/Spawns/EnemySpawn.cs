@@ -13,7 +13,11 @@ public class EnemySpawn : MonoBehaviour
 
     private Enemy enemigo;
 
-    
+
+    public float rangoAlerta;
+    public LayerMask capaJugador;
+    public bool estarAlerta;
+    public Transform player;
 
     void Start()
     {
@@ -21,10 +25,16 @@ public class EnemySpawn : MonoBehaviour
         enemigo = GetComponent<Enemy>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+        // Update is called once per frame
+        void Update()
     {
-        
+        estarAlerta = Physics.CheckSphere(transform.position, rangoAlerta, capaJugador);
+
+        if(estarAlerta == true)
+        {
+            transform.LookAt(player);
+        }
     }
 
     public void SpawnEnemy()
@@ -68,5 +78,9 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position,rangoAlerta);
+    }
 }
