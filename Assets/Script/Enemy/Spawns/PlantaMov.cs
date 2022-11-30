@@ -20,6 +20,7 @@ public class PlantaMov : MonoBehaviour
     public bool isAturdido = false;
     public float tiempoAturdido = 3;
 
+    public Animator animator;
 
     private void Start()
     {
@@ -37,6 +38,9 @@ public class PlantaMov : MonoBehaviour
         {
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
         }
+
+        Attack();
+        Stunt();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +48,7 @@ public class PlantaMov : MonoBehaviour
         if (other.gameObject.tag == "Lampara" && FindObjectOfType<Lampara>().tieneLampara == true)
         {
             isAturdido = true;
+            //animator.SetBool("ATURDIDO", true);
             StartCoroutine(Despierta());
         }
 
@@ -51,6 +56,7 @@ public class PlantaMov : MonoBehaviour
         {
             if (hit == false && isAturdido == false)
             {
+                animator.SetBool("ATTACK", true);
                 StartCoroutine(FindObjectOfType<FP_Controller>().DanoPlayer());
                 hit = true;
                 Invoke("attackReset", 5f);
@@ -62,12 +68,40 @@ public class PlantaMov : MonoBehaviour
     void attackReset()
     {
         hit = false;
+       // animator.SetBool("ATTACK", false);
     }
 
     IEnumerator Despierta()
     {
         yield return new WaitForSeconds(tiempoAturdido);
+        //animator.SetBool("ATURDIDO", false);
         isAturdido = false;
+    }
+
+
+    private void Stunt()
+    {
+
+        /*if (isAturdido == true)
+        {
+            animator.SetBool("ATURDIDO", true);
+        }*/
+        if (isAturdido == false)
+        {
+            animator.SetBool("ATURDIDO", false);
+        }
+    }
+
+    private void Attack()
+    {
+        if (hit == true)
+        {
+            animator.SetBool("ATTACK", true);
+        }
+        if (hit == false)
+        {
+            animator.SetBool("ATTACK", false);
+        }
     }
 
     private void OnDrawGizmos()
