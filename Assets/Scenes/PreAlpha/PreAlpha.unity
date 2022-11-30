@@ -6172,7 +6172,7 @@ Animator:
   m_GameObject: {fileID: 239380091}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9050f64cdcbd5b445aa7669ecf2de2ac, type: 2}
+  m_Controller: {fileID: 9100000, guid: a718ab61f65cd6846a8468533d9ef5e9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -46100,7 +46100,7 @@ GameObject:
   - component: {fileID: 1714168370}
   m_Layer: 0
   m_Name: "Ara\xF1a_Tutorial"
-  m_TagString: Untagged
+  m_TagString: EnemyTutorial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61856,6 +61856,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Ara\xF1a_Tutorial"
       objectReference: {fileID: 0}
+    - target: {fileID: 658974846345060070, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
+      propertyPath: m_TagString
+      value: EnemyTutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 658974846345060093, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
       propertyPath: player
       value: 
@@ -61981,6 +61985,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2139398518 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 658974846345060071, guid: cd5c7f71796154b4d8c9a3d73989ca81, type: 3}
+  m_PrefabInstance: {fileID: 2139398503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2139398520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311305477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772ff270cffb0da4897b906b7d4acfca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAIState: 0
+  chaseRange: 0
+  attackRange: 0
+  timeBetweenAttacks: 2
+  waitAtPoint: 2
+  pole: {fileID: 0}
+  isAturdido: 0
+  tiempoAturdido: 3
+  EscondidoB: 0
+  movimiento: 0
+  animator: {fileID: 239380093}
+--- !u!114 &2139398521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311305477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26e781befc41ad4a85fc92f642567c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderEnemy: {fileID: 2139398518}
+  player: {fileID: 352125949}
+  attack: 0
 --- !u!1 &2144643907
 GameObject:
   m_ObjectHideFlags: 0

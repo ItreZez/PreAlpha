@@ -7,13 +7,15 @@ public class Araña : EnemyState
 {
     public Animator animator;
     private VidaEnemigo muerto;
+    private ChecarHit hit;
 
-    public FP_Controller hit;
+
 
     void Start()
     {
         muerto = GetComponent<VidaEnemigo>();
-        hit = GetComponent<FP_Controller>();
+        hit = GetComponent<ChecarHit>();
+       
 
 
     }
@@ -23,7 +25,7 @@ public class Araña : EnemyState
     {
         Stunt();
         Die();
-       
+        Attack();
        
 
 
@@ -58,7 +60,15 @@ public class Araña : EnemyState
 
     private void Attack()
     {
-        animator.SetInteger("ATTACK", (int)currentAIState);
+        if(hit.attack == true)
+        {
+            animator.SetBool("ATTACK",true);
+        }
+        else
+        {
+            animator.SetBool("ATTACK",false);
+        }
+        
     }
 
 
