@@ -691,6 +691,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 965177014}
     - target: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
+      propertyPath: OuchSfx
+      value: 
+      objectReference: {fileID: 7466015544178016315, guid: 596a9a0553b24bf41a38a3c4bb182b5e, type: 3}
+    - target: {fileID: 8018657402866156072, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
       propertyPath: UIllave
       value: 
       objectReference: {fileID: 1016044992}
@@ -60680,7 +60684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 103.6, y: -159.6}
+  m_AnchoredPosition: {x: 103.6001, y: -159.59998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2096866001

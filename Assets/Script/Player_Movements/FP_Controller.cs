@@ -53,6 +53,7 @@ public class FP_Controller : MonoBehaviour
     [SerializeField] private GameObject YunqueArmarSF; // ya
     [SerializeField] private GameObject RecogerSfx;
     [SerializeField] private GameObject CaminarSfx;
+    [SerializeField] private GameObject OuchSfx;
     private bool caminarSfxSi;
     [SerializeField] private GameObject CorrerSfx;
 
@@ -433,11 +434,13 @@ public class FP_Controller : MonoBehaviour
 
     public IEnumerator DanoPlayer()
     {
+        Destroy(Instantiate(OuchSfx, transform.position, Quaternion.identity), 1f);
         playerHealth = playerHealth - 1;
         Debug.Log("Ouch " + playerHealth);
         yield return new WaitForSeconds(3);
         hit = false;
         if (playerHealth == 1) StartCoroutine(Regenerarse());
+
     }
 
     private void Stamina()
