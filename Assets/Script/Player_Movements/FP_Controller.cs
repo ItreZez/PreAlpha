@@ -80,6 +80,8 @@ public class FP_Controller : MonoBehaviour
 
     [Header("Esconderse")]
     public bool Escondido = false;
+    public Image ImagenEscondidos;
+    public Sprite[] EscondidoSN;
 
     [Header("MAPA")]
     public bool recogioMapa;
@@ -132,7 +134,7 @@ public class FP_Controller : MonoBehaviour
                 {
 
                     stamina = stamina - .45f;
-                   
+
                     if (stamina > 1)
                     {
 
@@ -190,6 +192,8 @@ public class FP_Controller : MonoBehaviour
         LLavesRecolectadasSprite();
 
         CanvasHurt();
+
+        escondidoSN();
     }
 
 
@@ -384,6 +388,18 @@ public class FP_Controller : MonoBehaviour
         if (contadorLlaves == 5)
         {
             ImagenLLaves.sprite = LlavesRecolectadas[5];
+        }
+    }
+
+    private void escondidoSN()
+    {
+        if (Escondido == false)
+        {
+            ImagenEscondidos.sprite = EscondidoSN[0];
+        }
+        if (Escondido == true)
+        {
+            ImagenEscondidos.sprite = EscondidoSN[1];
         }
     }
 
