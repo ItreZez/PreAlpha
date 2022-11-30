@@ -25,7 +25,7 @@ public class VidaEnemigo : MonoBehaviour
     {
         if(vida == 0 )
         {
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 2.3f);
         }
         Debug.Log(vida);
     }

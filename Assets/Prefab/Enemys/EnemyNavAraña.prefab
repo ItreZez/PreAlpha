@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 6521280319159646747}
   - component: {fileID: 6521280319159646722}
   - component: {fileID: 6293876521268822620}
+  - component: {fileID: 2692113093855256481}
   m_Layer: 0
   m_Name: EnemyNavPoints
   m_TagString: Enemy
@@ -232,6 +233,7 @@ MonoBehaviour:
   isAturdido: 0
   tiempoAturdido: 5
   EscondidoB: 0
+  movimiento: 0
 --- !u!114 &6293876521268822620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +247,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 0
+--- !u!114 &2692113093855256481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521280319159646750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772ff270cffb0da4897b906b7d4acfca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAIState: 0
+  chaseRange: 0
+  attackRange: 0
+  timeBetweenAttacks: 2
+  waitAtPoint: 2
+  pole: {fileID: 0}
+  isAturdido: 0
+  tiempoAturdido: 3
+  EscondidoB: 0
+  movimiento: 0
+  animator: {fileID: 666644197724655562}
+  hit: {fileID: 0}
 --- !u!1001 &7553633124100803266
 PrefabInstance:
   m_ObjectHideFlags: 0
