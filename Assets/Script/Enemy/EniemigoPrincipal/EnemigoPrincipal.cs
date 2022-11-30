@@ -81,6 +81,7 @@ public class EnemigoPrincipal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print("ENTRO");
 
         if (other.gameObject.tag == "Lampara"  && FindObjectOfType<Lampara>().tieneLampara == true)
         {

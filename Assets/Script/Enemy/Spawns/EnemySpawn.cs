@@ -40,7 +40,7 @@ public class EnemySpawn : MonoBehaviour
         //aturdido = GetComponent<AttackSpawn>().aturdido;
 
 
-        if (estarAlerta == true && Escondido == false /*&& aturdido == false*/)
+        if (estarAlerta == true && Escondido == false && aturdido == false)
         {
             transform.LookAt(player);
         }

@@ -5,25 +5,34 @@ using UnityEngine;
 public class AttackSpawn : MonoBehaviour
 {
     public bool hit;
-    public bool aturdido;
-
+    public EnemySpawn spawn;
+    private void Start()
+    {
+        spawn = GetComponent<EnemySpawn>();
+        
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        print("ENTRO");
+        print(other.gameObject.tag);
+
+        if (other.gameObject.tag == "Player")
         {
-            if(hit == false && aturdido == false)
+            if (hit == false && spawn.aturdido == false)
             {
                 StartCoroutine(FindObjectOfType<FP_Controller>().DanoPlayer());
                 hit = true;
-                Invoke("attackReset",5f);
+                Invoke("attackReset", 5f);
 
-            }   
+            }
         }
 
         if (other.gameObject.tag == "Lampara")
         {
-            aturdido = true;
-            Invoke("aturdidoReset" , 3f);
+            print("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+
+            StartCoroutine(aturdidoReset());
+
 
         }
     }
@@ -33,8 +42,11 @@ public class AttackSpawn : MonoBehaviour
         hit = false;
     }
 
-    void aturdidoReset()
+    IEnumerator aturdidoReset()
     {
-        aturdido = false;
+        spawn.aturdido = true;
+        yield return new WaitForSeconds(3);
+        print("111111111111111111111111111");
+        spawn.aturdido = false;
     }
 }

@@ -132,7 +132,7 @@ public class FP_Controller : MonoBehaviour
                 {
 
                     stamina = stamina - .45f;
-                    Debug.Log(stamina);
+                   
                     if (stamina > 1)
                     {
 
@@ -429,7 +429,6 @@ public class FP_Controller : MonoBehaviour
         if (stamina < 98.9f)
             stamina = stamina + .3f;
 
-        Debug.Log(stamina);
     }
 
     public void SFXMovimiento()

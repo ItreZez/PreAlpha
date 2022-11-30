@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1232311881532289925}
   - component: {fileID: 1232311881532289922}
+  - component: {fileID: 825313949}
   m_Layer: 0
   m_Name: "SpawnAra\xF1a"
   m_TagString: Untagged
@@ -48,16 +49,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jugadorDetectado: 0
   enemyPrefab: {fileID: 938844632409593141, guid: 7bbc2a72174cdbb49a8446f96f967db1, type: 3}
-  tiempoIntervalo: 0
+  tiempoIntervalo: 5
   waveTime: 4
   rangoAlerta: 10
   capaJugador:
     serializedVersion: 2
     m_Bits: 64
   estarAlerta: 0
-  player: {fileID: 8018657402866156073, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
+  player: {fileID: 0}
   Escondido: 0
   aturdido: 0
+--- !u!114 &825313949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232311881532289923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5b6fff9bc415f418b2944ed753de66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugadorDetectado: 0
+  enemyPrefab: {fileID: 0}
+  tiempoIntervalo: 0
+  waveTime: 4
+  rangoAlerta: 0
+  capaJugador:
+    serializedVersion: 2
+    m_Bits: 0
+  estarAlerta: 0
+  player: {fileID: 0}
+  Escondido: 0
+  aturdido: 0
+  animator: {fileID: 3276047895978905299}
 --- !u!1 &2380824868611295509
 GameObject:
   m_ObjectHideFlags: 0
