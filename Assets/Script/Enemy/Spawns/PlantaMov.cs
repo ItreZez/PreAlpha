@@ -82,10 +82,10 @@ public class PlantaMov : MonoBehaviour
     private void Stunt()
     {
 
-        /*if (isAturdido == true)
+        if (isAturdido == true)
         {
             animator.SetBool("ATURDIDO", true);
-        }*/
+        }
         if (isAturdido == false)
         {
             animator.SetBool("ATURDIDO", false);
