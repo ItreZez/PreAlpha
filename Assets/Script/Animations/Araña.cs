@@ -23,7 +23,7 @@ public class Araña : EnemyState
     {
         Stunt();
         Die();
-        Attack();
+       
        
 
 
