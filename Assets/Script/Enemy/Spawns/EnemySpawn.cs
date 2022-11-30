@@ -13,7 +13,7 @@ public class EnemySpawn : MonoBehaviour
 
     private Enemy enemigo;
 
-
+    
     public float rangoAlerta;
     public LayerMask capaJugador;
     public bool estarAlerta;
@@ -21,28 +21,28 @@ public class EnemySpawn : MonoBehaviour
 
     public bool Escondido;
     public bool aturdido;
+
     void Start()
     {
         SpawnEnemy();
         enemigo = GetComponent<Enemy>();
         Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
         //aturdido = GetComponent<AttackSpawn>().aturdido;
+
+
     }
 
 
-        // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
         estarAlerta = Physics.CheckSphere(transform.position, rangoAlerta, capaJugador);
 
         Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
 
-        //aturdido = GetComponent<AttackSpawn>().aturdido;
-
-
         if (estarAlerta == true && Escondido == false && aturdido == false)
         {
-            transform.LookAt(player);
+            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
         }
     }
 

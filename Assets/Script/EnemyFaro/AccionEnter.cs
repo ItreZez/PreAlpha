@@ -13,6 +13,7 @@ public class AccionEnter : MonoBehaviour
     public GameObject SpawnID;
     public GameObject SpawnIU;
 
+
     [Header("Esconderse")]
     public bool EscondidoB;
 
@@ -48,7 +49,9 @@ public class AccionEnter : MonoBehaviour
             Instantiate(enemigoPrefab,SpawnDU.transform.position, Quaternion.identity);
             Instantiate(enemigoPrefab,SpawnID.transform.position, Quaternion.identity);
             Instantiate(enemigoPrefab,SpawnIU.transform.position, Quaternion.identity);
-            
+
+
+
         }
     }
     
