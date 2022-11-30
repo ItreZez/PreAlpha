@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 6521280319159646722}
   - component: {fileID: 6293876521268822620}
   - component: {fileID: 2692113093855256481}
+  - component: {fileID: 254977369323070771}
   m_Layer: 0
   m_Name: EnemyNavPoints
   m_TagString: Enemy
@@ -270,7 +271,21 @@ MonoBehaviour:
   EscondidoB: 0
   movimiento: 0
   animator: {fileID: 666644197724655562}
-  hit: {fileID: 0}
+--- !u!114 &254977369323070771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521280319159646750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26e781befc41ad4a85fc92f642567c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderEnemy: {fileID: 6521280319159646751}
+  player: {fileID: 8018657402866156073, guid: aeed788d4e1c3f6469dab755f94f070d, type: 3}
+  attack: 0
 --- !u!1001 &7553633124100803266
 PrefabInstance:
   m_ObjectHideFlags: 0
