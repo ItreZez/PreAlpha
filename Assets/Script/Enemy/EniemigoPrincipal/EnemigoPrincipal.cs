@@ -24,7 +24,7 @@ public class EnemigoPrincipal : MonoBehaviour
 
 
     [Header("Atack/Aturdido")]
-    [SerializeField] private bool isAturdidoPrincipal;
+     public bool isAturdidoPrincipal;
     public float tiempoAturdido = 5f;
     
     [SerializeField] private FP_Controller playerScript;
@@ -38,6 +38,9 @@ public class EnemigoPrincipal : MonoBehaviour
 
     [Header("Esconderse")]
     public bool EscondidoB;
+
+
+    private EnemigoP enemigoAnimator;
 
 
     void Start()
@@ -54,6 +57,7 @@ public class EnemigoPrincipal : MonoBehaviour
         AumentoDeAtributos();
 
         EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+        enemigoAnimator = GetComponent<EnemigoP>();
 
     }
 
@@ -97,6 +101,7 @@ public class EnemigoPrincipal : MonoBehaviour
         }
         if (other.gameObject.name == "Player")
         {
+            enemigoAnimator.Attack();
             if (playerScript.playerHealth > 0 && playerScript.hit == false)
             {
                 playerScript.hit = true;
