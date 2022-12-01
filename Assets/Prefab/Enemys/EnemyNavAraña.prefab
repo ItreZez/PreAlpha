@@ -162,7 +162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6521280319159646750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.05}
   m_LocalScale: {x: 0.7959392, y: 0.7959392, z: 0.7959392}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -235,6 +235,7 @@ MonoBehaviour:
   tiempoAturdido: 5
   EscondidoB: 0
   movimiento: 0
+  Ataque: 0
 --- !u!114 &6293876521268822620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +271,7 @@ MonoBehaviour:
   tiempoAturdido: 3
   EscondidoB: 0
   movimiento: 0
+  Ataque: 0
   animator: {fileID: 666644197724655562}
 --- !u!114 &254977369323070771
 MonoBehaviour:

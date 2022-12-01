@@ -57239,14 +57239,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: "EnemyNavAra\xF1a"
       objectReference: {fileID: 0}
-    - target: {fileID: 6521280319159646746, guid: 7bbc2a72174cdbb49a8446f96f967db1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6521280319159646751, guid: 7bbc2a72174cdbb49a8446f96f967db1, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bbc2a72174cdbb49a8446f96f967db1, type: 3}
 --- !u!1001 &1959946771
