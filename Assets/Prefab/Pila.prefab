@@ -321,6 +321,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pilas2
       objectReference: {fileID: 0}
+    - target: {fileID: 3567098339263928526, guid: 5e27f881fb4ba5846b5f3b7d89cf52e1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10f0bc387db69db4c9f886021cce6960, type: 2}
+    - target: {fileID: 3567098339263928526, guid: 5e27f881fb4ba5846b5f3b7d89cf52e1, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 67fce8003dc23324dbc9ae6e88908176, type: 2}
+    - target: {fileID: 3567098339263928526, guid: 5e27f881fb4ba5846b5f3b7d89cf52e1, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1055427cb2e3d7641817233f350b12af, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e27f881fb4ba5846b5f3b7d89cf52e1, type: 3}
 --- !u!1 &8332477549726640383 stripped

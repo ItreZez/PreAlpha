@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 929df8f11ee084b4e84669b7d86d0156, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8abd471bd625c2b4dacc51ae4024a00e, type: 2}
     - target: {fileID: 919132149155446097, guid: 929df8f11ee084b4e84669b7d86d0156, type: 3}
       propertyPath: m_Name
       value: Linterna

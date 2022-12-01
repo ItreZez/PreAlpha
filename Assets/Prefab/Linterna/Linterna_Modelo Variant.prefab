@@ -68,7 +68,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: 29509b55e04eaae41a054aa83be5d44f, type: 2}
   - {fileID: 2100000, guid: 29509b55e04eaae41a054aa83be5d44f, type: 2}
   - {fileID: 2100000, guid: 29509b55e04eaae41a054aa83be5d44f, type: 2}
-  - {fileID: 2100000, guid: 29509b55e04eaae41a054aa83be5d44f, type: 2}
+  - {fileID: 2100000, guid: 721adb363745db04e96e00a32a7b01dc, type: 2}
   - {fileID: 2100000, guid: 29509b55e04eaae41a054aa83be5d44f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -150,6 +150,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Linterna_Modelo Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3566390031902043909, guid: 7550bae3802ed334889ce2011278b718, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74ec7b39b5619be4091d92d551a9ad36, type: 2}
+    - target: {fileID: 3566390031902043909, guid: 7550bae3802ed334889ce2011278b718, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0babae5c9be1d8741b09c9d82b8bfd56, type: 2}
+    - target: {fileID: 3566390031902043909, guid: 7550bae3802ed334889ce2011278b718, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ad00270059694e42a816e51bca361ce, type: 2}
     - target: {fileID: 6909459961199742810, guid: 7550bae3802ed334889ce2011278b718, type: 3}
       propertyPath: m_IsActive
       value: 0

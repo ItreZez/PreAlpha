@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {//START class MainMenu 
 
+ 
+
     public void jugar()
     {
 

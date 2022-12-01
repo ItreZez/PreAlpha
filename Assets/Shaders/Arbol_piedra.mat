@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OjasArboles
+  m_Name: Arbol_piedra
   m_Shader: {fileID: -6465566751694194690, guid: 862731b305d4149419a951635a9e4c60, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,15 +21,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BC:
-        m_Texture: {fileID: 2800000, guid: 7fedbc6925a14fe4fbc0bc866f381c47, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0ec23131b01c7be4c803543071a0eabe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 3abb24120a794664d9f5b9ad50cfe9af, type: 3}
+        m_Texture: {fileID: 2800000, guid: 933556842f0527c45ad0be05543cb12e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: daf3f9a9e1d2f484fbff27aa4147f077, type: 3}
+        m_Texture: {fileID: 2800000, guid: dec1273aa6b97284796c93a99b4403a5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -53,7 +53,7 @@ Material:
     - _QueueOffset: 0
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &8221720791595911914
+--- !u!114 &2765361297513888912
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
