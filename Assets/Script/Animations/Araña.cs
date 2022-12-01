@@ -9,6 +9,7 @@ public class Araña : EnemyState
     private VidaEnemigo muerto;
 
    
+
     private void Start()
     {
         muerto = GetComponent<VidaEnemigo>();
@@ -43,6 +44,7 @@ public class Araña : EnemyState
         if (muerto.vida == 0)
         {
             animator.SetBool("MUERTE", true);
+            Destroy(Instantiate(AS_Die, transform.position, Quaternion.identity), 1f);
 
         }
         if (muerto.vida < 0)
@@ -57,7 +59,6 @@ public class Araña : EnemyState
         if(Ataque == true)
         {
             animator.SetBool("ATTACK", true);
-
 
         }
         if (Ataque == false)
