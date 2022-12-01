@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -259182530294611764, guid: aca874a9fc06cd1438190a556a1cfdc2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f2dd16769f724f409b55c26e1031c50, type: 2}
     - target: {fileID: 919132149155446097, guid: aca874a9fc06cd1438190a556a1cfdc2, type: 3}
       propertyPath: m_Name
       value: Arbol central tronco
@@ -194,6 +198,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8620305839282966963, guid: d64d779407a4e9944b99c43d0b32dcf4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c6ebac48011d5b46ae43542e19938e8, type: 2}
     - target: {fileID: 919132149155446097, guid: d64d779407a4e9944b99c43d0b32dcf4, type: 3}
       propertyPath: m_Name
       value: Arbol central ojo
