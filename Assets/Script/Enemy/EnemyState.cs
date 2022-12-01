@@ -10,7 +10,6 @@ public enum AI_State
 }
 public class EnemyState : MonoBehaviour
 {
-    //-----------------------------------------------------------------------------VARIABLES PUBLICAS
     public AI_State currentAIState;//estado actual del enemigo
 
     public float chaseRange; //rango de persecucion 
@@ -20,7 +19,6 @@ public class EnemyState : MonoBehaviour
 
 
     public float waitAtPoint = 2f; //tiempo de espera en un punto
-    //-----------------------------------------------------------------------------VARIABLES PRIVADAS
     private float waitCounter; //contador de espera en puntos 
     private float attackCounter; //cooldown entre ataques  
 
@@ -42,10 +40,11 @@ public class EnemyState : MonoBehaviour
 
     public bool movimiento;
 
-
+    public bool Ataque;
     public void Awake()
     {
         nma = this.GetComponent<NavMeshAgent>();
+        Ataque = false;
     }
 
     public void Start()
@@ -174,6 +173,23 @@ public class EnemyState : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player" && isAturdido == false)
+        {
+            Ataque = true;
+            StartCoroutine(Ataco());
+        }
+    }
+
+    
+
+    IEnumerator Ataco()
+    {
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        Ataque = false;
+
+    }
     IEnumerator Despierta()
     {
         yield return new WaitForSeconds(tiempoAturdido);

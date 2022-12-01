@@ -7,17 +7,10 @@ public class Araña : EnemyState
 {
     public Animator animator;
     private VidaEnemigo muerto;
-    private ChecarHit hit;
 
-
-
-    void Start()
+    private void Start()
     {
         muerto = GetComponent<VidaEnemigo>();
-        hit = GetComponent<ChecarHit>();
-       
-
-
     }
 
     // Update is called once per frame
@@ -26,9 +19,6 @@ public class Araña : EnemyState
         Stunt();
         Die();
         Attack();
-       
-
-
 
     }
 
@@ -60,11 +50,11 @@ public class Araña : EnemyState
 
     private void Attack()
     {
-        if(hit.attack == true)
+        if(Ataque == true)
         {
-            animator.SetBool("ATTACK",true);
+            animator.SetBool("ATTACK", true);
         }
-        else
+        if (Ataque == false)
         {
             animator.SetBool("ATTACK",false);
         }
