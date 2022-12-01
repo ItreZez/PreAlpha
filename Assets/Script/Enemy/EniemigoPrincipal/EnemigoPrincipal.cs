@@ -26,6 +26,8 @@ public class EnemigoPrincipal : MonoBehaviour
     [Header("Atack/Aturdido")]
      public bool isAturdidoPrincipal;
     public float tiempoAturdido = 5f;
+
+    public bool attack;
     
     [SerializeField] private FP_Controller playerScript;
     public GameObject Player;
@@ -85,7 +87,8 @@ public class EnemigoPrincipal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("ENTRO");
+        attack = true;
+        print("NETRO");
 
         if (other.gameObject.tag == "Lampara"  && FindObjectOfType<Lampara>().tieneLampara == true)
         {
@@ -101,9 +104,10 @@ public class EnemigoPrincipal : MonoBehaviour
         }
         if (other.gameObject.name == "Player")
         {
-            enemigoAnimator.Attack();
+           
             if (playerScript.playerHealth > 0 && playerScript.hit == false)
             {
+                attack = true;
                 playerScript.hit = true;
                 StartCoroutine(playerScript.DanoPlayer());
                 EsperarEntreAtaques();
@@ -121,11 +125,8 @@ public class EnemigoPrincipal : MonoBehaviour
 
     }
 
-    /*private void OnTriggerExit(Collider other)
-    {
-        attack = false;
-    }
-    */
+    
+    
 
     IEnumerator DespiertaPrincipal()
     {
@@ -156,6 +157,7 @@ public class EnemigoPrincipal : MonoBehaviour
 
     void EsperarEntreAtaques()
     {
+        attack = false;
         speed = 0;
         DespiertaPrincipal();
     }

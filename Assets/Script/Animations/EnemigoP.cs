@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemigoP : EnemigoPrincipal
 {
     [SerializeField] private Animator animator;
-    // Start is called before the first frame update
+
+    private bool stuntAnim;
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,15 +18,23 @@ public class EnemigoP : EnemigoPrincipal
     {
         stunt();
         Movimiento();
+        Attack();
+
     }
 
     private void stunt()
     {
-        if(isAturdidoPrincipal == true)
+        if (isAturdidoPrincipal == true)
         {
-            animator.SetBool("ATURDIDO", true);
+            stuntAnim = true;
+            if (stuntAnim == true)
+            {
+                stuntAnim = false;
+                animator.SetBool("ATURDIDO", true);
+            }
+
         }
-        if(isAturdidoPrincipal == false) 
+        if (isAturdidoPrincipal == false)
         {
             animator.SetBool("ATURDIDO", false);
         }
@@ -32,22 +42,23 @@ public class EnemigoP : EnemigoPrincipal
 
     private void Movimiento()
     {
-        if(pausa == false)
+        if (pausa == false)
         {
             animator.SetBool("MOVIMIENTO", true);
-            
+            animator.SetBool("IDLE", false);
+
         }
-        if(pausa == true)
+        if (pausa == true)
         {
-             animator.SetBool("MOVIMIENTO", false); 
+            animator.SetBool("MOVIMIENTO", false);
+            animator.SetBool("IDLE", true);
         }
     }
 
-    public void Attack()
-    {
-        animator.SetTrigger("Attack");
 
-    }
+   
+
+
 
 
 }
