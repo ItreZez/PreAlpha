@@ -14,7 +14,7 @@ public class EnemyState : MonoBehaviour
     public AI_State currentAIState;//estado actual del enemigo
 
     public float chaseRange; //rango de persecucion 
-    public float attackRange ; // rango de ataque 
+    public float attackRange; // rango de ataque 
 
     public float timeBetweenAttacks = 2f; //tiempo entre ataques
 
@@ -30,7 +30,7 @@ public class EnemyState : MonoBehaviour
     //[SerializeField] private GameObject floor;
     [SerializeField] private GameObject pole;
     private Vector3 moveto;
-   
+
 
     [Header("Funciones de Lampara")]
     public bool isAturdido = false;
@@ -48,6 +48,8 @@ public class EnemyState : MonoBehaviour
     public GameObject AS_Stun;
     public GameObject AS_Die;
     public GameObject AS_Attack;
+
+    public bool reproduciendoAttack = false;
 
 
 
@@ -94,7 +96,7 @@ public class EnemyState : MonoBehaviour
         switch (currentAIState)
         {
             case AI_State.IDLE://-------------------------------------------------IDLE
-             
+
                 if (waitCounter > 0)
                 {
                     waitCounter -= Time.deltaTime;
@@ -120,11 +122,11 @@ public class EnemyState : MonoBehaviour
                 break;
 
             case AI_State.PATROLLING:
-            
+
 
                 if (nma.remainingDistance <= .2f)
                 {
-                
+
                     currentAIState = AI_State.IDLE;
                     waitCounter = waitAtPoint;
                     AS_Walk.Stop();
@@ -140,7 +142,7 @@ public class EnemyState : MonoBehaviour
                 break;
 
             case AI_State.CHASING:
-            
+
 
                 nma.SetDestination(GameObject.FindWithTag("Player").transform.position);
 
@@ -166,7 +168,7 @@ public class EnemyState : MonoBehaviour
                 break;
 
             case AI_State.ATTACKING:
-            
+
                 transform.LookAt(GameObject.FindWithTag("Player").transform.position, Vector3.up);
                 transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
 
@@ -210,18 +212,26 @@ public class EnemyState : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && isAturdido == false)
         {
-            Destroy(Instantiate(AS_Attack, transform.position, Quaternion.identity), 1f);
+            if (reproduciendoAttack == false)
+            {
+                reproduciendoAttack = true;
+                Destroy(Instantiate(AS_Attack, transform.position, Quaternion.identity), 1f);
+            }
+
             Ataque = true;
             StartCoroutine(Ataco());
         }
     }
 
-    
+
 
     IEnumerator Ataco()
     {
+
         yield return new WaitForSeconds(timeBetweenAttacks);
         Ataque = false;
+        reproduciendoAttack = false;
+
 
     }
     IEnumerator Despierta()
@@ -241,7 +251,7 @@ public class EnemyState : MonoBehaviour
         float rz = Random.Range(bndFloor.min.z, bndFloor.max.z);
         //float rz = Random.Range(60, -60);
 
-        
+
         moveto = new Vector3(rx, this.transform.position.y, rz);
         //RandomDestinationPole
         nma.SetDestination(moveto);
@@ -249,13 +259,13 @@ public class EnemyState : MonoBehaviour
         pole.transform.position = new Vector3(moveto.x, pole.transform.position.y, moveto.z);
 
         Invoke("CheckPointOnPath", 15f);
-       
+
 
     }
 
     void CheckPointOnPath()
     {
-      
+
         if (nma.pathEndPosition != moveto)
         {
             //el punto no esta en el navMash
@@ -269,6 +279,6 @@ public class EnemyState : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
-      
- 
+
+
 }

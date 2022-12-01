@@ -7,6 +7,7 @@ public class Araña : EnemyState
 {
     public Animator animator;
     private VidaEnemigo muerto;
+    public bool reproduciendo = false;
 
    
 
@@ -44,8 +45,15 @@ public class Araña : EnemyState
         if (muerto.vida == 0)
         {
             animator.SetBool("MUERTE", true);
-            Destroy(Instantiate(AS_Die, transform.position, Quaternion.identity), 1f);
 
+            if(reproduciendo == false)
+            {
+                reproduciendo = true;
+                Destroy(Instantiate(AS_Die, transform.position, Quaternion.identity), 1f);
+            }
+            
+            
+            
         }
         if (muerto.vida < 0)
         {
