@@ -10048,6 +10048,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1505886047}
     m_Modifications:
+    - target: {fileID: 1608008052, guid: 4a2a81f2329233743be8f1fa65278557, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.11628723
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608008052, guid: 4a2a81f2329233743be8f1fa65278557, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2902723355653466705, guid: 4a2a81f2329233743be8f1fa65278557, type: 3}
       propertyPath: player
       value: 
@@ -35223,16 +35231,8 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8378846961258373851, guid: 4a2a81f2329233743be8f1fa65278557, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.0342355
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378846961258373851, guid: 4a2a81f2329233743be8f1fa65278557, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.0342355
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378846961258373851, guid: 4a2a81f2329233743be8f1fa65278557, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44.65
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8378846961258373851, guid: 4a2a81f2329233743be8f1fa65278557, type: 3}
       propertyPath: m_LocalPosition.y
@@ -35240,7 +35240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8378846961258373851, guid: 4a2a81f2329233743be8f1fa65278557, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35.86
+      value: 113.3
       objectReference: {fileID: 0}
     - target: {fileID: 8378846961258373851, guid: 4a2a81f2329233743be8f1fa65278557, type: 3}
       propertyPath: m_LocalRotation.w

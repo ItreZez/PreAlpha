@@ -22,10 +22,16 @@ public class PlantaMov : MonoBehaviour
 
     public Animator animator;
 
+    [Header("Sfx")]
+    [SerializeField] private AudioSource Sfx_Idle;
+    [SerializeField] private GameObject Sfx_Attak;
+    [SerializeField] private GameObject Sfx_Stun;
+
+
     private void Start()
     {
         Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
-        
+        Sfx_Idle.Play();
     }
 
     private void Update()
@@ -48,6 +54,8 @@ public class PlantaMov : MonoBehaviour
         if (other.gameObject.tag == "Lampara" && FindObjectOfType<Lampara>().tieneLampara == true)
         {
             isAturdido = true;
+            Destroy(Instantiate(Sfx_Stun, transform.position, Quaternion.identity), 1f);
+
             //animator.SetBool("ATURDIDO", true);
             StartCoroutine(Despierta());
         }
@@ -57,6 +65,7 @@ public class PlantaMov : MonoBehaviour
             if (hit == false && isAturdido == false)
             {
                 hit = true;
+                Destroy(Instantiate(Sfx_Attak, transform.position, Quaternion.identity), 1f);
 
                 StartCoroutine(FindObjectOfType<FP_Controller>().DanoPlayer());
 
@@ -69,6 +78,8 @@ public class PlantaMov : MonoBehaviour
     void attackReset()
     {
         hit = false;
+        Sfx_Idle.Play();
+
     }
 
     IEnumerator Despierta()
@@ -76,6 +87,8 @@ public class PlantaMov : MonoBehaviour
         yield return new WaitForSeconds(tiempoAturdido);
         //animator.SetBool("ATURDIDO", false);
         isAturdido = false;
+        Sfx_Idle.Play();
+
     }
 
 
@@ -84,6 +97,7 @@ public class PlantaMov : MonoBehaviour
 
         if (isAturdido == true)
         {
+            Sfx_Idle.Stop();
             animator.SetBool("ATURDIDO", true);
         }
         if (isAturdido == false)
@@ -96,6 +110,7 @@ public class PlantaMov : MonoBehaviour
     {
         if (hit == true)
         {
+            Sfx_Idle.Stop();
             animator.SetBool("ATTACK", true);
         }
         if (hit == false)
