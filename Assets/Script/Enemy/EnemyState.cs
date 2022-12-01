@@ -67,6 +67,7 @@ public class EnemyState : MonoBehaviour
         bndFloor = GameObject.Find("Terreno").GetComponent<MeshRenderer>().bounds;
 
         waitCounter = waitAtPoint;
+        StartCoroutine(DestroyAraña());
 
         //fp_controller = GetComponent<FP_Controller>();
 
@@ -278,6 +279,13 @@ public class EnemyState : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
+
+    IEnumerator DestroyAraña()
+    {
+        yield return new WaitForSeconds(45f);
+        Destroy(gameObject , 1f);
+
     }
 
 
