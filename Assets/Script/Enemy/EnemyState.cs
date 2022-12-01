@@ -45,6 +45,9 @@ public class EnemyState : MonoBehaviour
 
     [Header("Sfx")]
     public AudioSource AS_Walk;
+    public GameObject AS_Stun;
+    public GameObject AS_Die;
+    public GameObject AS_Attack;
 
 
 
@@ -79,6 +82,7 @@ public class EnemyState : MonoBehaviour
         if (isAturdido == true)
         {
             AS_Walk.Stop();
+
         }
 
     }
@@ -196,7 +200,7 @@ public class EnemyState : MonoBehaviour
         {
             nma.speed = 0;
             isAturdido = true;
-
+            Destroy(Instantiate(AS_Stun, transform.position, Quaternion.identity), 1f);
             StartCoroutine(Despierta());
 
         }
@@ -206,6 +210,7 @@ public class EnemyState : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && isAturdido == false)
         {
+            Destroy(Instantiate(AS_Attack, transform.position, Quaternion.identity), 1f);
             Ataque = true;
             StartCoroutine(Ataco());
         }

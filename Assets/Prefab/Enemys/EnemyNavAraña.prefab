@@ -278,6 +278,9 @@ MonoBehaviour:
   Ataque: 0
   AS_Walk: {fileID: 372458297}
   animator: {fileID: 666644197724655562}
+  AS_Stun: {fileID: 6870880488965011331, guid: 8f3d00a9f0315bb4aa9669bc236026db, type: 3}
+  AS_Die: {fileID: 8604504129814720283, guid: 5c5a3619f393b50408da5e406de217ed, type: 3}
+  AS_Attack: {fileID: 4877180491005052553, guid: 5a234a3b1fb73c3418e81f978d76f3db, type: 3}
 --- !u!114 &254977369323070771
 MonoBehaviour:
   m_ObjectHideFlags: 0
