@@ -56,9 +56,10 @@ public class PlantaMov : MonoBehaviour
         {
             if (hit == false && isAturdido == false)
             {
-                animator.SetBool("ATTACK", true);
-                StartCoroutine(FindObjectOfType<FP_Controller>().DanoPlayer());
                 hit = true;
+
+                StartCoroutine(FindObjectOfType<FP_Controller>().DanoPlayer());
+
                 Invoke("attackReset", 5f);
 
             }
@@ -68,7 +69,6 @@ public class PlantaMov : MonoBehaviour
     void attackReset()
     {
         hit = false;
-       // animator.SetBool("ATTACK", false);
     }
 
     IEnumerator Despierta()
