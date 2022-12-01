@@ -173,7 +173,7 @@ public class Lampara : MonoBehaviour
 
     public void RecargarPila()
     {
-        if (bateria <= 1f)
+        if (bateria <= 50f)
         {
             puedeRecargar = true;
         }
