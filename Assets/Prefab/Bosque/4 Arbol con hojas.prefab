@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 5740097256218499594}
   - component: {fileID: 8990421556400337854}
   - component: {fileID: 6854024765781599018}
-  - component: {fileID: 8990421556400337855}
   - component: {fileID: 8990421556400337848}
+  - component: {fileID: 4009415968273700070}
   m_Layer: 0
   m_Name: Arbol_con_hojas_4
   m_TagString: Untagged
@@ -118,20 +118,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8990421556400337855
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6584061119534266983}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4494429960195263618, guid: c90e9949858bd05498b20edb53d3b797, type: 3}
 --- !u!208 &8990421556400337848
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -148,3 +134,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 807.65704, z: 0}
   m_TimeToStationary: 0.5
+--- !u!65 &4009415968273700070
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584061119534266983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 252.3, y: 656.94916, z: 234.2}
+  m_Center: {x: 0.00020265579, y: 328.47458, z: -0.000071525574}

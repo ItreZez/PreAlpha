@@ -343,6 +343,7 @@ MonoBehaviour:
   SpawnDU: {fileID: 0}
   SpawnID: {fileID: 0}
   SpawnIU: {fileID: 0}
+  Spawnb: {fileID: 0}
   EscondidoB: 0
   shakecamara: {fileID: 0}
   JugadorShake: 0

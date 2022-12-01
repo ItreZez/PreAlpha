@@ -7,6 +7,7 @@ public class TextosUI : MonoBehaviour
 
     [Header("Textos")]
     [SerializeField] private GameObject TextoMov1;
+    [SerializeField] private GameObject TexTakeWithFl;
     [SerializeField] private GameObject TexRecargar;
     [SerializeField] private GameObject TexMov2;
     [SerializeField] private GameObject TexAtaq1;
@@ -21,6 +22,7 @@ public class TextosUI : MonoBehaviour
     [SerializeField] private GameObject TexCasa;
 
     [Header("Bools")]
+    [SerializeField] private bool tieneLampara;
     [SerializeField] private bool textUsoActivado;
     [SerializeField] private bool textoPuedeRecargar;
     [SerializeField] private bool texMapaAct;
@@ -62,6 +64,8 @@ public class TextosUI : MonoBehaviour
         tex1Faro = false;
         tex2Faro = false;
         texCasa = false;
+
+        tieneLampara = FindObjectOfType<Lampara>().tieneLampara;
     }
 
     private void Update()
@@ -75,8 +79,10 @@ public class TextosUI : MonoBehaviour
 
         texMapaAct = FindObjectOfType<UIMapa>().texUiMapaVisto;
 
-        TLlaveArmadaDestruyePuerta();
+        tieneLampara = FindObjectOfType<Lampara>().tieneLampara;
 
+        TLlaveArmadaDestruyePuerta();
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -88,10 +94,16 @@ public class TextosUI : MonoBehaviour
         }
 
         //Lampara
+        if (other.tag == "Tex_TakeWithFl" && tieneLampara == true)
+        {
+            TexTakeWithFl.SetActive(true);
+        }
+
         if (other.tag == "Tex_Recargar" && textUsoActivado == true && textoPuedeRecargar == true)
         {
             TexRecargar.SetActive(true);
         }
+
 
         //ataques
         if (other.tag == "Tex_Ataq1")
@@ -160,6 +172,10 @@ public class TextosUI : MonoBehaviour
         }
 
         //Lampara
+        if (other.tag == "Tex_TakeWithFl" && tieneLampara == true)
+        {
+            TexTakeWithFl.SetActive(false);
+        }
         if (other.tag == "Tex_Recargar" || Input.GetKeyDown(KeyCode.R))
         {
             TexRecargar.SetActive(false);

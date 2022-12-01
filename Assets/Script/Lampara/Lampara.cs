@@ -33,7 +33,7 @@ public class Lampara : MonoBehaviour
     [Header("SFX")]
     [SerializeField] GameObject LamparaTuOfSfx;
     [SerializeField] GameObject LamparaRSfx;
-  
+
 
 
     public List<int> inventarioPilas = new List<int>();
@@ -156,6 +156,18 @@ public class Lampara : MonoBehaviour
             bateria = bateria - 5f;
         }
 
+        if (other.gameObject == player.UIMapa && Input.GetKey(KeyCode.E))
+        {
+            player.UIMapa.SetActive(false);
+            player.recogioMapa = true;
+        }
+        if (other.gameObject.tag == "EnemyTutorial" && bateria >= 6 && isOn == true)
+        {
+            bateria = bateria - 5f;
+
+
+        }
+
     }
 
 
@@ -229,12 +241,12 @@ public class Lampara : MonoBehaviour
 
     void textoUsoL()
     {
-        if(tieneLampara == true && TextoUsoActivado == false)
+        if (tieneLampara == true && TextoUsoActivado == false)
         {
             TextoUso.SetActive(true);
             TextoUsoActivado = true;
         }
-        if(TextoUsoActivado == true && Input.GetMouseButtonDown(1))
+        if (TextoUsoActivado == true && Input.GetMouseButtonDown(1))
         {
             TextoUso.SetActive(false);
             TextoPuedeRecargar = true;

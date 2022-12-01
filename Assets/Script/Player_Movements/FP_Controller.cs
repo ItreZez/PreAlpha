@@ -15,6 +15,8 @@ public class FP_Controller : MonoBehaviour
 
     public EnemigoPrincipal enemigoP;
 
+    Lampara lampara;
+
 
     [Header("Health")]
     public float playerHealth = 2;
@@ -46,10 +48,12 @@ public class FP_Controller : MonoBehaviour
     public GameObject yunque;
     public GameObject UIllave;
 
+
     [Header("SFX")]
     [SerializeField] private GameObject YunqueArmarSF; // ya
     [SerializeField] private GameObject RecogerSfx;
     [SerializeField] private GameObject CaminarSfx;
+    [SerializeField] private GameObject OuchSfx;
     private bool caminarSfxSi;
     [SerializeField] private GameObject CorrerSfx;
 
@@ -77,11 +81,12 @@ public class FP_Controller : MonoBehaviour
 
     [Header("Esconderse")]
     public bool Escondido = false;
+    public Image ImagenEscondidos;
+    public Sprite[] EscondidoSN;
 
     [Header("MAPA")]
     public bool recogioMapa;
-
-
+    public GameObject UIMapa;
 
 
 
@@ -93,6 +98,7 @@ public class FP_Controller : MonoBehaviour
         llaveContenedor = FindObjectOfType<Contenedor_de_Llaves>();
         pila = GetComponent<Pila>();
         enemigoP = GetComponent<EnemigoPrincipal>();
+        lampara = GetComponent<Lampara>();
 
 
         defaultControllerHeight = characterController.height;
@@ -101,7 +107,7 @@ public class FP_Controller : MonoBehaviour
 
         recogioMapa = false;
         UIllave.SetActive(false);
-
+        UIMapa.SetActive(false);
 
     }
 
@@ -129,7 +135,7 @@ public class FP_Controller : MonoBehaviour
                 {
 
                     stamina = stamina - .45f;
-                    Debug.Log(stamina);
+
                     if (stamina > 1)
                     {
 
@@ -187,6 +193,8 @@ public class FP_Controller : MonoBehaviour
         LLavesRecolectadasSprite();
 
         CanvasHurt();
+
+        escondidoSN();
     }
 
 
@@ -323,11 +331,12 @@ public class FP_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (siRango == true && nombreItem.Contains("Pila"))
+            if (siRango == true && nombreItem.Contains("Pila") && lampara.tieneLampara == true)
             {
                 _pila.SetActive(false);
                 seRecogioPila = true;
                 StartCoroutine(ResetPila());
+                Destroy(Instantiate(RecogerSfx, transform.position, Quaternion.identity), 1f);
 
             }
 
@@ -383,6 +392,18 @@ public class FP_Controller : MonoBehaviour
         }
     }
 
+    private void escondidoSN()
+    {
+        if (Escondido == false)
+        {
+            ImagenEscondidos.sprite = EscondidoSN[0];
+        }
+        if (Escondido == true)
+        {
+            ImagenEscondidos.sprite = EscondidoSN[1];
+        }
+    }
+
     public IEnumerator Regenerarse()
     {
         yield return new WaitForSeconds(10);
@@ -413,11 +434,13 @@ public class FP_Controller : MonoBehaviour
 
     public IEnumerator DanoPlayer()
     {
+        Destroy(Instantiate(OuchSfx, transform.position, Quaternion.identity), 1f);
         playerHealth = playerHealth - 1;
         Debug.Log("Ouch " + playerHealth);
         yield return new WaitForSeconds(3);
         hit = false;
         if (playerHealth == 1) StartCoroutine(Regenerarse());
+
     }
 
     private void Stamina()
@@ -425,7 +448,6 @@ public class FP_Controller : MonoBehaviour
         if (stamina < 98.9f)
             stamina = stamina + .3f;
 
-        Debug.Log(stamina);
     }
 
     public void SFXMovimiento()

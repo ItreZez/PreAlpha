@@ -13,7 +13,7 @@ public class Mapa : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if (other.gameObject == player && Input.GetKey(KeyCode.E))
+        if (/*ther.gameObject == player*/other.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
         {
             Destroy(Instantiate(RecogerIteamSF, player.transform.position, Quaternion.identity), 1f);
 
@@ -21,6 +21,7 @@ public class Mapa : MonoBehaviour
             FindObjectOfType<FP_Controller>().recogioMapa = true;
             Destroy(gameObject);
             FindObjectOfType<FP_Controller>().UIllave.SetActive(true);
+            FindObjectOfType<FP_Controller>().UIMapa.SetActive(true);
 
 
         }

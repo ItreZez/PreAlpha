@@ -32,7 +32,6 @@ public class Pila : MonoBehaviour
     {
          if(other.gameObject.tag == "Player"  &&  Input.GetMouseButtonDown(0))
          {
-            Destroy(Instantiate(RecogerSfx, PlayerTrans.transform.position, Quaternion.identity), 1f);
 
             lampara.AgregarPilaInventario();
             player.RecogerPila();

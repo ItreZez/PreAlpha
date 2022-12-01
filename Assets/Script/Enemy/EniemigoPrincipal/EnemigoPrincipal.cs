@@ -40,17 +40,10 @@ public class EnemigoPrincipal : MonoBehaviour
     public bool EscondidoB;
 
 
-
-
-
     void Start()
     {
         StartCoroutine(Comportamiento());
         EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
-
-
-
-
 
     }
 
@@ -59,16 +52,8 @@ public class EnemigoPrincipal : MonoBehaviour
     {
         MovimientoEnemigoPrincipal();
         AumentoDeAtributos();
+
         EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -82,6 +67,9 @@ public class EnemigoPrincipal : MonoBehaviour
         {
 
             transform.position += (Vector3)direccion / direccion.magnitude * Time.deltaTime * speed;
+            transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
+
+
         }
         else
         {
@@ -93,6 +81,7 @@ public class EnemigoPrincipal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print("ENTRO");
 
         if (other.gameObject.tag == "Lampara"  && FindObjectOfType<Lampara>().tieneLampara == true)
         {
@@ -177,11 +166,8 @@ public class EnemigoPrincipal : MonoBehaviour
         StartCoroutine(Comportamiento());
         AumentoDeAtributos();
 
-
-
-
-
     }
+
 
 
 

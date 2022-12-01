@@ -14,17 +14,36 @@ public class EnemySpawn : MonoBehaviour
     private Enemy enemigo;
 
     
+    public float rangoAlerta;
+    public LayerMask capaJugador;
+    public bool estarAlerta;
+    public Transform player;
+
+    public bool Escondido;
+    public bool aturdido;
 
     void Start()
     {
         SpawnEnemy();
         enemigo = GetComponent<Enemy>();
+        Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+        //aturdido = GetComponent<AttackSpawn>().aturdido;
+
+
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        estarAlerta = Physics.CheckSphere(transform.position, rangoAlerta, capaJugador);
+
+        Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+
+        if (estarAlerta == true && Escondido == false && aturdido == false)
+        {
+            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+        }
     }
 
     public void SpawnEnemy()
@@ -40,8 +59,6 @@ public class EnemySpawn : MonoBehaviour
         }
     }
     
-    
-
     IEnumerator InstanceEnemyFalse(float Intervalo)
     {
         yield return new WaitForSeconds(Intervalo);
@@ -68,5 +85,9 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position,rangoAlerta);
+    }
 }

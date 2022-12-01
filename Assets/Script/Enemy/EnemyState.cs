@@ -10,7 +10,6 @@ public enum AI_State
 }
 public class EnemyState : MonoBehaviour
 {
-    //-----------------------------------------------------------------------------VARIABLES PUBLICAS
     public AI_State currentAIState;//estado actual del enemigo
 
     public float chaseRange; //rango de persecucion 
@@ -20,7 +19,6 @@ public class EnemyState : MonoBehaviour
 
 
     public float waitAtPoint = 2f; //tiempo de espera en un punto
-    //-----------------------------------------------------------------------------VARIABLES PRIVADAS
     private float waitCounter; //contador de espera en puntos 
     private float attackCounter; //cooldown entre ataques  
 
@@ -40,13 +38,16 @@ public class EnemyState : MonoBehaviour
     [Header("Esconderse")]
     public bool EscondidoB;
 
+    public bool movimiento;
 
-    private void Awake()
+    public bool Ataque;
+    public void Awake()
     {
         nma = this.GetComponent<NavMeshAgent>();
+        Ataque = false;
     }
 
-    private void Start()
+    public void Start()
     {
         nma = this.GetComponent<NavMeshAgent>();
         bndFloor = GameObject.Find("Terreno").GetComponent<MeshRenderer>().bounds;
@@ -65,16 +66,18 @@ public class EnemyState : MonoBehaviour
 
     }
 
-    void NavMovementsEnemy()
+    public void NavMovementsEnemy()
     {
         float _distanceToPlayer = Vector3.Distance(transform.position, GameObject.FindWithTag("Player").transform.position);
 
         switch (currentAIState)
         {
             case AI_State.IDLE://-------------------------------------------------IDLE
+             
                 if (waitCounter > 0)
                 {
                     waitCounter -= Time.deltaTime;
+                   
                 }
                 else
                 {
@@ -91,6 +94,7 @@ public class EnemyState : MonoBehaviour
                 break;
 
             case AI_State.PATROLLING:
+            
 
                 if (nma.remainingDistance <= .2f)
                 {
@@ -99,6 +103,7 @@ public class EnemyState : MonoBehaviour
                     currentAIState = AI_State.IDLE;
 
                     waitCounter = waitAtPoint;
+                    
                 }
                 if (EscondidoB == false && _distanceToPlayer <= chaseRange)
                 {
@@ -109,6 +114,7 @@ public class EnemyState : MonoBehaviour
                 break;
 
             case AI_State.CHASING:
+            
 
                 nma.SetDestination(GameObject.FindWithTag("Player").transform.position);
 
@@ -131,6 +137,7 @@ public class EnemyState : MonoBehaviour
                 break;
 
             case AI_State.ATTACKING:
+            
                 transform.LookAt(GameObject.FindWithTag("Player").transform.position, Vector3.up);
                 transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
 
@@ -166,6 +173,23 @@ public class EnemyState : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player" && isAturdido == false)
+        {
+            Ataque = true;
+            StartCoroutine(Ataco());
+        }
+    }
+
+    
+
+    IEnumerator Ataco()
+    {
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        Ataque = false;
+
+    }
     IEnumerator Despierta()
     {
         yield return new WaitForSeconds(tiempoAturdido);
@@ -211,4 +235,5 @@ public class EnemyState : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
+      
 }

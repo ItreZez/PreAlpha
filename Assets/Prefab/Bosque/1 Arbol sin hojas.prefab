@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3215634770702267694}
   - component: {fileID: 2014184954779181229}
   - component: {fileID: 457639744215544340}
-  - component: {fileID: 8591068997239978695}
+  - component: {fileID: 5217273746801376830}
   m_Layer: 0
   m_Name: Arbol_sin_hojas_1
   m_TagString: Untagged
@@ -133,8 +133,8 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 53.321003, y: 650.09204, z: 0}
   m_TimeToStationary: 0.5
---- !u!64 &8591068997239978695
-MeshCollider:
+--- !u!65 &5217273746801376830
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,7 +143,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -647846283535157937, guid: 2c89af086c07ed34fa4b0c46efc29fe1, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 304.64127, y: 647.4504, z: 197.99998}
+  m_Center: {x: 53.32073, y: 323.7252, z: 0}

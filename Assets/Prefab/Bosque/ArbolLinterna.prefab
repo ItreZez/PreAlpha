@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4937031713700297095}
   - component: {fileID: 1268791024534879303}
   - component: {fileID: 2004833205557751231}
-  - component: {fileID: 3147524234068686579}
+  - component: {fileID: 856923268514386}
   m_Layer: 0
   m_Name: Arbol_sin_hojas_2
   m_TagString: Untagged
@@ -166,8 +166,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3147524234068686579
-MeshCollider:
+--- !u!65 &856923268514386
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -176,10 +176,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -149619387786695828, guid: 33b86360b8b0c9443a5377c6e0ae432d, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 225.21533, y: 524.0451, z: 197.99998}
+  m_Center: {x: -5.0923405, y: 261.83237, z: 0}
 --- !u!1001 &1656965799613373790
 PrefabInstance:
   m_ObjectHideFlags: 0
