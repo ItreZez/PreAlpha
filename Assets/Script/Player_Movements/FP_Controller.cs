@@ -57,6 +57,10 @@ public class FP_Controller : MonoBehaviour
     private bool caminarSfxSi;
     [SerializeField] private GameObject CorrerSfx;
 
+    [SerializeField] private AudioSource CaminarSfxAS;
+    [SerializeField] private AudioSource CorrerSfxAS;
+
+
     private bool correrSfxSi;
 
 
@@ -108,6 +112,9 @@ public class FP_Controller : MonoBehaviour
         recogioMapa = false;
         UIllave.SetActive(false);
         UIMapa.SetActive(false);
+
+        CaminarSfxAS.Stop();
+        CorrerSfxAS.Stop();
 
     }
 
@@ -454,6 +461,7 @@ public class FP_Controller : MonoBehaviour
     {
         GameObject caminar = CaminarSfx;
         GameObject correr = CorrerSfx;
+
         if (velocidad == 4.5 && caminarSfxSi == false)
         {
 
@@ -481,7 +489,6 @@ public class FP_Controller : MonoBehaviour
 
 
     }
-
     IEnumerator cambiarBoolCaminar()
     {
         yield return new WaitForSeconds(1);

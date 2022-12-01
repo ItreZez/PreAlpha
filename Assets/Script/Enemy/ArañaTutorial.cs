@@ -12,7 +12,7 @@ public class ArañaTutorial : MonoBehaviour
 
     public float timeBetweenAttacks = 2f; //tiempo entre ataques
 
-    public AudioSource AS_Walk;
+   public AudioSource AS_Walk;
 
     public float waitAtPoint = 2f; //tiempo de espera en un punto
 
@@ -54,7 +54,7 @@ public class ArañaTutorial : MonoBehaviour
 
         IrAlSiguientePunto();
 
-        AS_Walk.Stop();
+       AS_Walk.Stop();
 
     }
 
@@ -65,8 +65,7 @@ public class ArañaTutorial : MonoBehaviour
 
         if(isAturdido == true)
         {
-            AS_Walk.Stop();
-
+           AS_Walk.Stop();
         }
 
     }

@@ -8,9 +8,11 @@ public class Araña : EnemyState
     public Animator animator;
     private VidaEnemigo muerto;
 
+   
     private void Start()
     {
         muerto = GetComponent<VidaEnemigo>();
+
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class Araña : EnemyState
         if (isAturdido == true)
         {
             animator.SetBool("STUNT", true);
+
         }
         if (isAturdido == false)
         {
@@ -40,6 +43,7 @@ public class Araña : EnemyState
         if (muerto.vida == 0)
         {
             animator.SetBool("MUERTE", true);
+
         }
         if (muerto.vida < 0)
         {
@@ -53,6 +57,8 @@ public class Araña : EnemyState
         if(Ataque == true)
         {
             animator.SetBool("ATTACK", true);
+
+
         }
         if (Ataque == false)
         {
@@ -60,6 +66,5 @@ public class Araña : EnemyState
         }
         
     }
-
 
 }

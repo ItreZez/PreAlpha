@@ -10,6 +10,7 @@ public enum AI_State
 }
 public class EnemyState : MonoBehaviour
 {
+
     public AI_State currentAIState;//estado actual del enemigo
 
     public float chaseRange; //rango de persecucion 
@@ -22,7 +23,7 @@ public class EnemyState : MonoBehaviour
     private float waitCounter; //contador de espera en puntos 
     private float attackCounter; //cooldown entre ataques  
 
-    private NavMeshAgent nma = null;
+    public NavMeshAgent nma = null;
 
     //RandomBounds
     private Bounds bndFloor;
@@ -41,10 +42,18 @@ public class EnemyState : MonoBehaviour
     public bool movimiento;
 
     public bool Ataque;
+
+    [Header("Sfx")]
+    public AudioSource AS_Walk;
+
+
+
     public void Awake()
     {
         nma = this.GetComponent<NavMeshAgent>();
         Ataque = false;
+
+
     }
 
     public void Start()
@@ -57,12 +66,20 @@ public class EnemyState : MonoBehaviour
         //fp_controller = GetComponent<FP_Controller>();
 
         EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+
+        AS_Walk.Stop();
+
     }
 
     private void Update()
     {
         NavMovementsEnemy();
         EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
+
+        if (isAturdido == true)
+        {
+            AS_Walk.Stop();
+        }
 
     }
 
@@ -77,18 +94,23 @@ public class EnemyState : MonoBehaviour
                 if (waitCounter > 0)
                 {
                     waitCounter -= Time.deltaTime;
-                   
+                    AS_Walk.Stop();
+
                 }
                 else
                 {
                     currentAIState = AI_State.PATROLLING;
                     //SetRandomDestination();
                     SetRandomDestination();
+                    AS_Walk.Play();
+
                 }
 
                 if (EscondidoB == false && _distanceToPlayer <= chaseRange)
                 {
                     currentAIState = AI_State.CHASING;
+                    AS_Walk.Play();
+
                 }
 
                 break;
@@ -98,16 +120,16 @@ public class EnemyState : MonoBehaviour
 
                 if (nma.remainingDistance <= .2f)
                 {
-                    
-
+                
                     currentAIState = AI_State.IDLE;
-
                     waitCounter = waitAtPoint;
-                    
+                    AS_Walk.Stop();
+
                 }
                 if (EscondidoB == false && _distanceToPlayer <= chaseRange)
                 {
                     currentAIState = AI_State.CHASING;
+                    AS_Walk.Play();
 
                 }
 
@@ -121,10 +143,11 @@ public class EnemyState : MonoBehaviour
                 if (EscondidoB == false && _distanceToPlayer <= attackRange)
                 {
                     currentAIState = AI_State.ATTACKING;
-
                     nma.velocity = Vector3.zero;
                     nma.isStopped = true;
                     attackCounter = timeBetweenAttacks;
+                    AS_Walk.Stop();
+
                 }
 
                 if (_distanceToPlayer > chaseRange)
@@ -133,6 +156,8 @@ public class EnemyState : MonoBehaviour
                     waitCounter = waitAtPoint;
                     nma.velocity = Vector3.zero;
                     nma.SetDestination(transform.position);
+                    AS_Walk.Stop();
+
                 }
                 break;
 
@@ -148,12 +173,16 @@ public class EnemyState : MonoBehaviour
                     if (_distanceToPlayer < attackRange)
                     {
                         attackCounter = timeBetweenAttacks;
+                        AS_Walk.Stop();
+
                     }
                     else
                     {
                         currentAIState = AI_State.IDLE;
                         waitCounter = waitAtPoint;
                         nma.isStopped = false;
+                        AS_Walk.Stop();
+
                     }
                 }
                 break;
@@ -236,4 +265,5 @@ public class EnemyState : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
       
+ 
 }
