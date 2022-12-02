@@ -2338,6 +2338,7 @@ MonoBehaviour:
   EscondidoB: 0
   shakecamara: {fileID: 22581499}
   JugadorShake: 0
+  "contadorAra\xF1as": {fileID: 1139482710}
 --- !u!4 &82915750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5575476775696142672, guid: 4b6ea39ef8b54b148899dd28d1313956, type: 3}
@@ -11890,6 +11891,7 @@ Transform:
   - {fileID: 827859272}
   - {fileID: 1505886047}
   - {fileID: 215331181}
+  - {fileID: 1139482709}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14915,6 +14917,10 @@ PrefabInstance:
       propertyPath: shakecamara
       value: 
       objectReference: {fileID: 22581499}
+    - target: {fileID: 523646513, guid: 59da0736c2e45aa4caf596bbeae10eac, type: 3}
+      propertyPath: "contadorAra\xF1as"
+      value: 
+      objectReference: {fileID: 1139482710}
     - target: {fileID: 7309611703697157877, guid: 59da0736c2e45aa4caf596bbeae10eac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -30213,6 +30219,22 @@ MonoBehaviour:
   cantidadDeLlavesRecogidas: {fileID: 0}
   EscondidoB: 0
   animator: {fileID: 1399563225}
+--- !u!4 &1139482709 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+  m_PrefabInstance: {fileID: 7929073627259919819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1139482710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7929073628310011293, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+  m_PrefabInstance: {fileID: 7929073627259919819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d5b0f25b21d444d91d60802560e34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1140882346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62054,6 +62076,7 @@ MonoBehaviour:
   AS_Stun: {fileID: 6870880488965011331, guid: 8f3d00a9f0315bb4aa9669bc236026db, type: 3}
   AS_Die: {fileID: 8604504129814720283, guid: 5c5a3619f393b50408da5e406de217ed, type: 3}
   AS_Attack: {fileID: 4877180491005052553, guid: 5a234a3b1fb73c3418e81f978d76f3db, type: 3}
+  "contadorAra\xF1as": {fileID: 0}
   reproduciendoAttack: 0
   animator: {fileID: 239380093}
   reproduciendo: 0
@@ -63344,6 +63367,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed705a1d40d55d4e9f90dc198dc8c9f, type: 3}
+--- !u!1001 &7929073627259919819
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 463092548}
+    m_Modifications:
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929073628310011295, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: m_Name
+      value: "ContadorAra\xF1as"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
 --- !u!1001 &8145329958092773153
 PrefabInstance:
   m_ObjectHideFlags: 0
