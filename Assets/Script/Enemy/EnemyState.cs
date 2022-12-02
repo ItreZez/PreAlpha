@@ -48,6 +48,7 @@ public class EnemyState : MonoBehaviour
     public GameObject AS_Stun;
     public GameObject AS_Die;
     public GameObject AS_Attack;
+    public ContadorArañas contadorArañas;
 
     public bool reproduciendoAttack = false;
 
@@ -65,6 +66,7 @@ public class EnemyState : MonoBehaviour
     {
         nma = this.GetComponent<NavMeshAgent>();
         bndFloor = GameObject.Find("Terreno").GetComponent<MeshRenderer>().bounds;
+        contadorArañas = GetComponent<ContadorArañas>();
 
         waitCounter = waitAtPoint;
         StartCoroutine(DestroyAraña());
@@ -285,6 +287,8 @@ public class EnemyState : MonoBehaviour
     {
         yield return new WaitForSeconds(45f);
         Destroy(gameObject , 1f);
+        
+        
 
     }
 

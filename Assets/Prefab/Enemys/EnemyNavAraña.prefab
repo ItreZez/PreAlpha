@@ -242,6 +242,7 @@ MonoBehaviour:
   AS_Stun: {fileID: 6870880488965011331, guid: 8f3d00a9f0315bb4aa9669bc236026db, type: 3}
   AS_Die: {fileID: 8604504129814720283, guid: 5c5a3619f393b50408da5e406de217ed, type: 3}
   AS_Attack: {fileID: 4877180491005052553, guid: 5a234a3b1fb73c3418e81f978d76f3db, type: 3}
+  "contadorAra\xF1as": {fileID: 7929073628310011293, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
   reproduciendoAttack: 0
 --- !u!114 &6293876521268822620
 MonoBehaviour:
@@ -256,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 0
+  "contadorAra\xF1as": {fileID: 7929073628310011293, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
 --- !u!114 &2692113093855256481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +286,7 @@ MonoBehaviour:
   AS_Stun: {fileID: 6870880488965011331, guid: 8f3d00a9f0315bb4aa9669bc236026db, type: 3}
   AS_Die: {fileID: 8604504129814720283, guid: 5c5a3619f393b50408da5e406de217ed, type: 3}
   AS_Attack: {fileID: 4877180491005052553, guid: 5a234a3b1fb73c3418e81f978d76f3db, type: 3}
+  "contadorAra\xF1as": {fileID: 0}
   reproduciendoAttack: 0
   animator: {fileID: 666644197724655562}
   reproduciendo: 0

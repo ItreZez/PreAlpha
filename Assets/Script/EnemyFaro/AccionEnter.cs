@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,10 +19,14 @@ public class AccionEnter : MonoBehaviour
 
     public ShakeCamara shakecamara;
     public bool JugadorShake = false;
+    public ContadorArañas contadorArañas;
 
-    private void Awake() 
+    private void Awake()
     {
         
+        Instantiate(enemigoPrefab, SpawnID.transform.position, Quaternion.identity);
+        Instantiate(enemigoPrefab, SpawnIU.transform.position, Quaternion.identity);
+        contadorArañas.arañasEnMapa = contadorArañas.arañasEnMapa + 4;
     }
 
     private void Start()
@@ -39,20 +43,21 @@ public class AccionEnter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(EscondidoB == false && other.gameObject.tag == ("Player"))
+        if (EscondidoB == false && other.gameObject.tag == ("Player") && contadorArañas.arañasEnMapa < 32)
         {
 
             StartCoroutine(shakecamara.Shake());
 
-            Debug.Log("jugador detectado - activar spawn " );
-            Instantiate(enemigoPrefab,SpawnDD.transform.position, Quaternion.identity);
-            Instantiate(enemigoPrefab,SpawnDU.transform.position, Quaternion.identity);
-            Instantiate(enemigoPrefab,SpawnID.transform.position, Quaternion.identity);
-            Instantiate(enemigoPrefab,SpawnIU.transform.position, Quaternion.identity);
+            Debug.Log("jugador detectado - activar spawn ");
+            Instantiate(enemigoPrefab, SpawnDD.transform.position, Quaternion.identity);
+            Instantiate(enemigoPrefab, SpawnDU.transform.position, Quaternion.identity);
+            Instantiate(enemigoPrefab, SpawnID.transform.position, Quaternion.identity);
+            Instantiate(enemigoPrefab, SpawnIU.transform.position, Quaternion.identity);
+            contadorArañas.arañasEnMapa = contadorArañas.arañasEnMapa + 4;
 
 
 
         }
     }
-    
+
 }

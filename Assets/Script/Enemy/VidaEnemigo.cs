@@ -6,11 +6,13 @@ public class VidaEnemigo : MonoBehaviour
 {
     public int vida ;
     private EnemyState enemyState;
+    public ContadorArañas contadorArañas;
    
     void Start()
     {
         enemyState = GetComponent<EnemyState>();
         vida = 3;
+       
         
     }
 
@@ -26,6 +28,7 @@ public class VidaEnemigo : MonoBehaviour
         if(vida == 0 )
         {
             Destroy(gameObject, 2.3f);
+            
         }
         Debug.Log(vida);
     }

@@ -19,8 +19,12 @@ public class EnemySpawn : MonoBehaviour
     public bool estarAlerta;
     public Transform player;
 
+
     public bool Escondido;
     public bool aturdido;
+
+    private ContadorArañas contadorArañas;
+
 
     void Start()
     {
@@ -28,6 +32,9 @@ public class EnemySpawn : MonoBehaviour
         enemigo = GetComponent<Enemy>();
         Escondido = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
         //aturdido = GetComponent<AttackSpawn>().aturdido;
+        contadorArañas = GetComponent<ContadorArañas>();
+        
+
 
 
     }
@@ -44,16 +51,17 @@ public class EnemySpawn : MonoBehaviour
         {
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
         }
+        print("Holaaaaaaaaaaa");
     }
 
     public void SpawnEnemy()
     {
        
 
-        if(jugadorDetectado == false)
+        if(jugadorDetectado == false && contadorArañas.arañasEnMapa < 32)
         {
             
-            tiempoIntervalo = 60f * 3f;
+            tiempoIntervalo = 2f * 3f;
             StartCoroutine(InstanceEnemyFalse(tiempoIntervalo));
             
         }
@@ -63,6 +71,7 @@ public class EnemySpawn : MonoBehaviour
     {
         yield return new WaitForSeconds(Intervalo);
         Instantiate(enemyPrefab,transform.position, Quaternion.identity);
+        contadorArañas.arañasEnMapa ++;
         SpawnEnemy();
         
         
