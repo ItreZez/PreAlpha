@@ -63378,6 +63378,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 463092548}
     m_Modifications:
+    - target: {fileID: 7929073628310011293, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: spawn1
+      value: 
+      objectReference: {fileID: 1608008050}
+    - target: {fileID: 7929073628310011293, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: spawn2
+      value: 
+      objectReference: {fileID: 1079059469}
+    - target: {fileID: 7929073628310011293, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: spawn3
+      value: 
+      objectReference: {fileID: 98476338}
+    - target: {fileID: 7929073628310011293, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: spawn4
+      value: 
+      objectReference: {fileID: 2107295768}
+    - target: {fileID: 7929073628310011293, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
+      propertyPath: contenedor_De_Llaves
+      value: 
+      objectReference: {fileID: 1264167547}
     - target: {fileID: 7929073628310011294, guid: a0623a33bfc94924a9400cecfb7695dc, type: 3}
       propertyPath: m_RootOrder
       value: 5
