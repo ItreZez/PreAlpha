@@ -28657,6 +28657,10 @@ PrefabInstance:
       propertyPath: shakecamara
       value: 
       objectReference: {fileID: 22581499}
+    - target: {fileID: 958160159, guid: 59da0736c2e45aa4caf596bbeae10eac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 958160160, guid: 59da0736c2e45aa4caf596bbeae10eac, type: 3}
       propertyPath: m_RootOrder
       value: 1
