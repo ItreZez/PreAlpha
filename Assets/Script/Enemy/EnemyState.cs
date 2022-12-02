@@ -52,6 +52,8 @@ public class EnemyState : MonoBehaviour
 
     public bool reproduciendoAttack = false;
 
+    public GameObject AraNav;
+
 
 
     public void Awake()
@@ -285,11 +287,9 @@ public class EnemyState : MonoBehaviour
 
     IEnumerator DestroyAraña()
     {
-        yield return new WaitForSeconds(45f);
-        Destroy(gameObject , 1f);
-        
-        
-
+        yield return new WaitForSeconds(60f);
+        Destroy(gameObject, 1f);
+        Destroy(pole, 1f);
     }
 
 

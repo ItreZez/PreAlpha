@@ -49,6 +49,7 @@ MonoBehaviour:
   tiempoIntervalo: 5
   waveTime: 4
   hit: 0
+  "contadorAra\xF1as": {fileID: 0}
 --- !u!1 &8540735974114442412
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,8 +165,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.18273544
-      value: 0.19067383
+      time: 0.11628723
+      value: 0
       inSlope: -1.002004
       outSlope: -1.002004
       tangentMode: 0

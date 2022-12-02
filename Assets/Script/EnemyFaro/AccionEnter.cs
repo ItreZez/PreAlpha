@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AccionEnter : MonoBehaviour
 {
-    private EnemySpawn enemySpawn;
+    //private EnemySpawn enemySpawn;
     public GameObject enemigoPrefab;
 
     [Header("Spawns")]
@@ -31,7 +31,7 @@ public class AccionEnter : MonoBehaviour
 
     private void Start()
     {
-        enemySpawn = GetComponent<EnemySpawn>();
+        //enemySpawn = GetComponent<EnemySpawn>();
         EscondidoB = GameObject.Find("Player").GetComponent<FP_Controller>().Escondido;
 
     }
@@ -45,7 +45,6 @@ public class AccionEnter : MonoBehaviour
     {
         if (EscondidoB == false && other.gameObject.tag == ("Player") && contadorArañas.arañasEnMapa < 32)
         {
-
             StartCoroutine(shakecamara.Shake());
 
             Debug.Log("jugador detectado - activar spawn ");
@@ -54,9 +53,6 @@ public class AccionEnter : MonoBehaviour
             Instantiate(enemigoPrefab, SpawnID.transform.position, Quaternion.identity);
             Instantiate(enemigoPrefab, SpawnIU.transform.position, Quaternion.identity);
             contadorArañas.arañasEnMapa = contadorArañas.arañasEnMapa + 4;
-
-
-
         }
     }
 

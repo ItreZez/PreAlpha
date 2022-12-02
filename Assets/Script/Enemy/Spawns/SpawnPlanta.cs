@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnPlanta : MonoBehaviour
 {
     public bool jugadorDetectado = false;
+
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float tiempoIntervalo;
     [SerializeField] private float waveTime = 4f; //con este tiempo alcanza a spawnear 2 enemigos por spawn
@@ -15,53 +16,67 @@ public class SpawnPlanta : MonoBehaviour
 
     public bool hit;
 
+    public ContadorArañas contadorArañas;
 
     void Start()
     {
-        SpawnEnemy();
-        enemigo = GetComponent<Enemy>();
+        //SpawnEnemy();
+        //enemigo = GetComponent<Enemy>();
     }
 
     private void Update()
     {
-        SpawnEnemy();
+        //SpawnEnemy();
     }
 
-    public void SpawnEnemy()
+    /* public void SpawnEnemy()
+     {
+
+         if (jugadorDetectado == false)
+         {
+             tiempoIntervalo = 60f * 3f;
+             StartCoroutine(InstanceEnemyFalse(tiempoIntervalo));
+         }
+     }
+     IEnumerator InstanceEnemyFalse(float Intervalo)
+     {
+         yield return new WaitForSeconds(Intervalo);
+         Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+         SpawnEnemy();
+
+
+     }
+
+     IEnumerator InstanceEnemyTrue(float Intervalo)
+     {
+         yield return new WaitForSeconds(Intervalo);
+         Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+         SpawnEnemy();
+
+     }
+
+     IEnumerator StopWave()
+     {
+         if (jugadorDetectado == true)
+         {
+             yield return new WaitForSeconds(waveTime);
+             jugadorDetectado = false;
+         }
+     }*/
+
+    public IEnumerator TiempoSpawn()
     {
-
-
-        if (jugadorDetectado == false)
+        while (true && contadorArañas.arañasEnMapa < 32)
         {
 
-            tiempoIntervalo = 60f * 3f;
-            StartCoroutine(InstanceEnemyFalse(tiempoIntervalo));
+            int wait_time = Random.Range(50,60);
+            yield return new WaitForSeconds(wait_time);
+
+            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+
+            contadorArañas.arañasEnMapa = contadorArañas.arañasEnMapa + 2;
 
         }
-    }
-    IEnumerator InstanceEnemyFalse(float Intervalo)
-    {
-        yield return new WaitForSeconds(Intervalo);
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        SpawnEnemy();
 
-
-    }
-
-    IEnumerator InstanceEnemyTrue(float Intervalo)
-    {
-        yield return new WaitForSeconds(Intervalo);
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        SpawnEnemy();
-
-    }
-
-    IEnumerator StopWave()
-    {
-        if (jugadorDetectado == true)
-        {
-            yield return new WaitForSeconds(waveTime);
-            jugadorDetectado = false;
-        }
     }
 }
